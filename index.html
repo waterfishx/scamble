@@ -627,6 +627,12 @@
             hasUmbrella: false,
             hasCharity: false,
             
+            // New v2.1.0 Features & Systems
+            achievements: [],
+            singleEncounterRejections: 0,
+            noMoreRomanceEvents: false,
+            eventCooldowns: {},
+
             // Story & Event Flags
             legitJobTriggered: false,
             jamesCallTriggered: false,
@@ -653,7 +659,7 @@
         };
 
         /* -------------------------------------------------------------------------
-         * CLASSES DATABASE
+         * CLASSES DATABASE (WITH RANDOM CLASS OPTION)
          * ------------------------------------------------------------------------- */
         const CLASSES = {
             hooligan: {
@@ -715,6 +721,18 @@
                 desc: '公開試失利被女友拋棄，對人性失去信任，墜入魔道，置之死地而後生。',
                 passiveTitle: '天賦：免死金牌',
                 passiveDesc: '警方關注度達 100% 時自動觸發「假死金蟬脫殼」（關注度降至 30%，全局一次）'
+            },
+            random: {
+                name: '隨機角色',
+                title: '命運抽籤',
+                avatar: '🎲',
+                initWealth: 10000,
+                initHeat: 0,
+                initHealth: 100,
+                initHappiness: 80,
+                desc: '不知道自己的黑化天賦？交給命運神明隨機為你抽取五大起源職業之一！性情與天賦未知。',
+                passiveTitle: '天賦：未知命運',
+                passiveDesc: '進入遊戲時由命運神明隨機分配五大起源職業之一'
             }
         };
 
@@ -870,7 +888,7 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * HEALTH CRISIS EVENTS (BALANCED THRESHOLD < 55%)
+         * HEALTH CRISIS EVENTS
          * ------------------------------------------------------------------------- */
         const HEALTH_EVENTS = [
             {
@@ -901,12 +919,14 @@
             },
             {
                 title: '心臟頻繁絞痛',
+                minWealth: 0,
                 desc: '深夜辦公時，你的胸口突然傳來陣陣劇痛，冷汗直冒，顯然是心肌缺血的嚴重警號。',
                 options: [
                     {
                         text: '花費 $30,000 進行微創心臟手術與名醫調理',
+                        cost: 30000,
                         effect: s => {
-                            s.wealth = Math.max(0, s.wealth - 30000);
+                            s.wealth -= 30000;
                             s.health = Math.min(100, s.health + 35);
                             return { log: '【心臟手術】花費 $30,000 完成微創手術，化解了猝死危機！', status: '心臟手術' };
                         }
@@ -923,7 +943,7 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * CLASS-EXCLUSIVE STORYLINES (混混 / 富二代 / IT狗 / 經紀 / 占士)
+         * CLASS-EXCLUSIVE STORYLINES
          * ------------------------------------------------------------------------- */
         
         // 1. 街頭混混
@@ -948,8 +968,9 @@
                 },
                 {
                     text: '呼叫手下向她進行匿名經濟援助 ($3,000)',
+                    cost: 3000,
                     effect: s => {
-                        s.wealth = Math.max(0, s.wealth - 3000);
+                        s.wealth -= 3000;
                         s.happiness = Math.min(100, s.happiness + 10);
                         return { log: '【偷偷援助】讓手下匿名塞給她 $3,000 紓困，內心獲得一絲救贖。', status: '經濟援助' };
                     }
@@ -965,8 +986,9 @@
             options: [
                 {
                     text: '展開營救：親自帶隊硬闖 (金錢 -$50,000, 健康 -20%, 兄友弟恭)',
+                    cost: 50000,
                     effect: s => {
-                        s.wealth = Math.max(0, s.wealth - 50000);
+                        s.wealth -= 50000;
                         s.health = Math.max(0, s.health - 20);
                         s.hardOnSubordinatesCount = Math.max(0, s.hardOnSubordinatesCount - 1);
                         s.happiness = Math.min(100, s.happiness + 15);
@@ -1016,8 +1038,9 @@
             options: [
                 {
                     text: '動用黑產資金 $500,000 替父親還清賭債暴徒',
+                    cost: 500000,
                     effect: s => {
-                        s.wealth = Math.max(0, s.wealth - 500000);
+                        s.wealth -= 500000;
                         s.policeHeat = Math.max(0, s.policeHeat - 15);
                         s.familyDarkChoicesCount = Math.max(0, s.familyDarkChoicesCount - 1);
                         return { log: '【替父還債】花費 $500,000 擺平家族債主，保住了父親最後的尊嚴。', status: '替父還債' };
@@ -1060,8 +1083,9 @@
             options: [
                 {
                     text: '支付 $50,000 研發資金加入合作',
+                    cost: 50000,
                     effect: s => {
-                        s.wealth = Math.max(0, s.wealth - 50000);
+                        s.wealth -= 50000;
                         s.itDogCrowdfundingJoined = true;
                         return { log: '【加入眾籌】投入 $50,000 合作開發 AI 虛擬女友眾籌平台。', status: '加入眾籌' };
                     }
@@ -1084,7 +1108,7 @@
                 {
                     text: '默然承受巨額損失 (金錢 -$700,000)',
                     effect: s => {
-                        s.wealth = Math.max(0, s.wealth - 700000);
+                        s.wealth -= 700000;
                         s.happiness = Math.max(0, s.happiness - 15);
                         return { log: '【黑吃黑背叛】合作夥伴捲走 $700,000 資產潛逃，你深刻領悟了黑道真諦。', status: '慘遭背叛' };
                     }
@@ -1125,8 +1149,9 @@
             options: [
                 {
                     text: '大發慈悲，全額私下退還 $80,000 (金錢 -$80,000, 心理 +25)',
+                    cost: 80000,
                     effect: s => {
-                        s.wealth = Math.max(0, s.wealth - 80000);
+                        s.wealth -= 80000;
                         s.happiness = Math.min(100, s.happiness + 25);
                         s.callousFamilyChoices = Math.max(0, s.callousFamilyChoices - 1);
                         return { log: '【慈悲退款】私下退還 $80,000 給老伯治病，洗滌了心靈罪惡。', status: '全額退款' };
@@ -1228,12 +1253,14 @@
             {
                 id: 'rent_eviction',
                 title: '房東深夜登門催租',
+                minWealth: 9000,
                 desc: '你窩在 50 呎劏房裡，房東粗暴地敲門要你立即補交兩個月欠租 $9,000，否則明早把你的行李扔到街上。',
                 options: [
                     {
-                        text: '用詐騙賺來的非法資金全額繳清',
+                        text: '用詐騙賺來的非法資金全額繳清 ($9,000)',
+                        cost: 9000,
                         effect: s => {
-                            s.wealth = Math.max(0, s.wealth - 9000);
+                            s.wealth -= 9000;
                             return { log: '【黑錢繳租】花費 $9,000 繳清房租，保住了暫時的落腳點。', status: '繳清房租' };
                         }
                     },
@@ -1272,12 +1299,14 @@
             },
             {
                 title: '頂級律師團隊登場',
+                minWealth: 200000,
                 desc: '一位專門為黑產辯護的頂級資深律師主動找上門，聲稱能為你打造全球離岸免責屏障。',
                 options: [
                     {
                         text: '支付 $200,000 聘請為首席法律顧問',
+                        cost: 200000,
                         effect: s => {
-                            s.wealth = Math.max(0, s.wealth - 200000);
+                            s.wealth -= 200000;
                             s.hasUmbrella = true;
                             s.policeHeat = Math.max(0, s.policeHeat - 25);
                             return { log: '【律師顧問】聘請頂級律師團隊，警方關注度大幅降低 25%！', status: '聘請律師' };
@@ -1293,12 +1322,14 @@
             },
             {
                 title: '三年又三年',
+                minWealth: 150000,
                 desc: '警署內線秘密向你發送加密訊息：「高層又調來新的專案小組，我頂唔住了，隨時會查到你身上！」',
                 options: [
                     {
                         text: '支付 $150,000 封口安家費給內線',
+                        cost: 150000,
                         effect: s => {
-                            s.wealth = Math.max(0, s.wealth - 150000);
+                            s.wealth -= 150000;
                             s.policeHeat = Math.max(0, s.policeHeat - 15);
                             return { log: '【封口費】發放 $150,000 封口費，暫時壓下警方的追查。', status: '安撫內線' };
                         }
@@ -1448,21 +1479,18 @@
 
             // 2. AGE 30+ IT DOG EVENTS
             if (state.classKey === 'it_dog') {
-                // IT Dog Event 1: Happiness < 40 + Own Supercar
                 if (state.happiness < 40 && state.purchasedUpgrades.includes('car') && !state.itDogEvent1Triggered) {
                     state.itDogEvent1Triggered = true;
                     triggerSuddenEventModal(IT_DOG_EVENT_1);
                     updateHUD();
                     return;
                 }
-                // IT Dog Event 2: Age 30 Crowdfunding
                 if (state.age === 30 && state.month === 1 && !state.itDogEvent2Triggered) {
                     state.itDogEvent2Triggered = true;
                     triggerSuddenEventModal(IT_DOG_EVENT_2);
                     updateHUD();
                     return;
                 }
-                // IT Dog Follow-up: Wealth >= 800,000 Betrayal
                 if (state.itDogCrowdfundingJoined && state.wealth >= 800000 && !state.itDogBetrayalTriggered) {
                     state.itDogBetrayalTriggered = true;
                     triggerSuddenEventModal(IT_DOG_EVENT_BETRAYAL);
@@ -1513,11 +1541,9 @@
             const activeTactic = TACTICS[state.activeTacticKey] || TACTICS.phone;
             const activeHaven = HAVENS[state.activeHavenKey] || HAVENS.overtime;
 
-            // Novice Phase Hardship Penalty (Ages 20-21)
             const isNovicePhase = (state.age === 20 || state.age === 21);
             const hardshipMult = isNovicePhase ? 0.2 : 1.0;
 
-            // Income Math
             let maxIncome = activeTactic.maxMonthlyWealth * hardshipMult;
             if (state.classKey === 'hooligan' && (state.activeTacticKey === 'phone' || state.activeTacticKey === 'phishing')) {
                 maxIncome *= 1.30;
@@ -1535,11 +1561,9 @@
                 state.victimsCount += newVictims;
             }
 
-            // Apply Haven Costs
             monthWealth -= activeHaven.monthlyCost;
             state.wealth += monthWealth;
 
-            // Police Heat Mechanics
             let heatIncrease = activeTactic.monthlyHeat * (Math.random() * 0.8 + 0.2);
             if (state.classKey === 'it_dog') heatIncrease *= 0.80;
             if (state.purchasedUpgrades.includes('political_umbrella')) heatIncrease *= 0.60;
@@ -1552,7 +1576,6 @@
 
             state.policeHeat = Math.max(0, Math.min(100, state.policeHeat + netHeatDelta));
 
-            // Health & Happiness Decay
             let happinessDecay = activeTactic.happinessDecay;
             if (state.classKey === 'broker') happinessDecay *= 0.75;
             if (state.purchasedUpgrades.includes('charity_whitewash')) happinessDecay *= 0.70;
@@ -1567,10 +1590,8 @@
 
             state.concurrentScammers = Math.floor(2200 + Math.random() * 600);
 
-            // Check Game Over Conditions
             if (checkGameOverConditions()) return;
 
-            // Check Health Crisis Event (When Health < 55, Frequency 15%)
             if (state.health < 55 && Math.random() < 0.15 && !state.modalOpen) {
                 const healthEvt = HEALTH_EVENTS[Math.floor(Math.random() * HEALTH_EVENTS.length)];
                 triggerSuddenEventModal(healthEvt);
@@ -1578,7 +1599,6 @@
                 return;
             }
 
-            // Check Sudden Random Event Trigger (~7% chance)
             if (Math.random() < 0.07 && !state.modalOpen) {
                 triggerSuddenEventModal();
             }
@@ -1645,7 +1665,10 @@
             let ratingDesc = '身敗名裂，牢底坐穿。你的名字成為了反詐宣傳片裡面的經典反面教材。';
 
             // PRIORITY CASCADE ENDING EVALUATION
-            if (title.includes('繼承家產')) {
+            if (title.includes('浪子回頭') || title.includes('棄暗投明')) {
+                rating = 'EX 級 (浪子回頭金不換)';
+                ratingDesc = '你果斷斬斷黑產鏈條，退還了所有非法財產，回到正行做一名踏實的打工仔。雖然沒有暴富，但每一個夜晚你都能睡得安穩香甜。';
+            } else if (title.includes('繼承家產')) {
                 rating = 'EX 級 (繼承家產)';
                 ratingDesc = '冇計，同人唔同命，有些人天生就是不會被放棄。';
             } else if (state.wealth < 0) {
@@ -1714,47 +1737,71 @@
         }
 
         /* -------------------------------------------------------------------------
-         * ROMANCE EVENTS DATABASE (SINGLE ENCOUNTERS VS RELATIONSHIP EVENTS)
+         * ROMANCE EVENTS DATABASE (WITH SINGLE REJECTION COUNTER & ACHIEVEMENT)
          * ------------------------------------------------------------------------- */
         const SINGLE_ROMANCE_EVENTS = [
             {
                 title: '蘭桂坊深夜酒吧邂逅',
+                minWealth: 3000,
                 desc: '在蘭桂坊高級酒吧喝洋酒，一位打扮時尚漂亮的女孩 Chloe 坐在你旁邊，主動與你攀談。',
                 options: [
                     {
                         text: '花費 $3,000 請喝高檔香檳，展現黑產大佬風采',
+                        cost: 3000,
                         effect: s => {
-                            s.wealth = Math.max(0, s.wealth - 3000);
+                            s.singleEncounterRejections = 0;
+                            s.wealth -= 3000;
                             setPartner('Chloe', 75, 'dating');
                             s.happiness = Math.min(100, s.happiness + 20);
                             return { log: '【浪漫邂逅】花費 $3,000 請香檳，成功與 Chloe 確立戀愛關係！', status: '確立戀愛' };
                         }
                     },
                     {
-                        text: '保持警戒，懷疑是同行女刺客，飄然離去',
+                        text: '保持單身，拒絕攀談（不談感情）',
                         effect: s => {
-                            return { log: '【保持單身】拒絕了 Chloe 的攀談，專注於黑產事業。', status: '保持單身' };
+                            s.singleEncounterRejections = (s.singleEncounterRejections || 0) + 1;
+                            let achMsg = '';
+                            if (s.singleEncounterRejections >= 3 && !s.noMoreRomanceEvents) {
+                                s.noMoreRomanceEvents = true;
+                                if (!s.achievements.includes('單身一世')) {
+                                    s.achievements.push('單身一世');
+                                    achMsg = ' 🏆【成就解鎖：單身一世】（不再觸發單身邂逅事件）';
+                                }
+                            }
+                            return { log: '【保持單身】拒絕了 Chloe 的攀談，專注於黑產事業。' + achMsg, status: '保持單身' };
                         }
                     }
                 ]
             },
             {
                 title: '奢侈品名店 VIP 導購邂逅',
+                minWealth: 15000,
                 desc: '你在尖沙咀名店用黑錢購買手袋時，甜美親切的 VIP 導購 雅婷 貼心地為你服務，並留下了個人電話。',
                 options: [
                     {
                         text: '購買 $15,000 手袋作為見面禮送給雅婷',
+                        cost: 15000,
                         effect: s => {
-                            s.wealth = Math.max(0, s.wealth - 15000);
+                            s.singleEncounterRejections = 0;
+                            s.wealth -= 15000;
                             setPartner('雅婷', 85, 'dating');
                             s.happiness = Math.min(100, s.happiness + 25);
                             return { log: '【豪氣追女】贈送 $15,000 名牌手袋，成功擄獲 雅婷 的芳心！', status: '擄獲芳心' };
                         }
                     },
                     {
-                        text: '只是買手袋洗錢，不談感情',
+                        text: '保持單身，不談感情',
                         effect: s => {
-                            return { log: '【理性消費】純粹買手袋洗錢，未進行深入交流。', status: '純粹洗錢' };
+                            s.singleEncounterRejections = (s.singleEncounterRejections || 0) + 1;
+                            let achMsg = '';
+                            if (s.singleEncounterRejections >= 3 && !s.noMoreRomanceEvents) {
+                                s.noMoreRomanceEvents = true;
+                                if (!s.achievements.includes('單身一世')) {
+                                    s.achievements.push('單身一世');
+                                    achMsg = ' 🏆【成就解鎖：單身一世】（不再觸發單身邂逅事件）';
+                                }
+                            }
+                            return { log: '【保持單身】純粹買手袋洗錢，拒絕感情深入。' + achMsg, status: '保持單身' };
                         }
                     }
                 ]
@@ -1764,12 +1811,14 @@
         const RELATIONSHIP_EVENTS = [
             {
                 title: '吵著要最新款愛馬仕名牌手袋',
+                minWealth: 30000,
                 desc: '你的伴侶在社交平台上看到閨蜜炫耀手袋，撒嬌要求你買一個 $30,000 的 Hermes 手袋送她。',
                 options: [
                     {
                         text: '毫不猶豫爽快付款 ($30,000)',
+                        cost: 30000,
                         effect: s => {
-                            s.wealth = Math.max(0, s.wealth - 30000);
+                            s.wealth -= 30000;
                             updatePartnerRel(+20);
                             s.happiness = Math.min(100, s.happiness + 10);
                             return { log: `【揮金如土】花費 $30,000 購買手袋，${s.partnerState.name} 喜出望外！`, status: '買袋安撫' };
@@ -1787,7 +1836,7 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * POP-UP EVENT HANDLER
+         * POP-UP EVENT HANDLER (WITH COOLDOWN & MIN WEALTH FILTERS)
          * ------------------------------------------------------------------------- */
         function triggerSuddenEventModal(customEvent) {
             let evt = customEvent;
@@ -1803,15 +1852,28 @@
                     pool = [...LATE_EVENTS];
                 }
 
-                if (!state.partnerState.active) {
+                if (!state.partnerState.active && !state.noMoreRomanceEvents) {
                     pool = pool.concat(SINGLE_ROMANCE_EVENTS);
-                } else {
+                } else if (state.partnerState.active) {
                     pool = pool.concat(RELATIONSHIP_EVENTS);
                 }
+
+                const currentTotalMonths = state.age * 12 + state.month;
+
+                // Filter Pool by 24-Month Cooldown AND Wealth Threshold
+                pool = pool.filter(e => {
+                    const lastTriggered = (state.eventCooldowns && state.eventCooldowns[e.title]) || -999;
+                    if ((currentTotalMonths - lastTriggered) < 24) return false;
+                    if (e.minWealth !== undefined && state.wealth < e.minWealth) return false;
+                    return true;
+                });
 
                 if (!pool || pool.length === 0) return;
                 evt = pool[Math.floor(Math.random() * pool.length)];
             }
+
+            if (!state.eventCooldowns) state.eventCooldowns = {};
+            state.eventCooldowns[evt.title] = state.age * 12 + state.month;
 
             const dodgeBanner = document.getElementById('rich-kid-dodge-banner');
             if (dodgeBanner) {
@@ -1855,36 +1917,47 @@
 
             if (data.options && Array.isArray(data.options)) {
                 data.options.forEach((opt) => {
+                    const canAfford = !opt.cost || state.wealth >= opt.cost;
                     const btn = document.createElement('button');
-                    btn.className = 'w-full text-left p-3.5 rounded-2xl bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/50 transition-all text-xs flex flex-col gap-1 group cursor-pointer';
+                    btn.className = `w-full text-left p-3.5 rounded-2xl border transition-all text-xs flex flex-col gap-1 group ${
+                        canAfford 
+                            ? 'bg-slate-950 hover:bg-slate-800 border-slate-800 hover:border-amber-500/50 cursor-pointer' 
+                            : 'bg-slate-950/50 border-slate-900 opacity-50 cursor-not-allowed'
+                    }`;
+
                     btn.innerHTML = `
-                        <div class="font-bold text-amber-400 group-hover:text-amber-300 flex items-center gap-2">
+                        <div class="font-bold ${canAfford ? 'text-amber-400 group-hover:text-amber-300' : 'text-slate-500'} flex items-center gap-2">
                             <span>👉</span>
-                            <span>${opt.text}</span>
+                            <span>${opt.text} ${!canAfford ? `<span class="text-red-400 text-[10px]">(資金不足 $${opt.cost.toLocaleString()})</span>` : ''}</span>
                         </div>
                     `;
 
-                    btn.onclick = () => {
-                        playSound('click');
-                        let resultLog = null;
+                    if (canAfford) {
+                        btn.onclick = () => {
+                            playSound('click');
+                            let resultLog = null;
 
-                        if (state.richKidShieldUsed) {
-                            state.richKidShieldUsed = false;
-                            resultLog = { log: '【富二代天賦】家族律師團動用資源化解了此事件的負面衝擊！', status: '律師團避險' };
-                        } else if (opt.effect) {
-                            resultLog = opt.effect(state);
-                        }
+                            if (state.richKidShieldUsed) {
+                                state.richKidShieldUsed = false;
+                                resultLog = { log: '【富二代天賦】家族律師團動用資源化解了此事件的負面衝擊！', status: '律師團避險' };
+                            } else if (opt.effect) {
+                                resultLog = opt.effect(state);
+                            }
 
-                        if (resultLog && resultLog.log) {
-                            addLog(resultLog.log, 'good');
-                        }
+                            if (resultLog && resultLog.log) {
+                                addLog(resultLog.log, 'good');
+                            }
 
-                        const modal = document.getElementById('event-modal');
-                        if (modal) modal.classList.add('hidden');
-                        state.modalOpen = false;
-                        state.isPlaying = true;
-                        updateHUD();
-                    };
+                            const modal = document.getElementById('event-modal');
+                            if (modal) modal.classList.add('hidden');
+                            state.modalOpen = false;
+
+                            if (!checkGameOverConditions()) {
+                                state.isPlaying = true;
+                            }
+                            updateHUD();
+                        };
+                    }
 
                     optsContainer.appendChild(btn);
                 });
@@ -1938,8 +2011,6 @@
             }
 
             const activeTactic = TACTICS[state.activeTacticKey] || TACTICS.phone;
-            const activeHaven = HAVENS[state.activeHavenKey] || HAVENS.overtime;
-
             const upgCount = document.getElementById('unlocked-upgrades-count');
             if (upgCount) upgCount.innerText = `${state.purchasedUpgrades.length} 項`;
 
@@ -2045,7 +2116,7 @@
                                     <span class="text-[10px] text-amber-400 font-mono">${cls.title}</span>
                                 </div>
                             </div>
-                            <span class="w-4 h-4 rounded-full border border-slate-600 flex items-center justify-center ${isSelected ? 'bg-amber-500 border-amber-500' : ''}">
+                            <span class="w-4 h-4 rounded-full border border-slate-600 flex items-center justify-center ${isSelected ? 'bg-amber-500 border-amber-500 text-black font-bold' : ''}">
                                 ${isSelected ? '✓' : ''}
                             </span>
                         </div>
@@ -2069,6 +2140,12 @@
 
         function confirmClassSelection() {
             playSound('upgrade');
+
+            if (state.classKey === 'random') {
+                const actualKeys = ['hooligan', 'rich_kid', 'it_dog', 'broker', 'james'];
+                state.classKey = actualKeys[Math.floor(Math.random() * actualKeys.length)];
+            }
+
             const cls = CLASSES[state.classKey] || CLASSES.hooligan;
 
             state.wealth = cls.initWealth;
@@ -2391,6 +2468,11 @@
             state.isPlaying = false;
             state.modalOpen = true;
             state.mansionDecayBonus = false;
+
+            state.achievements = [];
+            state.singleEncounterRejections = 0;
+            state.noMoreRomanceEvents = false;
+            state.eventCooldowns = {};
 
             state.legitJobTriggered = false;
             state.jamesCallTriggered = false;
