@@ -75,7 +75,7 @@
                     <div>
                         <h1 class="text-base md:text-lg font-black tracking-wide text-white flex items-center gap-2">
                             《呃者生存》
-                            <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-950 text-red-400 border border-red-800 font-mono font-bold tracking-normal">千局人生</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-950 text-red-400 border border-red-800 font-mono font-bold tracking-normal">千局人生 v2.6</span>
                         </h1>
                         <p class="text-xs text-slate-400">20 歲至 60 歲 80億分之一黑色生存法則</p>
                     </div>
@@ -156,7 +156,7 @@
         <!-- TOP SECTION: CHARACTER CARD & ACTIVE TACTIC HERO -->
         <section class="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4">
             
-            <!-- Scammer Profile & Alias Card (Mobile Compact / Desktop 6-col) -->
+            <!-- Scammer Profile & Alias Card -->
             <div class="md:col-span-6 bg-slate-900 border border-slate-800 rounded-2xl p-3.5 shadow-xl flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <div id="avatar-box" class="w-12 h-12 rounded-2xl bg-slate-950 border border-amber-500/30 flex items-center justify-center text-2xl shadow-inner flex-shrink-0">
@@ -204,7 +204,7 @@
             </div>
         </section>
 
-        <!-- HORIZONTAL 4-COLUMN STATS BAR (平排 Layout Like 1in8b) -->
+        <!-- HORIZONTAL 4-COLUMN STATS BAR -->
         <section class="bg-slate-900 border border-slate-800 rounded-2xl p-3 shadow-xl">
             <div class="grid grid-cols-4 gap-2 text-center">
                 
@@ -259,7 +259,7 @@
             </div>
         </section>
 
-        <!-- MAIN LOG SECTION (PROMINENT VIEW AREA BELOW HORIZONTAL STATS) -->
+        <!-- MAIN LOG SECTION -->
         <section class="flex-1 flex flex-col">
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 md:p-5 shadow-2xl flex-1 flex flex-col min-h-[380px] lg:min-h-[500px]">
                 <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
@@ -363,7 +363,7 @@
                 </div>
 
                 <div class="pt-2 flex gap-3">
-                    <button onclick="goToOnboardingStep(1)" class="w-1/3 py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-all flex items-center justify-center gap-1">
+                    <button onclick="goToOnboardingStep(1)" class="w-1/3 py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-all flex items-center justify-center gap-1 cursor-pointer">
                         <i data-lucide="arrow-left" class="w-4 h-4"></i> 上一步
                     </button>
                     <button onclick="goToOnboardingStep(3)" class="w-2/3 py-3 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-red-500 hover:from-amber-400 hover:to-red-400 text-black font-black text-xs tracking-wide shadow-lg shadow-amber-500/20 active:scale-95 transition-all flex items-center justify-center gap-1 cursor-pointer">
@@ -386,7 +386,7 @@
                 </div>
 
                 <div class="pt-3 border-t border-slate-800 mt-3 flex items-center justify-between gap-3">
-                    <button onclick="goToOnboardingStep(2)" class="py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-all">
+                    <button onclick="goToOnboardingStep(2)" class="py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-all cursor-pointer">
                         上一步
                     </button>
                     <button onclick="confirmClassSelection()" class="flex-1 py-3 px-6 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-red-500 hover:from-amber-400 hover:to-red-400 text-black font-black text-xs md:text-sm tracking-wide shadow-lg shadow-amber-500/20 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
@@ -556,7 +556,7 @@
                 <p id="summary-subtitle" class="text-xs text-slate-400 mt-1">20歲至60歲千局人生告一段落</p>
             </div>
 
-            <div class="grid grid-cols-3 gap-2 text-center mb-4">
+            <div class="grid grid-cols-3 gap-2 text-center mb-3">
                 <div class="bg-slate-950 p-2.5 rounded-2xl border border-slate-800">
                     <div class="text-[10px] text-slate-500">終局年齡</div>
                     <div id="final-age" class="text-sm font-mono font-bold text-amber-400">60 歲</div>
@@ -572,11 +572,17 @@
             </div>
 
             <!-- ENLARGED ENDING RATING BOX -->
-            <div class="bg-gradient-to-br from-amber-950/60 via-slate-950 to-red-950/60 p-4 rounded-2xl border border-amber-800/80 mb-4 text-center">
+            <div class="bg-gradient-to-br from-amber-950/60 via-slate-950 to-red-950/60 p-4 rounded-2xl border border-amber-800/80 mb-3 text-center">
                 <div class="text-xs font-mono text-amber-400 uppercase tracking-widest mb-1">江湖評價階級</div>
                 <div id="final-rating" class="text-2xl md:text-3xl font-black text-white mb-2">S 級 (世紀大梟雄)</div>
                 <p id="final-rating-desc" class="text-xs md:text-sm text-amber-200/90 leading-relaxed font-medium">全地球幾百萬人因你傾家蕩產，你喺外國私人島嶼飲住香檳睇世界新聞。雖然你良心早就喂咗狗，但至少你富可敵國。</p>
             </div>
+
+            <!-- PLAYER FEEDBACK LINK -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf89BCm2qLN7Xd5hFbVEU5FzM8EYl1R6dKwCb6E75upgIsYfQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="w-full mb-3 py-2.5 px-4 rounded-2xl bg-purple-950/80 hover:bg-purple-900 border border-purple-700/80 text-purple-200 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md">
+                <span>💬 發表玩家意見與反饋 (Google Form)</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
 
             <div class="bg-slate-950 p-3.5 rounded-2xl border border-slate-800 text-xs text-slate-300 mb-4 overflow-y-auto max-h-32">
                 <div class="font-bold text-slate-400 mb-1">生涯詳細報告:</div>
@@ -627,13 +633,11 @@
             hasUmbrella: false,
             hasCharity: false,
             
-            // v2.1.0 Features
             achievements: [],
             singleEncounterRejections: 0,
             noMoreRomanceEvents: false,
             eventCooldowns: {},
 
-            // Story & Event Flags
             legitJobTriggered: false,
             jamesCallTriggered: false,
             jamesTsuiWahTriggered: false,
@@ -659,7 +663,7 @@
         };
 
         /* -------------------------------------------------------------------------
-         * CLASSES DATABASE (WITH RANDOM CLASS OPTION)
+         * CLASSES DATABASE
          * ------------------------------------------------------------------------- */
         const CLASSES = {
             hooligan: {
@@ -682,7 +686,7 @@
                 initHeat: 5,
                 initHealth: 90,
                 initHappiness: 90,
-                desc: '家裡揮金如土，因負債被切斷資金來源，決定親自下場創業黑產，親友律師資源豐富。',
+                desc: '在家裏揮金如土，結果被父親趕出家門，現時無家可歸，決定親自下場創業黑產',
                 passiveTitle: '天賦：金錢壁壘',
                 passiveDesc: '15% 機率自動避開負面突發事件與罰款損失'
             },
@@ -743,199 +747,217 @@
             phone: {
                 name: '電話點數詐騙',
                 icon: '📞',
-                minWealth: 0,
+                desc: '假冒公職人員或快遞員，誘騙受害者購買遊戲點數卡或轉帳急救包。',
                 maxMonthlyWealth: 800,
                 baseSuccess: 0.85,
                 monthlyHeat: 0.5,
                 happinessDecay: 0.2,
-                desc: '以假冒防毒軟體、中獎點數卡與假官員恐嚇為主的基礎老千手段。'
+                minWealth: 0
             },
             phishing: {
                 name: '釣魚郵件與假網站',
                 icon: '🎣',
-                minWealth: 0,
+                desc: '批量發送假冒銀行、稅務局退稅簡訊，誘捕受害者輸入信用卡號與驗證碼。',
                 maxMonthlyWealth: 2500,
                 baseSuccess: 0.70,
                 monthlyHeat: 0.8,
                 happinessDecay: 0.3,
-                desc: '廣發偽造銀行與物流簡訊，誘騙受害者輸入信用卡號與驗證碼。'
+                minWealth: 0
             },
             romance: {
                 name: '情感殺豬盤',
                 icon: '💔',
-                minWealth: 20000,
+                desc: '長達數月人設經營，培養虛擬戀人信任，隨後引誘其投入內幕假投資盤。',
                 maxMonthlyWealth: 12000,
                 baseSuccess: 0.50,
                 monthlyHeat: 1.2,
                 happinessDecay: 0.5,
-                desc: '建立完美虛擬人設，長期陪聊天建立親密關係後，誘騙投資假平台。'
+                minWealth: 20000
             },
             mlm: {
                 name: '層壓式傳銷洗腦',
                 icon: '🔺',
-                minWealth: 80000,
+                desc: '開設心靈培訓課程與龐氏代理團隊，強迫學員購買高價無效健康產品拉下線。',
                 maxMonthlyWealth: 45000,
                 baseSuccess: 0.40,
                 monthlyHeat: 2.0,
                 happinessDecay: 0.6,
-                desc: '販賣成功學與暴富保健品，以人頭拉人頭方式建立金字塔吸金帝國。'
+                minWealth: 80000
             },
             crypto: {
                 name: '加密貨幣 Rugpull 盤',
                 icon: '🪙',
-                minWealth: 300000,
+                desc: '發行熱門 AI/元宇宙概念垃圾幣，炒高幣價後連夜拔插頭捲款潛逃。',
                 maxMonthlyWealth: 180000,
                 baseSuccess: 0.30,
                 monthlyHeat: 3.5,
                 happinessDecay: 0.8,
-                desc: '發行虛構空氣幣，炒高幣價後瞬間撤走流動性池，割盡韭菜。'
+                minWealth: 300000
             },
             human_trafficking: {
                 name: '東南亞賣豬仔園區',
                 icon: '⛓️',
-                minWealth: 1000000,
+                desc: '以高薪海外打字員廣告誘騙年輕人，將其扣押至封閉園區從事電詐與勒索。',
                 maxMonthlyWealth: 600000,
                 baseSuccess: 0.25,
                 monthlyHeat: 5.5,
                 happinessDecay: 1.5,
-                desc: '以高薪高管誘騙求職者至東南亞封閉園區，進行高壓暴力詐騙運營。'
+                minWealth: 1000000
             },
             ai_deepfake: {
                 name: 'AI 深度偽造即時詐騙',
                 icon: '🤖',
-                minWealth: 3000000,
+                desc: '克隆受害者親人聲音與臉孔發起即時視訊，誘騙急救贖金或商業轉帳。',
                 maxMonthlyWealth: 1500000,
                 baseSuccess: 0.20,
                 monthlyHeat: 7.0,
                 happinessDecay: 1.8,
-                desc: '即時克隆老闆與親友聲音面容進行視訊通話，一鍵轉帳數百萬。'
+                minWealth: 3000000
             },
             quantum: {
                 name: '量子概念龐氏融資',
                 icon: '🌐',
-                minWealth: 10000000,
+                desc: '打包量子計算與高頻算力信託概念，向頂級富豪群體募集億級黑資金。',
                 maxMonthlyWealth: 5000000,
                 baseSuccess: 0.15,
                 monthlyHeat: 9.0,
                 happinessDecay: 2.5,
-                desc: '以量子計算機與未來能源為包裝，向全球富豪募資，滾動龐氏雪球。'
+                minWealth: 10000000
             }
         };
 
-        /* -------------------------------------------------------------------------
-         * HAVENS DATABASE
-         * ------------------------------------------------------------------------- */
         const HAVENS = {
             overtime: {
                 name: '瘋狂加班運營',
                 icon: '⚡',
+                desc: '全員全天候運營，效率最大化，無額外費用負擔。',
                 monthlyCost: 0,
                 monthlyHeatDelta: 0,
-                desc: '保持常態黑產運營，無額外支出。'
+                happinessBoost: 0
             },
             hideout: {
                 name: '低調避風休養',
                 icon: '🏕️',
+                desc: '暫緩大規模開拓，刪除敏感紀錄，顯著降低警方注意，維持低度營運。',
                 monthlyCost: 5000,
                 monthlyHeatDelta: -1.5,
-                desc: '縮減電話機房規模，專員低調避風頭，降低警方關注。'
+                happinessBoost: 0.1
             },
             bribe: {
                 name: '行賄與黑市洗錢',
                 icon: '💸',
+                desc: '高薪聘請地下水房與離岸中介，洗淨資金並買通基層舉報線索。',
                 monthlyCost: 20000,
                 monthlyHeatDelta: -4.0,
-                desc: '打點當地執法人員，並經離岸地下水房清洗黑錢資金。'
+                happinessBoost: 0.2
             },
             luxury_retreat: {
                 name: '奢華度假與心靈諮商',
                 icon: '🧘',
+                desc: '率領核心團隊至私人渡假村狂歡，聘請心理醫師撫平罪惡感與焦慮。',
                 monthlyCost: 15000,
                 monthlyHeatDelta: -0.5,
-                happinessBoost: 9.0,
-                desc: '入駐奢華五星酒店，安排私人心理諮商，快速恢復心靈平穩。'
+                happinessBoost: 9.0
             }
         };
 
-        /* -------------------------------------------------------------------------
-         * UPGRADES & LUXURIES DATABASE
-         * ------------------------------------------------------------------------- */
         const UPGRADES = [
-            { id: 'sms_gateway', name: '群發簡訊網關', category: 'transmission', cost: 10000, desc: '每日自動發送10萬封釣魚簡訊。' },
-            { id: 'darkweb_leads', name: '暗網精準名單', category: 'transmission', cost: 35000, desc: '購入高品質長者與投資客個資。' },
-            { id: 'botnet_army', name: '社交媒體軍團', category: 'transmission', cost: 120000, desc: '自動化水軍帳號發布推廣軟文。' },
-            { id: 'ai_voice_clone', name: 'AI換臉黑科技', category: 'transmission', cost: 500000, desc: '極高擬真度聲紋與面容克隆。' },
+            { id: 'sms_gateway', category: 'transmission', name: '群發簡訊網關', cost: 10000, desc: '租用偽基地台，單日自動發送數萬條釣魚連結。' },
+            { id: 'darkweb_leads', category: 'transmission', name: '暗網精準名單', cost: 35000, desc: '購入洩漏之銀行與保險 VIP 精準名單，大幅提高轉化率。' },
+            { id: 'botnet_army', category: 'transmission', name: '社交媒體軍團', cost: 120000, desc: '自動化水軍帳號轟炸 Threads/IG，建立假人設營銷網絡。' },
+            { id: 'ai_voice_clone', category: 'transmission', name: 'AI換臉黑科技', cost: 500000, desc: '極高擬真度聲紋與面容克隆。' },
+            
+            { id: 'fake_police_script', category: 'psychological', name: '假冒公安恐嚇腳本', cost: 15000, desc: '高壓話術指控目標涉嫌洗錢，逼迫其轉帳至安全帳戶。' },
+            { id: 'isolation_tactic', category: 'psychological', name: '孤立受害者策略', cost: 40000, desc: '切斷受害者與親友的一切聯繫。' },
+            { id: 'charity_whitewash', category: 'psychological', name: '慈善洗白假基金', cost: 200000, desc: '成立名義慈善基金，減少每月的愧疚感與心靈衰退 30%。' },
+            
+            { id: 'shell_company', category: 'abilities', name: '傀儡人頭戶水房', cost: 25000, desc: '批量收購老弱殘兵傀儡銀行帳戶，降低資金凍結風險。' },
+            { id: 'hacker_firewall', category: 'abilities', name: '駭客防護網', cost: 80000, desc: '防止追查 IP 與伺服器位置。' },
+            { id: 'political_umbrella', category: 'abilities', name: '政商保護傘', cost: 800000, desc: '買通地方高官與警政中層，全球警政關注度上升速度 -40%。' },
+            { id: 'disk_melter', category: 'abilities', name: '加密數據銷毀器', cost: 2000000, desc: '關注度達 85% 後，上升速率大幅減慢 75%。' },
 
-            { id: 'fake_police_script', name: '假冒公安恐嚇腳本', category: 'psychological', cost: 15000, desc: '極度恐嚇受害者使其失去理智。' },
-            { id: 'isolation_tactic', name: '孤立受害者策略', category: 'psychological', cost: 40000, desc: '切斷受害者與親友的一切聯繫。' },
-            { id: 'charity_whitewash', name: '慈善洗白假基金', category: 'psychological', cost: 200000, desc: '假捐款洗白罪惡感，心靈衰退-30%。' },
+            { id: 'watch', category: 'luxuries', name: '⌚ 名牌潛水錶', cost: 8000, happinessBonus: 10, desc: '擺脫廉價感，心靈平穩 +10%' },
+            { id: 'car', category: 'luxuries', name: '🏎️ 二手限量跑車', cost: 50000, happinessBonus: 20, desc: '享受引擎轟鳴聲，心靈平穩 +20%' },
+            { id: 'handbag', category: 'luxuries', name: '👜 奢華名牌高訂', cost: 150000, happinessBonus: 25, desc: '頂級黑產彰顯，心靈平穩 +25%' },
+            { id: 'health_tonic', category: 'luxuries', name: '💊 高級深海魚油與昂貴補品', cost: 5000, healthBonus: 15, repeatable: true, desc: '滋補養生，生理健康 +15%' },
+            { id: 'annual_checkup', category: 'luxuries', name: '🏥 全身私家醫院頂級體檢', cost: 20000, healthBonus: 30, repeatable: true, desc: '名醫診斷，生理健康 +30%' },
+            { id: 'gym_vip', category: 'luxuries', name: '🏋️ 私人名師健身教練團', cost: 60000, healthBonus: 50, desc: '專屬私人教練重塑體能，生理健康 +50%' },
+            { id: 'mansion', category: 'luxuries', name: '🏢 半山海景豪宅', cost: 800000, happinessBonus: 40, mansionBonus: true, desc: '俯瞰維港夜景，心靈平穩 +40%，月心靈衰退 -15%' },
+            { id: 'yacht', category: 'luxuries', name: '🛥️ 頂級超級遊艇', cost: 3500000, happinessBonus: 60, desc: '公海私人派對，心靈平穩 +60%' },
+            { id: 'private_island', category: 'luxuries', name: '🏝️ 私人避稅島嶼', cost: 25000000, happinessBonus: 100, heatReduce: 20, desc: '買下管轄權，心靈平穩 +100%，警方關注度 -20%' },
+            { id: 'party', category: 'luxuries', name: '🍾 狂歡派對', cost: 20000, happinessBonus: 25, repeatable: true, desc: '邀請名流狂歡，即時恢復心靈平穩 +25%' }
+        ];
 
-            { id: 'shell_company', name: '傀儡人頭戶水房', category: 'abilities', cost: 25000, desc: '快速分散資金至數百個傀儡帳號。' },
-            { id: 'hacker_firewall', name: '駭客防護網', category: 'abilities', cost: 80000, desc: '防止追查 IP 與伺服器位置。' },
-            { id: 'political_umbrella', name: '政商保護傘', category: 'abilities', cost: 800000, desc: '打點高層幹部，警方追查速度-40%。' },
-            { id: 'disk_melter', name: '加密數據銷毀器', category: 'abilities', cost: 2000000, desc: '85% 關注度後上升速率大幅減慢 75%。' },
+        const ACHIEVEMENTS = {
+            single_forever: { name: '【單身一世】', icon: '👤', desc: '連續 3 次拒絕單身邂逅，享受一個人的黑產孤獨' },
+            first_million: { name: '【第一桶金】', icon: '💰', desc: '個人非法資產突破 $1,000,000' },
+            super_rich: { name: '【富可敵國】', icon: '👑', desc: '個人非法資產突破 $50,000,000' },
+            fake_escape: { name: '【金蟬脫殼】', icon: '🎭', desc: '成功觸發假死擺脫大搜捕' },
+            prodigal_son: { name: '【浪子回頭】', icon: '🕊️', desc: '選擇重返正途（達成 EX 級完美結局）' },
+            thousand_victims: { name: '【千人坑】', icon: '💀', desc: '累積受害者人數達到 1,000 人' },
+            hedonist: { name: '【享樂主義】', icon: '🏎️', desc: '購入半山豪宅、超級遊艇或私人島嶼' },
+            tactic_master: { name: '【黑產大宗師】', icon: '🎯', desc: '專精同一主攻渠道持續超過 3 年' },
+            veteran_60: { name: '【千局老手】', icon: '👴', desc: '平安活到 60 歲金盆洗手' }
+        };
 
-            { id: 'watch', name: '⌚ 名牌潛水錶', category: 'luxuries', cost: 8000, happinessBonus: 10, desc: '耀眼的名錶撫平少許罪惡感。' },
-            { id: 'car', name: '🏎️ 二手限量跑車', category: 'luxuries', cost: 50000, happinessBonus: 20, desc: '引擎轟鳴聲帶來短暫快感。' },
-            { id: 'handbag', name: '👜 奢華名牌高訂', category: 'luxuries', cost: 150000, happinessBonus: 25, desc: '極致揮霍享受奢華尊榮。' },
-            { id: 'health_tonic', name: '💊 高級深海魚油與昂貴補品', category: 'luxuries', cost: 5000, healthBonus: 15, repeatable: true, desc: '滋補養生，恢復 15% 生理健康（可重複購買）。' },
-            { id: 'annual_checkup', name: '🏥 全身私家醫院頂級體檢', category: 'luxuries', cost: 20000, healthBonus: 30, repeatable: true, desc: '全套名醫診斷與休養，恢復 30% 生理健康（可重複購買）。' },
-            { id: 'gym_vip', name: '🏋️ 私人名師健身教練團', category: 'luxuries', cost: 60000, healthBonus: 50, desc: '專屬私人教練強身健體，大幅恢復 50% 生理健康。' },
-            { id: 'mansion', name: '🏢 半山海景豪宅', category: 'luxuries', cost: 800000, happinessBonus: 40, mansionBonus: true, desc: '俯瞰維港夜景，月心靈衰退 -15%。' },
-            { id: 'yacht', name: '🛥️ 頂級超級遊艇', category: 'luxuries', cost: 3500000, happinessBonus: 60, desc: '海上宮殿，遠離塵世煩惱。' },
-            { id: 'private_island', name: '🏝️ 私人避稅島嶼', category: 'luxuries', cost: 25000000, happinessBonus: 100, heatReduce: 20, desc: '太平洋私人王國，警方關注 -20%。' },
-            { id: 'party', name: '🍾 狂歡派對', category: 'luxuries', cost: 20000, happinessBonus: 25, repeatable: true, desc: '數日狂歡極致放縱（可重複購買）。' }
+        const AMBIENT_STORIES = [
+            '【暗網個資】透過 Telegram 買入退休教職員清單，高額退休金成為主要割席目標。',
+            '【反追蹤】拔出舊太空卡丟進深水埗後巷垃圾桶，切斷警方最近一波數位追查。',
+            '【暗網資料】購入知名健身房 VIP 流出資料庫，取得大量高收入目標名單。',
+            '【數位銷毀】將作案手機重置，並將 SIM 卡剪碎拋入大海，警方搜捕線索驟斷。',
+            '【名單外流】取得私貸申請市民名單，急需資金的目標成為潛在受害者。',
+            '【匿名保護】在報攤用現金購入多張無實名太空卡，環境安全度小幅提升。'
         ];
 
         /* -------------------------------------------------------------------------
-         * HEALTH CRISIS EVENTS (BLIND CHOICE OPTIONS)
+         * HEALTH CRISIS EVENTS
          * ------------------------------------------------------------------------- */
         const HEALTH_EVENTS = [
             {
+                id: 'quit_smoking',
                 title: '戒煙的抉擇',
-                desc: '你發現自己因為壓力過大每日狂抽三包菸，肺部劇烈疼痛，醫生警告你再不戒煙離肺癌不遠了。',
+                desc: '由於長期徹夜通宵盯盤，你每天要抽兩包煙。近來咳嗽不止，連咽口水都劇痛。醫生警告你必須立刻戒煙！',
                 options: [
                     {
-                        text: '憑藉意志力嘗決心戒煙',
+                        text: '嘗試戒煙（憑意志力，成功可恢復健康）',
                         effect: s => {
                             if (Math.random() < 0.5) {
                                 s.health = Math.min(100, s.health + 20);
-                                return { log: '【戒煙成功】成功克服尼古丁誘惑，肺部機能大幅改善！', status: '戒煙成功' };
+                                return { log: '【戒煙成功】成功克服煙癮，生理健康 +20%！', status: '戒煙成功' };
                             } else {
                                 s.happiness = Math.max(0, s.happiness - 10);
-                                return { log: '【戒煙失敗】戒斷症狀讓你無比焦躁，最終還是點燃了香菸。', status: '戒煙失敗' };
+                                return { log: '【戒煙失敗】戒斷症狀讓你無比焦躁，心靈平穩 -10%。', status: '戒煙失敗' };
                             }
                         }
                     },
                     {
-                        text: '繼續抽煙排解黑產壓力',
+                        text: '繼續抽煙，靠一口煙提神',
                         effect: s => {
-                            s.health = Math.max(0, s.health - 5);
-                            s.happiness = Math.min(100, s.happiness + 5);
-                            return { log: '【香菸麻痺】選擇繼續抽煙排解焦慮，健康持續受損。', status: '繼續抽煙' };
+                            s.health = Math.max(0, s.health - 8);
+                            return { log: '【拒絕戒煙】選擇繼續抽煙，生理健康持續受損。', status: '繼續抽煙' };
                         }
                     }
                 ]
             },
             {
+                id: 'heart_attack_crisis',
                 title: '心臟頻繁絞痛',
-                minWealth: 0,
-                desc: '深夜辦公時，你的胸口突然傳來陣陣劇痛，冷汗直冒，顯然是心肌缺血的嚴重警號。',
+                desc: '深夜辦公時，胸口傳來一陣陣如刀割般的絞痛，冷汗瞬間浸濕了襯衫。',
                 options: [
                     {
-                        text: '聘請私人名醫安排微創手術與調理',
+                        text: '花費 $30,000 前往私家急診注射強心針與手術',
                         cost: 30000,
                         effect: s => {
                             s.wealth -= 30000;
                             s.health = Math.min(100, s.health + 35);
-                            return { log: '【心臟手術】花費 $30,000 完成微創手術，化解了猝死危機！', status: '心臟手術' };
+                            return { log: '【緊急強心】花費 $30,000 救回一命，生理健康 +35%！', status: '私家急診' };
                         }
                     },
                     {
-                        text: '咬牙硬撐，服用平價止痛藥頂過去',
+                        text: '趴在桌上硬扛過去',
                         effect: s => {
-                            s.health = Math.max(0, s.health - 15);
-                            return { log: '【硬撐過關】拒絕就醫硬頂，心臟功能進一步衰退。', status: '硬撐過關' };
+                            s.health = Math.max(0, s.health - 18);
+                            return { log: '【硬扛心痛】強行硬扛絞痛，身體受到不可逆損傷。', status: '硬扛心痛' };
                         }
                     }
                 ]
@@ -943,98 +965,140 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * CLASS-EXCLUSIVE STORYLINES (BLIND CHOICE OPTIONS)
+         * CLASS EXCLUSIVE EVENTS
          * ------------------------------------------------------------------------- */
-        
-        // 1. 街頭混混
-        const HOOLIGAN_EVENT_1 = {
-            title: '初戀「細細粒」的街頭重逢 (混混專屬)',
-            desc: `深夜的街頭，你偶遇當年的初戀女友「細細粒」正在寒風中派發傳單。
-
-你知道她家境一直都是那麼貧窮，可是她跟你生活在不同的世界，她始終選擇了善良。你會怎麼做？`,
+        const JAMES_EVENT_1 = {
+            id: 'james_event_1',
+            title: '深夜對舊號碼的思念 (占士專屬)',
+            desc: '深夜了，你又再一次想起了她。她成為你前進的咒縛，也是你前進的動力。你還未刪掉你和她的對話紀錄，那八個數字依然靜靜地躺在你的聯絡人名單中。你會想打電話詢問她的近況嗎？',
             options: [
                 {
-                    text: '上前打招呼：鼓起勇氣走過去跟她說話',
+                    text: '忍不住打電話過去',
                     effect: s => {
                         s.happiness = Math.max(0, s.happiness - 15);
-                        return { log: '【自慚形穢】你伸出的手僵硬在半空，握不住她乾淨的世界。', status: '上前打招呼' };
+                        return { log: '【深夜追憶】電話那頭傳來冷漠的語音：「你撥打的號碼是空號...」心靈平穩 -15%。', status: '撥通電話' };
                     }
                 },
                 {
-                    text: '掉頭離開：裝作沒看見轉身離去',
+                    text: '鎖上螢幕，將手機摔在床上',
                     effect: s => {
-                        return { log: '【轉身離去】你低頭快速走過，兩人在街道兩端漸行漸遠。', status: '掉頭離開' };
+                        return { log: '【克制思念】忍住了撥號衝動，將悲傷化為黑產復仇動力。', status: '鎖屏忍耐' };
+                    }
+                }
+            ]
+        };
+
+        const JAMES_EVENT_2 = {
+            id: 'james_event_2',
+            title: '翠華茶餐廳的重逢 (占士專屬)',
+            desc: '你賺到了第一桶金，你開始飄了。你忽然想起那一日前女友宣讀判詞的地方——翠華茶餐廳。你不再是當日那個敏感的少年，穿著打扮也完全不同。你在前往茶餐廳的路上，竟然碰見了她！因為這些年你外表的轉變，她還未認出你來...',
+            options: [
+                {
+                    text: '不相認，擦肩而過',
+                    effect: s => {
+                        return { log: '【擦肩而過】你默默戴上墨鏡擦肩而過，相見不如懷念。', status: '不相認' };
                     }
                 },
                 {
-                    text: '呼叫手下向她進行匿名經濟援助',
+                    text: '主動相認並正常對話',
+                    effect: s => {
+                        s.happiness = Math.min(100, s.happiness + 10);
+                        return { log: '【平淡相認】她驚訝於你的成熟，平淡的對話撫平了你心中的疙瘩，心靈平穩 +10%。', status: '平淡相認' };
+                    }
+                },
+                {
+                    text: '高姿態相認，展示豪車與名錶報復',
+                    effect: s => {
+                        s.happiness = Math.min(100, s.happiness + 30);
+                        return { log: '【高姿態報復】你按響限量超跑喇叭，在她震驚與悔恨的目光中揚長而去，心靈平穩 +30%！', status: '高姿態報復' };
+                    }
+                }
+            ]
+        };
+
+        const HOOLIGAN_EVENT_1 = {
+            id: 'hooligan_event_1',
+            title: '街頭遇見初戀細細粒 (混混專屬)',
+            desc: '你在街上遇見當年的初戀女友「細細粒」在派發傳單。你知道她家境一直貧窮，可她跟你選擇了不同的世界，她始終選擇了善良。你會怎麼做？',
+            options: [
+                {
+                    text: '上前打招呼（雙手僵硬在半空）',
+                    effect: s => {
+                        s.happiness = Math.max(0, s.happiness - 15);
+                        return { log: '【自慚形穢】握不住她善良乾淨的世界，內心無比失落，心靈平穩 -15%。', status: '上前打招呼' };
+                    }
+                },
+                {
+                    text: '掉頭離開',
+                    effect: s => {
+                        return { log: '【默默離開】低頭快速走過，兩人在街道兩端漸行漸遠。', status: '掉頭離開' };
+                    }
+                },
+                {
+                    text: '呼叫手下匿名提供 $3,000 經濟援助',
                     cost: 3000,
                     effect: s => {
                         s.wealth -= 3000;
                         s.happiness = Math.min(100, s.happiness + 10);
-                        return { log: '【偷偷援助】讓手下匿名塞給她 $3,000 紓困，內心獲得一絲救贖。', status: '經濟援助' };
+                        return { log: '【匿名援助】花費 $3,000 匿名改善她的生活，心中獲得一絲救贖。', status: '經濟援助' };
                     }
                 }
             ]
         };
 
         const HOOLIGAN_EVENT_2 = {
-            title: '手下遭扣押的高空威脅 (混混專屬)',
-            desc: `跟隨你多年的手下被敵方幫派老大抓住。
-
-對方老大傳來手下被懸空綁在天台邊緣的照片，並附上一句話：「我最鍾意啲物件响高空跌落嚟嘅感覺...」`,
+            id: 'hooligan_event_2',
+            title: '手下被敵方幫派抓走 (混混專屬)',
+            desc: '你的骨幹手下被敵方幫派抓住，對方老大傳來照片：「我最鍾意睇物件喺高空跌落嚟嘅感覺...」',
             options: [
                 {
-                    text: '展開營救：親自帶隊帶同資金與人馬硬闖',
+                    text: '展開營救（準備資金與人馬硬闖）',
                     cost: 50000,
                     effect: s => {
                         s.wealth -= 50000;
                         s.health = Math.max(0, s.health - 20);
                         s.hardOnSubordinatesCount = Math.max(0, s.hardOnSubordinatesCount - 1);
                         s.happiness = Math.min(100, s.happiness + 15);
-                        return { log: '【義氣營救】付出 $50,000 傷亡賠償與負傷代價拯救手下，江湖傳為美談！', status: '展開營救' };
+                        return { log: '【浴血營救】付出 $50,000 與負傷代價救回手下，江湖傳為美談！', status: '展開營救' };
                     }
                 },
                 {
-                    text: '置之不理：冷酷割席，任由對方處置',
+                    text: '置之不理（冷血冷酷）',
                     effect: s => {
                         s.hardOnSubordinatesCount += 1;
-                        s.happiness = Math.max(0, s.happiness - 10);
-                        return { log: '【冷酷棄卒】你選擇置之不理，手下寒心離去，幫派內部人心惶惶。', status: '置之不理' };
+                        s.happiness = Math.max(0, s.happiness - 15);
+                        return { log: '【冷酷拋棄】放棄手下，幫派成員對你寒心，背叛風險上升。', status: '置之不理' };
                     }
                 }
             ]
         };
 
-        // 2. 敗家富二代
         const RICH_KID_EVENT_1 = {
+            id: 'rich_kid_event_1',
             title: '父親的最後通牒 (富二代專屬)',
-            desc: `父親深夜召你回半山大宅，看著不成器的你怒不可遏，打算動用警界關係幫你投考警察正行。
-
-「你若還有點良心，就給我正正當當考入警隊！」`,
+            desc: '父親召你回家，痛心疾首地想你有點出息，打算透過人脈幫你投考警察正途。你願意回頭嗎？',
             options: [
                 {
                     text: '遵從父親意願投考警察，回歸豪門正途',
                     effect: s => {
-                        triggerGameOver('【EX 級特別結局】繼承家產', '冇計，同人唔同命，有些人天生就是不會被放棄。你洗心革面踏入警隊，晚年接手家族豪門生意，風光順遂。');
-                        return { log: '【繼承家產】你接受了父親的安排回歸正途，解鎖 EX 結局！', status: '繼承家產' };
+                        triggerGameOver('【EX 級：繼承家產】', '冇計，同人唔同命，有些人天生就是不會被放棄。你告別黑產踏入警隊，晚年接手家族生意，風光順遂。');
+                        return { log: '【繼承家產】回歸豪門生活，解鎖 EX 級結局！', status: '繼承家產' };
                     }
                 },
                 {
-                    text: '扭著屁股離開：向老爸豎起中指繼續黑產',
+                    text: '扭著屁股離開，繼續黑產創業',
                     effect: s => {
                         s.happiness = Math.min(100, s.happiness + 10);
-                        return { log: '【狂傲叛逆】你摔門而出，誓要在黑產界做出比父親更龐大的帝國！', status: '扭著屁股離開' };
+                        return { log: '【狂傲叛逆】摔門而出，誓要在黑產界做出比父親更龐大的帝國！', status: '扭屁股離開' };
                     }
                 }
             ]
         };
 
         const RICH_KID_EVENT_2 = {
-            title: '家族集團破產與離岸私鑰 (富二代專屬)',
-            desc: `父親高調投資爆雷導致家族集團宣告破產，黑白兩道債主踏破大宅門檻。
-
-父親私下將一個加密冷錢包塞給你：「裡面有五百萬美金黑金私鑰，拿去逃命，別讓債主找到你...」`,
+            id: 'rich_kid_event_2',
+            title: '家族破產與海外密碼匙 (富二代專屬)',
+            desc: '家族企業因經濟危機破產，父親臨終前交給你一個瑞士加密冷錢包，裡面有五百萬美金黑金私鑰。',
             options: [
                 {
                     text: '動用黑產資金替父親擺平黑道債主',
@@ -1043,11 +1107,11 @@
                         s.wealth -= 500000;
                         s.policeHeat = Math.max(0, s.policeHeat - 15);
                         s.familyDarkChoicesCount = Math.max(0, s.familyDarkChoicesCount - 1);
-                        return { log: '【替父還債】花費 $50,0000 擺平家族債主，保住了父親最後的尊嚴。', status: '替父還債' };
+                        return { log: '【替父還債】花費 $500,000 擺平家族債主，保住了父親最後尊嚴。', status: '替父還債' };
                     }
                 },
                 {
-                    text: '私吞私鑰逃走，任由父親遭債主逼迫',
+                    text: '私吞私鑰逃走，任由債主逼迫',
                     effect: s => {
                         s.wealth += 500000;
                         s.familyDarkChoicesCount += 1;
@@ -1058,28 +1122,25 @@
             ]
         };
 
-        // 3. 黑化 IT 狗
         const IT_DOG_EVENT_1 = {
-            title: '停車場的淚水與恩師 (IT狗專屬)',
-            desc: `日夜操勞導致你有一日買外賣飯盒走去拿超跑時不慎跌傷，一拐一拐在停車場拿著飯盒。
-
-結果竟然讓中學時教你 IT 的老師遇見！老師看著你滿身名牌卻一身傷痕與疲態，眼神充滿痛心...`,
+            id: 'it_dog_event_1',
+            title: '停車場遇見中學 IT 老師 (IT狗專屬)',
+            desc: '日夜操勞導致你買外賣飯盒跌傷腿，在一拐一拐去取超跑時遇見中學教你 IT 的老師。老師見你滿面滄桑，熱情關心你的生活...',
             options: [
                 {
-                    text: '含淚激動與恩師擁抱述懷',
+                    text: '含淚激動與老師擁抱',
                     effect: s => {
                         s.happiness = Math.min(100, s.happiness + 20);
-                        return { log: '【恩師述懷】恩師沒有責怪你，溫暖的擁抱讓久違的真情撫平內心傷痛。', status: '恩師擁抱' };
+                        return { log: '【恩師溫暖】老師溫暖的鼓勵讓你重拾久違的人性光明，心靈平穩 +20%！', status: '恩師擁抱' };
                     }
                 }
             ]
         };
 
         const IT_DOG_EVENT_2 = {
-            title: 'AI 虛擬女友眾籌邀請 (IT狗專屬)',
-            desc: `昔日黑客圈友人看中你的頂尖技術，邀請你加入一項「全球 AI 虛擬女友眾籌創業計劃」。
-
-這是一個橫跨黑白兩道的巨額概念項目，你想加入嗎？`,
+            id: 'it_dog_event_2',
+            title: 'AI 女友眾籌計劃邀請 (IT狗專屬)',
+            desc: '暗網論壇大牛欣賞你的 IT 才能，邀請你共同發起「AI 虛擬女友」概念眾籌資金盤。',
             options: [
                 {
                     text: '投入資金加入合作開發',
@@ -1087,41 +1148,38 @@
                     effect: s => {
                         s.wealth -= 50000;
                         s.itDogCrowdfundingJoined = true;
-                        return { log: '【加入眾籌】投入資金合作開發 AI 虛擬女友眾籌平台。', status: '加入眾籌' };
+                        return { log: '【技術入股】投入資金合作開發 AI 虛擬女友眾籌平台。', status: '加入眾籌' };
                     }
                 },
                 {
-                    text: '拒絕邀請，獨自搞網絡黑產',
+                    text: '拒絕合作，獨自搞網絡黑產',
                     effect: s => {
-                        return { log: '【獨自黑產】婉拒眾籌邀請，繼續獨自進行詐騙運營。', status: '拒絕眾籌' };
+                        return { log: '【婉拒眾籌】婉拒邀請，專注於當前系統維護。', status: '拒絕眾籌' };
                     }
                 }
             ]
         };
 
         const IT_DOG_EVENT_BETRAYAL = {
+            id: 'it_dog_betrayal',
             title: '合作夥伴捲款潛逃 (IT狗專屬)',
-            desc: `你的眾籌合作夥伴在一夜之間捲走了公司所有資產與儲備金，從此人間蒸發！
-
-記住，在這個爾虞我詐的社會，騙子才是最真實的！`,
+            desc: '你的 AI 眾籌合作夥伴在一夜之間捲走公司所有資產並從此人間蒸發！記住，在這個爾虞我詐的社會，騙子最真實！',
             options: [
                 {
                     text: '默然承受巨額損失',
                     effect: s => {
-                        s.wealth -= 700000;
-                        s.happiness = Math.max(0, s.happiness - 15);
-                        return { log: '【黑吃黑背叛】合作夥伴捲走資產潛逃，你深刻領悟了黑道真諦。', status: '慘遭背叛' };
+                        s.wealth = Math.max(0, s.wealth - 700000);
+                        s.happiness = Math.max(0, s.happiness - 20);
+                        return { log: '【夥伴背叛】合作夥伴捲走 $700,000 資產潛逃，深刻領悟黑道真諦！', status: '夥伴背叛' };
                     }
                 }
             ]
         };
 
-        // 4. 走投無路經紀
         const BROKER_EVENT_1 = {
-            title: '昔日惡毒上司的嘲弄 (經紀專屬)',
-            desc: `在高級私人會所，你偶遇當年將你狠心裁員並當眾羞辱你的地產大佬上司。
-
-他高調拿著份毒藥商業鋪位合約向你推銷，嘲笑你一輩子只是個低端經紀。`,
+            id: 'broker_event_1',
+            title: '前開除老闆推銷有毒地產 (經紀專屬)',
+            desc: '在高級會所遇到了當年開除你的地產公司老闆，他正焦頭爛額地推銷有毒海外鋪位合約。',
             options: [
                 {
                     text: '用反向話術陷阱誘騙他入局',
@@ -1135,26 +1193,25 @@
                     text: '拿出現金支票當場打臉羞辱他',
                     effect: s => {
                         s.happiness = Math.min(100, s.happiness + 25);
-                        return { log: '【揮金打臉】當場砸出數十萬現金支票打臉昔日上司，心中鬱氣一掃而空！', status: '揮金打臉' };
+                        return { log: '【揮金打臉】當場砸出數十萬現金支票打臉昔日上司，鬱氣一掃而空！', status: '揮金打臉' };
                     }
                 }
             ]
         };
 
         const BROKER_EVENT_2 = {
-            title: '昔日老客戶的臨終叩門 (經紀專屬)',
-            desc: `年少時被你用話術騙光積蓄買毒藥保單的貧困老伯病重叩門。
-
-他顫抖著拿著當年你簽名的合約，哀求退還積蓄治病續命。`,
+            id: 'broker_event_2',
+            title: '病危舊客戶請求退款 (經紀專屬)',
+            desc: '一位當年被你推銷假保單的舊客戶身患重病，顫抖著拿著當年你簽名的合約哀求退款續命。',
             options: [
                 {
-                    text: '大發慈悲，全額私下退還積蓄給老伯',
+                    text: '退還 $80,000 本金給老伯',
                     cost: 80000,
                     effect: s => {
                         s.wealth -= 80000;
                         s.happiness = Math.min(100, s.happiness + 25);
                         s.callousFamilyChoices = Math.max(0, s.callousFamilyChoices - 1);
-                        return { log: '【慈悲退款】私下退還積蓄給老伯治病，洗滌了心靈罪惡。', status: '全額退款' };
+                        return { log: '【慈悲退款】退還積蓄給老伯治病，洗滌心靈罪惡。', status: '退還本金' };
                     }
                 },
                 {
@@ -1162,70 +1219,14 @@
                     effect: s => {
                         s.callousFamilyChoices += 1;
                         s.happiness = Math.max(0, s.happiness - 15);
-                        return { log: '【冷酷無情】叫保安將老伯趕走，內心深處隱隱作痛。', status: '粗暴趕走' };
-                    }
-                }
-            ]
-        };
-
-        // 5. 癡情的占士
-        const JAMES_EVENT_1 = {
-            title: '深夜的八個數字 (占士專屬)',
-            desc: `深夜了，你又再一次想起了她。
-
-她成為你前進的咒縛，亦成為你前進的動力。你還未刪掉你和她的對話紀錄，那八個數字依然靜靜地躺在你的聯絡人名單中。
-
-你會想打電話詢問她的近況嗎？`,
-            options: [
-                {
-                    text: '按下撥號鍵，詢問她的近況',
-                    effect: s => {
-                        s.happiness = Math.max(0, s.happiness - 15);
-                        return { log: '【舊情難忘】電話接通後傳來冷漠的聲音，你默默掛斷，內心一陣刺痛。', status: '撥通電話' };
-                    }
-                },
-                {
-                    text: '忍住不打，默默鎖上螢幕',
-                    effect: s => {
-                        return { log: '【忍痛理智】把手機壓在枕頭下，將所有情緒深深埋藏在黑夜裡。', status: '鎖上螢幕' };
-                    }
-                }
-            ]
-        };
-
-        const JAMES_EVENT_2 = {
-            title: '翠華茶餐廳的重逢 (占士專屬)',
-            desc: `你賺到了第一桶金了，你開始飄了。你忽然想起那一日，前女友宣讀判詞的那個地方，翠華茶餐廳。你不再是當日那個敏感的少年，穿著打扮也與當時不一樣，你變強了，也變壞了。
-
-你忽然有種衝動，很想回去那間茶餐廳看一看。你感覺到一陣強大的衝擊力把你推向那裡，是想報復嗎？是懷念嗎？還是放不下嗎？
-
-你在前往茶餐廳的路上，竟然碰見了她！因為這些年來你外表的轉變，她現在還未認出你來，你想怎樣做？`,
-            options: [
-                {
-                    text: '擦肩而過，裝作不相認',
-                    effect: s => {
-                        return { log: '【相忘江湖】你戴上墨鏡與她擦肩而過，過往雲煙一筆勾銷。', status: '擦肩而過' };
-                    }
-                },
-                {
-                    text: '主動打招呼，平淡如水般正常對話',
-                    effect: s => {
-                        s.happiness = Math.min(100, s.happiness + 10);
-                        return { log: '【平淡如水】你禮貌地與她寒暄幾句。她驚訝於你的成熟，你發現自己終於能坦然面對過去。', status: '正常對話' };
-                    }
-                },
-                {
-                    text: '亮出豪車名錶，以高姿態冷嘲熱諷',
-                    effect: s => {
-                        s.happiness = Math.min(100, s.happiness + 30);
-                        return { log: '【虛榮報復】你按響限量超跑車鑰匙，指著身上的名牌酸她。看著她悔恨與震驚的眼神，你的陰暗虛榮心獲得極大滿足！', status: '高姿態報復' };
+                        return { log: '【冷酷無情】叫保安將老伯趕走，內心隱隱作痛。', status: '絕情拒絕' };
                     }
                 }
             ]
         };
 
         /* -------------------------------------------------------------------------
-         * EARLY & LATE LIFE EVENTS POOL (EXPANDED TO 20+ UNDERGROUND EVENTS)
+         * COMPLETE EARLY LIFE EVENTS (12 EVENTS)
          * ------------------------------------------------------------------------- */
         const EARLY_EVENTS = [
             {
@@ -1236,6 +1237,7 @@
                     {
                         text: '接受邀請，重返正途（辭去黑產）',
                         effect: s => {
+                            unlockAchievement('prodigal_son');
                             triggerGameOver('【唯一好結局】浪子回頭金不換', '你果斷斬斷黑產鏈條，退還了所有非法財產，回到正行做一名踏實的打工仔。雖然沒有暴富，但每一個夜晚你都能睡得安穩香甜。');
                             return { log: '【金盆洗手】你選擇了金盆洗手重返正途，達成唯一好結局！', status: '重返正途' };
                         }
@@ -1254,7 +1256,7 @@
                 id: 'rent_eviction',
                 title: '房東深夜登門催租',
                 minWealth: 9000,
-                desc: '你窩在 50 呎劏房裡，房東粗暴地敲門要你立即補交兩個月欠租，否則明早把你的行李扔到街上。',
+                desc: '你窩在 50 呎劏房裡，房東粗暴地敲門要你聯絡交兩個月欠租，否則明早把你的行李扔到街上。',
                 options: [
                     {
                         text: '用詐騙賺來的非法資金全額繳清',
@@ -1272,12 +1274,193 @@
                         }
                     }
                 ]
+            },
+            {
+                id: 'threads_freshman',
+                title: 'Threads 剛畢業社會新鮮人',
+                desc: '在 Threads 上刷到一名剛畢業的社會新鮮人發文抱怨薪水太低、交不出租金。',
+                options: [
+                    {
+                        text: '用小號留言安慰並追蹤，建立對話管道',
+                        effect: s => {
+                            s.victimsCount += 1;
+                            s.wealth += 2500;
+                            return { log: '【Threads獵捕】成功引誘剛畢業新鮮人加入兼職下線！', status: '獵捕新鮮人' };
+                        }
+                    },
+                    {
+                        text: '無視貼文，專注高價值目標',
+                        effect: s => {
+                            return { log: '【無視貼文】放棄低階目標，繼續尋找高價值對象。', status: '無視貼文' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'threads_single_mom',
+                title: 'Threads 單親媽媽的心靈防線',
+                desc: '一名單親媽媽在 Threads 分享深夜獨自照顧小孩的無奈，字裡行間滿是孤獨與經濟焦慮。',
+                options: [
+                    {
+                        text: '精準私訊傳遞溫暖關懷，瓦解其防禦',
+                        effect: s => {
+                            s.victimsCount += 1;
+                            s.wealth += 8000;
+                            s.happiness = Math.max(0, s.happiness - 5);
+                            return { log: '【攻陷心防】攻陷單親媽媽心房誘騙積蓄，內心略有不安。', status: '攻陷單親媽媽' };
+                        }
+                    },
+                    {
+                        text: '良心發現，不忍下手',
+                        effect: s => {
+                            s.happiness = Math.min(100, s.happiness + 5);
+                            return { log: '【放過單親媽媽】選擇放過單親媽媽，保住了最後良知。', status: '放過單親媽媽' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'threads_student',
+                title: 'Threads 買不起樓的大學生',
+                desc: '一位大學生在 Threads 大聲疾呼「買不起樓」，希望能找到輕鬆賺快錢的兼職。',
+                options: [
+                    {
+                        text: '化身成功人士主動伸出橄欖枝招攬',
+                        effect: s => {
+                            s.victimsCount += 1;
+                            s.wealth += 4000;
+                            return { log: '【暴富誘惑】大學生秒回訊息，順利吸納為洗錢下線人頭。', status: '招攬大學生' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'threads_card_debt',
+                title: 'Threads 卡債累累奢華女子',
+                desc: '你追蹤了一位喜愛張貼名牌包、卻在暗地抱怨卡債累累的年輕女子。',
+                options: [
+                    {
+                        text: '順著她的虛榮心搭話，導流至假投資盤',
+                        effect: s => {
+                            s.victimsCount += 1;
+                            s.wealth += 12000;
+                            return { log: '【虛榮陷阱】利用對方的虛榮心，成功誘騙其借貸投入假投資盤！', status: '陷害卡債女' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'gym_vip_leads',
+                title: '健身房 VIP 高薪會員名單',
+                minWealth: 15000,
+                desc: '透過暗網賣家買入了一份某本地知名健身房外洩的 VIP 會員資料庫。',
+                options: [
+                    {
+                        text: '購買 VIP 會員名單進行精準打擊',
+                        cost: 15000,
+                        effect: s => {
+                            s.wealth -= 15000;
+                            s.victimsCount += 5;
+                            s.wealth += 45000;
+                            return { log: '【精準名單】買入健身房 VIP 名單，獲利大幅提升！', status: '買入VIP名單' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'loan_urgent_leads',
+                title: '高風險私人貸款急需名單',
+                minWealth: 20000,
+                desc: '從黑市聯絡人手中接過隨身碟，記錄著上個月申請過高風險私人貸款的市民名單。',
+                options: [
+                    {
+                        text: '購入私貸名單，利用資金急迫感實施詐騙',
+                        cost: 20000,
+                        effect: s => {
+                            s.wealth -= 20000;
+                            s.victimsCount += 8;
+                            s.wealth += 60000;
+                            return { log: '【利用急迫】對私貸申請者實施二刷詐騙，狂攬資金！', status: '買入私貸名單' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'retired_teachers_leads',
+                title: 'Telegram 退休教職員高額清單',
+                minWealth: 35000,
+                desc: '透過 Telegram 頻道購入一份本地退休教職員清單，手握巨額退休金且警覺性極低。',
+                options: [
+                    {
+                        text: '購入退休教職員清單實施龐氏洗腦',
+                        cost: 35000,
+                        effect: s => {
+                            s.wealth -= 35000;
+                            s.victimsCount += 10;
+                            s.wealth += 110000;
+                            s.happiness = Math.max(0, s.happiness - 10);
+                            return { log: '【收割退休金】對退休教師實施龐氏洗腦，獲利豐厚！', status: '收割退休金' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'sim_card_destroy',
+                title: '深水埗後巷太空卡斷線',
+                desc: '警方似乎追查到了你近期使用的通訊線路，需要立即切斷痕跡。',
+                options: [
+                    {
+                        text: '拔出舊太空卡丟進深水埗後巷垃圾桶，換上新卡',
+                        cost: 2000,
+                        effect: s => {
+                            s.wealth -= 2000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 8);
+                            return { log: '【後巷剪卡】銷毀舊太空卡，警方的追查頓時陷入死胡同！', status: '後巷剪卡' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'prepaid_card_buy',
+                title: '報攤現金預付卡避追查',
+                desc: '走走停停繞過數個監視器死角，在報攤用現金買下幾張未實名登記的太空卡。',
+                options: [
+                    {
+                        text: '現金購入預付卡並徹底註銷舊帳號',
+                        cost: 5000,
+                        effect: s => {
+                            s.wealth -= 5000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 12);
+                            return { log: '【報攤買卡】現金購入無實名預付卡，警察追蹤線索中斷。', status: '報攤買卡' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'fps_puppet_account',
+                title: '地下洗錢集團 FPS 傀儡戶口',
+                minWealth: 40000,
+                desc: '向地下洗錢集團租用一個層層轉帳的本地 FPS 傀儡戶口，進行多重分流。',
+                options: [
+                    {
+                        text: '支付租金接通 FPS 傀儡戶口',
+                        cost: 40000,
+                        effect: s => {
+                            s.wealth -= 40000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 18);
+                            return { log: '【FPS傀儡戶】經多重 FPS 傀儡戶口洗白，穿上安全防火衣！', status: 'FPS傀儡戶' };
+                        }
+                    }
+                ]
             }
         ];
 
-        // RESTORED COMPLETE 22 LATE-GAME UNDERGROUND EVENTS POOL
+        /* -------------------------------------------------------------------------
+         * COMPLETE LATE LIFE EVENTS (25 UNDERGROUND EVENTS)
+         * ------------------------------------------------------------------------- */
         const LATE_EVENTS = [
             {
+                id: 'say_my_name',
                 title: 'Say My Name 品牌崛起',
                 desc: '你的詐騙帝國在全球地下網絡聲名大噪，同行紛紛效仿你的犯罪腳本。',
                 options: [
@@ -1299,6 +1482,7 @@
                 ]
             },
             {
+                id: 'top_lawyer_team',
                 title: '頂級律師團隊登場',
                 minWealth: 200000,
                 desc: '一位專門為黑產辯護的頂級資深律師主動找上門，聲稱能為你打造全球離岸免責屏障。',
@@ -1322,6 +1506,72 @@
                 ]
             },
             {
+                id: 'threads_fired_executive',
+                title: 'Threads 被裁員金融主管',
+                desc: '搜尋「被裁員」標籤，鎖定了一位剛失去金融業高薪工作的行銷主管，迫切想證明價值。',
+                options: [
+                    {
+                        text: '拋出高報酬合夥邀請，踩中對方的焦慮',
+                        effect: s => {
+                            s.victimsCount += 1;
+                            s.wealth += 80000;
+                            return { log: '【焦慮陷阱】利用失業主管的焦慮，誘騙其投入數十萬積蓄！', status: '誘騙失業主管' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'fine_dining_show',
+                title: '高檔餐廳的內幕電話演秀',
+                minWealth: 50000,
+                desc: '邀請大額目標到高檔餐廳用餐，期間特意接到一通預先安排好的「內幕交易高層電話」。',
+                options: [
+                    {
+                        text: '安排高級演秀讓對方對你的顯赫背景信以為真',
+                        cost: 20000,
+                        effect: s => {
+                            s.wealth -= 20000;
+                            s.wealth += 120000;
+                            return { log: '【內幕演秀】昂貴的實體演秀讓目標信以為真，傾囊投入資金！', status: '內幕電話演秀' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'reset_phone_ocean',
+                title: '二手手機重置與剪卡拋海',
+                desc: '科技罪案調查科似乎鎖定了近期的機房手機 MAC 地址，環境安全威脅增加。',
+                options: [
+                    {
+                        text: '將作案二手手機重置，並將 SIM 卡剪碎扔進大海',
+                        cost: 10000,
+                        effect: s => {
+                            s.wealth -= 10000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 15);
+                            return { log: '【剪卡拋海】將 SIM 卡剪碎拋入大海，警方數位追蹤線索驟斷！', status: '剪卡拋海' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'foreign_fps_network',
+                title: '外籍勞工轉數快分流網絡',
+                minWealth: 80000,
+                desc: '高價買下幾名外籍勞工的轉數快帳戶與銀行提款卡，構建出複雜的分流洗錢網絡。',
+                options: [
+                    {
+                        text: '建立外勞轉數快分流鏈條',
+                        cost: 80000,
+                        effect: s => {
+                            s.wealth -= 80000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 25);
+                            return { log: '【外勞分流】建立外勞轉數快洗錢網絡，穿上厚厚的防火衣！', status: '外勞分流網絡' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'three_years_informant',
                 title: '三年又三年',
                 minWealth: 150000,
                 desc: '警署內線秘密向你發送加密訊息：「高層又調來新的專案小組，我頂唔住了，隨時會查到你身上！」',
@@ -1345,6 +1595,7 @@
                 ]
             },
             {
+                id: 'blood_letter_curse',
                 title: '受害者的詛咒血書',
                 desc: '機房門口深夜被人貼上一封沾滿血跡的信，一名老人在傾家蕩產後寫下絕命書痛斥你的罪行。',
                 options: [
@@ -1368,6 +1619,7 @@
                 ]
             },
             {
+                id: 'darknet_hacker_extortion',
                 title: '暗網黑客的高額勒索',
                 minWealth: 100000,
                 desc: '暗網知名黑客攻破了你的客戶資料庫，要求在 24 小時內支付加密貨幣贖金，否則公開向反詐中心舉報。',
@@ -1388,18 +1640,11 @@
                             s.policeHeat = Math.max(0, s.policeHeat - 15);
                             return { log: '【招安黑客】將黑客攬入麾下，防護網大增，關注度下降！', status: '招安黑客' };
                         }
-                    },
-                    {
-                        text: '硬撕破臉，直接熔毀數據伺服器',
-                        effect: s => {
-                            s.wealth = Math.max(0, s.wealth - 50000);
-                            s.policeHeat = Math.min(100, s.policeHeat + 10);
-                            return { log: '【銷毀伺服器】強行熔毀數據，業務受損且關注度上升。', status: '熔毀伺服器' };
-                        }
                     }
                 ]
             },
             {
+                id: 'undercover_confession',
                 title: '臥底警察的最後告白',
                 desc: '跟隨你多年的骨幹手下深夜約你在海邊見面，掏出警員證：「哥，我係臥底。聽我一句勸，自首吧...」',
                 options: [
@@ -1425,8 +1670,9 @@
                 ]
             },
             {
+                id: 'brother_anti_scam',
                 title: '親弟加入反詐專案組',
-                desc: '家族親弟在大學畢業後高調考入警方反詐特別行動組，並在新聞發佈會上記者面前宣誓要掃平所有網路詐騙。',
+                desc: '家族親弟在大學畢業後高調考入警方反詐特別行動組，宣誓要掃平所有網路詐騙。',
                 options: [
                     {
                         text: '匿名捐款給其專案組並摸清警方底牌',
@@ -1448,12 +1694,13 @@
                 ]
             },
             {
+                id: 'crypto_bull_run',
                 title: '加密貨幣牛市狂歡',
                 minWealth: 200000,
                 desc: '全球加密貨幣迎來歷史級超大牛市，你手頭清洗儲備的虛擬資產價值一夜暴漲！',
                 options: [
                     {
-                        text: '果斷全部套現為瑞士銀行實體法幣',
+                        text: '果斷全部套現為實體法幣',
                         effect: s => {
                             s.wealth += 300000;
                             return { log: '【牛市套現】將加密貨幣高位套現，獲利 $300,000 實體資產！', status: '牛市套現' };
@@ -1474,6 +1721,7 @@
                 ]
             },
             {
+                id: 'subordinate_treason',
                 title: '高層幹部帶槍叛逃',
                 desc: '機房最信任的運營總監偷走了一套核心客戶名單與一把槍，意圖在鄰國自立門戶。',
                 options: [
@@ -1496,6 +1744,7 @@
                 ]
             },
             {
+                id: 'ai_voice_scam_backfire',
                 title: '反遭 AI 克隆語音騙走資金',
                 minWealth: 70000,
                 desc: '暗網同行用你自己的 AI 克隆語音騙過了你的財務主管，將機房賬戶上的資金轉走。',
@@ -1519,6 +1768,7 @@
                 ]
             },
             {
+                id: 'ex_alimony_threat',
                 title: '前妻/前女友的巨額贍養費威脅',
                 minWealth: 200000,
                 desc: '前女友無意中發現了你的海外加密貨幣帳戶，威脅若不支付巨額補償，就向稅務局舉報。',
@@ -1543,6 +1793,7 @@
                 ]
             },
             {
+                id: 'youtuber_undercover',
                 title: '網紅 YouTuber 深入園區偷拍',
                 desc: '一名百萬網紅 YouTuber 喬裝求職者潛入你的機房進行暗訪偷拍，影片即將上傳網絡。',
                 options: [
@@ -1566,6 +1817,7 @@
                 ]
             },
             {
+                id: 'dying_tycoon_scam',
                 title: '重病富豪求醫心切',
                 minWealth: 500000,
                 desc: '身患絕症的海外地產富豪尋求暗網黑市幹細胞治療，你的手下問要不要對其進行「終極詐騙」。',
@@ -1587,6 +1839,7 @@
                 ]
             },
             {
+                id: 'offshore_bank_regulation',
                 title: '離岸銀行法規大改組',
                 minWealth: 300000,
                 desc: '開曼群島與瑞士離岸銀行突發審查，要求實名認證，大量無主黑金面臨凍結。',
@@ -1610,6 +1863,7 @@
                 ]
             },
             {
+                id: 'charity_gala',
                 title: '慈善晚宴上的洗白機會',
                 minWealth: 250000,
                 desc: '頂級國際慈善基金會邀請你作為神秘大額企業家贊助晚宴，有機會大幅洗白社會聲譽。',
@@ -1634,6 +1888,7 @@
                 ]
             },
             {
+                id: 'crew_strike',
                 title: '手下心靈崩潰集體罷工',
                 desc: '機房 50 名電話接線員因日夜高壓與道德煎熬集體崩潰，鎖在宿舍拒絕接聽電話。',
                 options: [
@@ -1658,6 +1913,7 @@
                 ]
             },
             {
+                id: 'red_notice',
                 title: '國際刑警發布紅通令',
                 minWealth: 400000,
                 desc: '國際刑警組織對你的海外假身份發布了紅色通緝令，多個跨國機場已部署面部識別。',
@@ -1670,19 +1926,11 @@
                             s.policeHeat = Math.max(0, s.policeHeat - 35);
                             return { log: '【外交護照】購入外交護照解鎖全新身份，關注度狂降 35%！', status: '外交護照' };
                         }
-                    },
-                    {
-                        text: '啟動假死逃脫計劃',
-                        cost: 150000,
-                        effect: s => {
-                            s.wealth -= 150000;
-                            s.policeHeat = Math.max(0, s.policeHeat - 20);
-                            return { log: '【假死隱匿】製造偽造意外假死，成功抹去部分追查。', status: '假死隱匿' };
-                        }
                     }
                 ]
             },
             {
+                id: 'typhoon_destroy_base',
                 title: '暴風雨摧毀海外機房',
                 desc: '超強熱帶氣旋正面吹襲你的東南亞海外機房，衛星天線與電力網絡全毀。',
                 options: [
@@ -1704,11 +1952,12 @@
                 ]
             },
             {
+                id: 'victim_family_revenge',
                 title: '受害長者兒女上門尋仇',
                 desc: '一位受害長者的兒子持刀衝進你在尖沙咀地產開的傀儡辦公室，瘋狂砸毀設備。',
                 options: [
                     {
-                        text: '賠償私下補償金私下和解',
+                        text: '賠償補償金私下和解',
                         cost: 70000,
                         effect: s => {
                             s.wealth -= 70000;
@@ -1726,6 +1975,7 @@
                 ]
             },
             {
+                id: 'darknet_auction_data',
                 title: '暗網拍賣國家級民政數據',
                 minWealth: 300000,
                 desc: '黑客組織在暗網公開拍賣 5,000,000 條極高質量的完整公民個資與資產紀錄。',
@@ -1748,6 +1998,7 @@
                 ]
             },
             {
+                id: 'dying_father_last_request',
                 title: '臨終父親的最後請求',
                 desc: '病危的父親在公立醫院ICU病房想見你最後一面，但便衣警員正在醫院周圍巡邏。',
                 options: [
@@ -1774,28 +2025,117 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * HELPER FUNCTIONS
+         * ROMANCE & RELATIONSHIP EVENTS
+         * ------------------------------------------------------------------------- */
+        const SINGLE_ROMANCE_EVENTS = [
+            {
+                id: 'bar_encounter',
+                title: '蘭桂坊深夜酒吧邂逅',
+                minWealth: 3000,
+                desc: '在蘭桂坊高級酒吧喝洋酒，一位打扮時尚漂亮的女孩 Chloe 坐在你旁邊，主動與你攀談。',
+                options: [
+                    {
+                        text: '請喝高檔香檳，展現黑產大佬風采',
+                        cost: 3000,
+                        effect: s => {
+                            s.singleEncounterRejections = 0;
+                            s.wealth -= 3000;
+                            setPartner('Chloe', 75, 'dating');
+                            s.happiness = Math.min(100, s.happiness + 20);
+                            return { log: '【浪漫邂逅】花費 $3,000 請香檳，成功與 Chloe 確立戀愛關係！', status: '確立戀愛' };
+                        }
+                    },
+                    {
+                        text: '保持單身，拒絕攀談（不談感情）',
+                        effect: s => {
+                            s.singleEncounterRejections = (s.singleEncounterRejections || 0) + 1;
+                            let achMsg = '';
+                            if (s.singleEncounterRejections >= 3 && !s.noMoreRomanceEvents) {
+                                s.noMoreRomanceEvents = true;
+                                unlockAchievement('single_forever');
+                                achMsg = ' 🏆【成就解鎖：單身一世】（不再觸發單身邂逅事件）';
+                            }
+                            return { log: '【保持單身】拒絕了 Chloe 的攀談，專注於黑產事業。' + achMsg, status: '保持單身' };
+                        }
+                    }
+                ]
+            },
+            {
+                id: 'luxury_shop_encounter',
+                title: '奢侈品名店 VIP 導購邂逅',
+                minWealth: 15000,
+                desc: '你在尖沙咀名店用黑錢購買手袋時，甜美親切的 VIP 導購 雅婷 貼心地為你服務，並留下了個人電話。',
+                options: [
+                    {
+                        text: '購買名牌手袋作為見面禮送給雅婷',
+                        cost: 15000,
+                        effect: s => {
+                            s.singleEncounterRejections = 0;
+                            s.wealth -= 15000;
+                            setPartner('雅婷', 85, 'dating');
+                            s.happiness = Math.min(100, s.happiness + 25);
+                            return { log: '【豪氣追女】贈送 $15,000 名牌手袋，成功擄獲 雅婷 的芳心！', status: '擄獲芳心' };
+                        }
+                    },
+                    {
+                        text: '保持單身，不談感情',
+                        effect: s => {
+                            s.singleEncounterRejections = (s.singleEncounterRejections || 0) + 1;
+                            let achMsg = '';
+                            if (s.singleEncounterRejections >= 3 && !s.noMoreRomanceEvents) {
+                                s.noMoreRomanceEvents = true;
+                                unlockAchievement('single_forever');
+                                achMsg = ' 🏆【成就解鎖：單身一世】（不再觸發單身邂逅事件）';
+                            }
+                            return { log: '【保持單身】純粹買手袋洗錢，拒絕感情深入。' + achMsg, status: '保持單身' };
+                        }
+                    }
+                ]
+            }
+        ];
+
+        const RELATIONSHIP_EVENTS = [
+            {
+                id: 'partner_hermes_bag',
+                title: '吵著要最新款愛馬仕名牌手袋',
+                minWealth: 30000,
+                desc: '你的伴侶在社交平台上看到閨蜜炫耀手袋，撒嬌要求你買一個 Hermes 手袋送她。',
+                options: [
+                    {
+                        text: '毫不猶豫爽快付款購買手袋',
+                        cost: 30000,
+                        effect: s => {
+                            s.wealth -= 30000;
+                            updatePartnerRel(+20);
+                            s.happiness = Math.min(100, s.happiness + 10);
+                            return { log: `【揮金如土】花費 $30,000 購買手袋，${s.partnerState.name} 喜出望外！`, status: '買袋安撫' };
+                        }
+                    },
+                    {
+                        text: '冷漠拒絕：「錢唔係咁花嘅！」',
+                        effect: s => {
+                            updatePartnerRel(-25);
+                            return { log: `【冷漠拒絕】拒絕購買手袋，${s.partnerState.name} 跟你冷戰一整週。`, status: '陷入冷戰' };
+                        }
+                    }
+                ]
+            }
+        ];
+
+        /* -------------------------------------------------------------------------
+         * HELPER & AUDIO FUNCTIONS
          * ------------------------------------------------------------------------- */
         function safeLucideIcons() {
             try {
-                if (window.lucide && typeof lucide.createIcons === 'function') {
-                    lucide.createIcons();
-                }
+                if (window.lucide && typeof lucide.createIcons === 'function') lucide.createIcons();
             } catch (e) {}
-        }
-
-        function initApp() {
-            safeLucideIcons();
-            updateHUD();
         }
 
         function toggleSound() {
             state.soundEnabled = !state.soundEnabled;
             const btn = document.getElementById('sound-btn');
             if (btn) {
-                btn.innerHTML = state.soundEnabled
-                    ? `<i data-lucide="volume-2" class="w-4 h-4"></i>`
-                    : `<i data-lucide="volume-x" class="w-4 h-4 text-slate-500"></i>`;
+                btn.innerHTML = state.soundEnabled ? `<i data-lucide="volume-2" class="w-4 h-4"></i>` : `<i data-lucide="volume-x" class="w-4 h-4"></i>`;
             }
             safeLucideIcons();
         }
@@ -1810,19 +2150,17 @@
                 gain.connect(ctx.destination);
 
                 if (type === 'click') {
-                    osc.frequency.setValueAtTime(440, ctx.currentTime);
-                    gain.gain.setValueAtTime(0.05, ctx.currentTime);
-                    osc.start();
-                    osc.stop(ctx.currentTime + 0.05);
-                } else if (type === 'upgrade') {
-                    osc.frequency.setValueAtTime(587.33, ctx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.15);
+                    osc.frequency.setValueAtTime(400, ctx.currentTime);
                     gain.gain.setValueAtTime(0.1, ctx.currentTime);
                     osc.start();
-                    osc.stop(ctx.currentTime + 0.15);
+                    osc.stop(ctx.currentTime + 0.05);
                 } else if (type === 'event') {
+                    osc.frequency.setValueAtTime(600, ctx.currentTime);
+                    gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.15);
+                } else if (type === 'upgrade') {
                     osc.frequency.setValueAtTime(300, ctx.currentTime);
-                    osc.frequency.linearRampToValueAtTime(150, ctx.currentTime + 0.2);
                     gain.gain.setValueAtTime(0.15, ctx.currentTime);
                     osc.start();
                     osc.stop(ctx.currentTime + 0.2);
@@ -1833,13 +2171,6 @@
                     gain.gain.setValueAtTime(0.2, ctx.currentTime);
                     osc.start();
                     osc.stop(ctx.currentTime + 0.5);
-                } else if (type === 'fakedeath') {
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(523.25, ctx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(1046.50, ctx.currentTime + 0.3);
-                    gain.gain.setValueAtTime(0.15, ctx.currentTime);
-                    osc.start();
-                    osc.stop(ctx.currentTime + 0.3);
                 }
             } catch (e) {}
         }
@@ -1861,8 +2192,52 @@
             }
         }
 
-        function triggerLifeStageEvent() {
-            return false;
+        function unlockAchievement(achKey) {
+            if (!state.achievements) state.achievements = [];
+            if (!state.achievements.includes(achKey) && ACHIEVEMENTS[achKey]) {
+                state.achievements.push(achKey);
+                addLog(`【成就解鎖】獲取成就：${ACHIEVEMENTS[achKey].name}！`, 'good');
+            }
+        }
+
+        function checkRuntimeAchievements() {
+            if (state.wealth >= 1000000) unlockAchievement('first_million');
+            if (state.wealth >= 50000000) unlockAchievement('super_rich');
+            if (state.victimsCount >= 1000) unlockAchievement('thousand_victims');
+            if (state.age >= 60) unlockAchievement('veteran_60');
+            if (state.purchasedUpgrades.includes('mansion') || state.purchasedUpgrades.includes('yacht') || state.purchasedUpgrades.includes('private_island')) {
+                unlockAchievement('hedonist');
+            }
+            if (state.tacticStreakMonths >= 36) unlockAchievement('tactic_master');
+        }
+
+        function canTriggerEvent(evt) {
+            if (!evt) return false;
+            const currentTotalMonths = state.age * 12 + state.month;
+            const key = evt.id || evt.title;
+
+            if (key === 'legit_job') {
+                if (state.legitJobTriggered || state.classKey === 'rich_kid') return false;
+            }
+
+            if (state.eventCooldowns && state.eventCooldowns[key]) {
+                if (currentTotalMonths - state.eventCooldowns[key] < 24) {
+                    return false;
+                }
+            }
+
+            if (evt.minWealth !== undefined && state.wealth < evt.minWealth) {
+                return false;
+            }
+
+            return true;
+        }
+
+        function recordEventCooldown(evt) {
+            if (!evt) return;
+            const key = evt.id || evt.title;
+            if (!state.eventCooldowns) state.eventCooldowns = {};
+            state.eventCooldowns[key] = state.age * 12 + state.month;
         }
 
         /* -------------------------------------------------------------------------
@@ -1875,7 +2250,14 @@
                 state.age += 1;
             }
 
-            // GUARANTEED CLASS-EXCLUSIVE EVENTS CHECK
+            checkRuntimeAchievements();
+
+            if (Math.random() < 0.10 && AMBIENT_STORIES.length > 0) {
+                const randomStory = AMBIENT_STORIES[Math.floor(Math.random() * AMBIENT_STORIES.length)];
+                addLog(randomStory, 'good');
+            }
+
+            // GUARANTEED CLASS EXCLUSIVE EVENTS CHECK
             if (state.age === 21 && state.month === 12) {
                 if (state.classKey === 'james' && !state.jamesCallTriggered) {
                     state.jamesCallTriggered = true;
@@ -1952,12 +2334,9 @@
                 return;
             }
 
-            // NORMAL TICK MATH
+            // TACTIC CALCULATIONS
             state.tacticStreakMonths = (state.tacticStreakMonths || 0) + 1;
             const streakYears = Math.floor(state.tacticStreakMonths / 12);
-            if (state.month === 1 && streakYears > 0 && streakYears <= 5) {
-                addLog(`【渠道專精】主要渠道「${TACTICS[state.activeTacticKey].name}」營運滿 ${streakYears} 年，熟練度提升成功率 +10%！`, 'good');
-            }
 
             const activeTactic = TACTICS[state.activeTacticKey] || TACTICS.phone;
             const activeHaven = HAVENS[state.activeHavenKey] || HAVENS.overtime;
@@ -1966,106 +2345,74 @@
             const hardshipMult = isNovicePhase ? 0.2 : 1.0;
 
             let maxIncome = activeTactic.maxMonthlyWealth * hardshipMult;
-            if (state.classKey === 'hooligan' && (state.activeTacticKey === 'phone' || state.activeTacticKey === 'phishing')) {
-                maxIncome *= 1.30;
-            } else if (state.classKey === 'it_dog' && (state.activeTacticKey === 'phishing' || state.activeTacticKey === 'crypto' || state.activeTacticKey === 'ai_deepfake')) {
-                maxIncome *= 1.35;
-            } else if (state.classKey === 'broker' && (state.activeTacticKey === 'romance' || state.activeTacticKey === 'mlm' || state.activeTacticKey === 'quantum')) {
-                maxIncome *= 1.40;
-            }
-
             const currentSuccessRate = Math.min(0.95, activeTactic.baseSuccess + (streakYears * 0.10));
-            let monthWealth = 0;
+
             if (Math.random() < currentSuccessRate) {
-                monthWealth = Math.floor(Math.random() * maxIncome);
-                const newVictims = Math.floor(Math.random() * 3) + 1;
-                state.victimsCount += newVictims;
+                const monthWealth = Math.floor(Math.random() * maxIncome);
+                state.wealth += monthWealth;
+                state.victimsCount += Math.floor(Math.random() * 3) + 1;
             }
 
-            monthWealth -= activeHaven.monthlyCost;
-            state.wealth += monthWealth;
-
-            let heatIncrease = activeTactic.monthlyHeat * (Math.random() * 0.8 + 0.2);
-            if (state.classKey === 'it_dog') heatIncrease *= 0.80;
-            if (state.purchasedUpgrades.includes('political_umbrella')) heatIncrease *= 0.60;
-
-            let netHeatDelta = heatIncrease + activeHaven.monthlyHeatDelta;
-
-            if (state.policeHeat >= 85 && state.purchasedUpgrades.includes('disk_melter') && netHeatDelta > 0) {
-                netHeatDelta *= 0.25;
-            }
-
-            state.policeHeat = Math.max(0, Math.min(100, state.policeHeat + netHeatDelta));
-
-            let happinessDecay = activeTactic.happinessDecay;
-            if (state.classKey === 'broker') happinessDecay *= 0.75;
-            if (state.purchasedUpgrades.includes('charity_whitewash')) happinessDecay *= 0.70;
-            if (state.mansionDecayBonus) happinessDecay *= 0.85;
-
+            state.wealth -= activeHaven.monthlyCost;
+            state.policeHeat = Math.max(0, Math.min(100, state.policeHeat + activeTactic.monthlyHeat + activeHaven.monthlyHeatDelta));
             state.health = Math.max(0, state.health - 0.15);
-            state.happiness = Math.max(0, state.happiness - happinessDecay);
-
-            if (activeHaven.happinessBoost) {
-                state.happiness = Math.min(100, state.happiness + activeHaven.happinessBoost);
-            }
-
-            state.concurrentScammers = Math.floor(2200 + Math.random() * 600);
+            state.happiness = Math.max(0, state.happiness - activeTactic.happinessDecay + (activeHaven.happinessBoost || 0));
 
             if (checkGameOverConditions()) return;
 
+            // Health crisis triggers with 24-month cooldown check
             if (state.health < 55 && Math.random() < 0.15 && !state.modalOpen) {
-                const healthEvt = HEALTH_EVENTS[Math.floor(Math.random() * HEALTH_EVENTS.length)];
-                triggerSuddenEventModal(healthEvt);
-                updateHUD();
-                return;
+                const validHealthEvents = HEALTH_EVENTS.filter(e => canTriggerEvent(e));
+                if (validHealthEvents.length > 0) {
+                    const healthEvt = validHealthEvents[Math.floor(Math.random() * validHealthEvents.length)];
+                    triggerSuddenEventModal(healthEvt);
+                    updateHUD();
+                    return;
+                }
             }
 
-            if (Math.random() < 0.07 && !state.modalOpen) {
+            // General random event trigger with cooldown filter
+            if (Math.random() < 0.08 && !state.modalOpen) {
                 triggerSuddenEventModal();
             }
 
             updateHUD();
         }
 
-        /* -------------------------------------------------------------------------
-         * GAME OVER CONDITIONS & TIER EVALUATION
-         * ------------------------------------------------------------------------- */
         function checkGameOverConditions() {
             if (state.wealth < 0) {
                 triggerGameOver('資不抵債負債破產', '此遊戲不設借貸，不是吧，你連做詐騙都要負債？');
                 return true;
             }
-
             if (state.age >= 60) {
                 triggerGameOver('60 歲金盆洗手結算', '你成功苟活至 60 歲，黑道生涯正式宣告終結。');
                 return true;
             }
-
             if (state.policeHeat >= 100) {
                 if (state.classKey === 'james' && !state.fakeDeathUsed) {
                     state.fakeDeathUsed = true;
                     state.policeHeat = 30;
-                    playSound('fakedeath');
+                    unlockAchievement('fake_escape');
                     addLog('【天賦觸發】占士「假死金蟬脫殼」！警方關注度重置至 30%！', 'good');
                     return false;
                 }
                 triggerGameOver('國際刑警聯合攻堅逮捕', '警方特別行動小組攻破機房，你被開槍制服並判處無期徒刑。');
                 return true;
             }
-
             if (state.health <= 0) {
                 triggerGameOver('你個心已經撕裂咗（物理上）', '長期過度壓抑與暴飲暴食，你在機房辦公桌前心臟病發猝死。');
                 return true;
             }
-
             if (state.happiness <= 0) {
                 triggerGameOver('你個心已經撕裂咗啦', '無數受害者的面孔在噩夢中浮現，你在狂躁與妄想中徹底精神崩潰。');
                 return true;
             }
-
             return false;
         }
 
+        /* -------------------------------------------------------------------------
+         * GAME OVER & MULTI-ENDING EVALUATION
+         * ------------------------------------------------------------------------- */
         function triggerGameOver(title, desc) {
             state.isGameOver = true;
             state.isPlaying = false;
@@ -2090,7 +2437,7 @@
                 ratingDesc = '你果斷斬斷黑產鏈條，退還了所有非法財產，回到正行做一名踏實的打工仔。雖然沒有暴富，但每一個夜晚你都能睡得安穩香甜。';
             } else if (title.includes('繼承家產')) {
                 rating = 'EX 級 (繼承家產)';
-                ratingDesc = '冇計，同人唔同命，有些人天生就是不會被放棄。';
+                ratingDesc = '冇計，同人唔同命，有些人天生就是不會被放棄。你洗心革面踏入警隊，晚年接手家族豪門生意。';
             } else if (state.wealth < 0) {
                 rating = 'F 級 (負債破產)';
                 ratingDesc = '此遊戲不設借貸，不是吧，你連做詐騙都要負債？';
@@ -2105,31 +2452,31 @@
                 ratingDesc = '受害者的詛咒化為噩夢，你在極度疑神疑鬼中發狂，餘生只能在精神醫院渡過。';
             } else if (state.happiness < 15) {
                 rating = 'D 級 (幻覺纏身)';
-                ratingDesc = '雖然你無事走向終點，但路上一點也不平安。你害過的人、騙過的人就像冤魂一樣纏在你的身上，你逃不掉，只能拿着你騙回來的錢，一疊疊供給精神科醫生⋯⋯';
-            } else if (state.partnerState.active && state.partnerState.hasThirdParty && state.partnerState.relationship < 50) {
+                ratingDesc = '雖然你無事走向終點，但路上一點也不平安。你害過的人、騙過的人就像冤魂一樣纏在你的身上，你只能拿着你騙回來的錢供給精神科醫生⋯⋯';
+            } else if (state.partnerState.active && state.partnerState.relationship < 50) {
                 rating = 'EX 級 (大婆追殺結局)';
-                ratingDesc = '你在外包養小三惹怒了大婆。60 歲大壽那天，妻子動用你留在家中的加密黑錢僱用地下清道夫並向警方舉報！你在大壽晚宴上被槍擊並被扣上手銬，血濺當場！';
+                ratingDesc = '你在外惹怒了大婆。60 歲大壽那天，妻子動用你留在家中的加密黑錢僱用地下清道夫並向警方舉報，血濺當場！';
             } else if (state.hardOnSubordinatesCount >= 3) {
                 rating = 'E 級 (手下背叛結局)';
-                ratingDesc = '多年來你對手下極其刻薄高壓。手下決定在你 60 大壽時起你尾注，將你綁架並轉走所有海外私鑰。倒在血泊中的你臨終時最後一個想法是：「我應該對兄弟好一點的⋯⋯」';
+                ratingDesc = '多年來你對手下極其刻薄高壓。手下決定在你 60 大壽時起你尾注，將你綁架並轉走所有海外私鑰！';
             } else if (state.familyDarkChoicesCount >= 3 && state.wealth >= 2000000) {
                 rating = 'S- 級 (因果報應：骨肉相殘)';
-                ratingDesc = '你靠詐騙積攢了數千萬，給子女最頂級的物質生活。但在你 60 歲大壽那天，你發現你的親生子女偽造了你的簽名，將你海外加密資產全部轉走並飛往南美。留信道：「爸，呢啲係你教我嘅，殘酷社會，適者生存。」';
+                ratingDesc = '你靠詐騙積攢了數千萬。但在你 60 歲大壽那天，你發現親生子女偽造簽名將你海外資產全部轉走並飛往南美！';
             } else if ((state.hasUmbrella || state.purchasedUpgrades.includes('political_umbrella')) && state.policeHeat >= 60) {
                 rating = 'A- 級 (政治黑吃黑：人肉提款機)';
-                ratingDesc = '你以為買通高官軍閥就能保一世平安。到了 60 歲，國際刑警壓力大增，你的政商保護傘決定把你當成最後的人肉提款機，榨乾你最後一分錢後，深夜押你上黑幕車移交國際法庭！';
+                ratingDesc = '到了 60 歲，你的政商保護傘決定把你當成最後的人肉提款機，榨乾你最後一分錢後移交國際法庭！';
             } else if ((state.hasCharity || state.purchasedUpgrades.includes('charity_whitewash')) && state.policeHeat < 20 && state.wealth >= 5000000) {
                 rating = 'EX 級 (洗白大亨：慈善偽君子)';
-                ratingDesc = '你成功將數以億計的黑錢洗得乾乾淨淨，晚年搖身一變成為知名企業家與慈善基金會主席，獲頒榮譽博士學位。沒有人知道你基金會背後每一分錢都沾滿受害者的血淚。';
+                ratingDesc = '你成功將數以億計的黑錢洗得乾乾淨淨，晚年搖身一變成為知名企業家與慈善基金會主席，獲頒榮譽博士學位。';
             } else if (state.callousFamilyChoices >= 3 && state.happiness >= 30) {
                 rating = 'B- 級 (眾叛親離：孤獨終老)';
-                ratingDesc = '你為了錢切斷了所有親情與友情，妻離子散，老父臨終也沒見上一面。60 歲那一晚，你坐在 10,000 呎半山豪宅裡，桌上擺著萬元洋酒，但手機通訊錄裡沒有一個人祝你生日快樂。';
+                ratingDesc = '你為了錢切斷了所有親情與友情，妻離子散。60 歲那一晚，坐在 10,000 呎半山豪宅裡，通訊錄裡沒有一個人祝你生日快樂。';
             } else if ((state.activeTacticKey === 'crypto' || state.activeTacticKey === 'quantum') && !state.purchasedUpgrades.includes('mansion') && !state.purchasedUpgrades.includes('yacht') && !state.purchasedUpgrades.includes('private_island')) {
                 rating = 'C- 級 (數字泡影：空歡喜)';
-                ratingDesc = '你幾十年來狂攬虛擬貨幣與龐氏資金，一直沈溺於賬面上冰冷的數字，從未轉化為實體資產。60 歲前夕，離岸交易所創辦人捲款潛逃，你幾十年的「億萬身家」在 3 秒鐘內歸零。';
+                ratingDesc = '幾十年來沈溺於賬面上冰冷的數字。60 歲前夕離岸交易所創辦人捲款潛逃，你的「億萬身家」在 3 秒鐘內歸零。';
             } else if (state.wealth < 200000 && state.policeHeat < 40) {
                 rating = 'C 級 (老油條賊仔：寄生綜援)';
-                ratingDesc = '你呃咗幾十年但膽小怕死，一有風吹草動就停工避風頭，結果一世都做唔大。60 歲依然住劏房，靠騙取長者津貼渡日，成為黑道同行茶餘飯後的笑話。';
+                ratingDesc = '你呃咗幾十年但膽小怕死，一有風吹草動就停工避風頭。60 歲依然住劏房，成為黑道同行茶餘飯後的笑話。';
             } else if (state.wealth >= 50000000) {
                 rating = 'S 級 (世紀大梟雄)';
                 ratingDesc = '全地球幾百萬人因你傾家蕩產，你喺外國私人島嶼飲住香檳睇世界新聞。雖然你良心早就喂咗狗，但至少你富可敵國。';
@@ -2150,113 +2497,18 @@
 
             if (ratingEl) ratingEl.innerText = rating;
             if (ratingDescEl) ratingDescEl.innerText = ratingDesc;
-            if (evalEl) evalEl.innerText = `主角名字: ${state.playerName}\n身份: ${CLASSES[state.classKey].name}\n解鎖進化與奢侈品: ${state.purchasedUpgrades.length} 項\n\n${desc}`;
+
+            let achHTML = `\n\n🏆 解鎖成就 (${state.achievements.length}/${Object.keys(ACHIEVEMENTS).length}):\n` + 
+                state.achievements.map(key => `${ACHIEVEMENTS[key].icon} ${ACHIEVEMENTS[key].name}: ${ACHIEVEMENTS[key].desc}`).join('\n');
+
+            if (evalEl) evalEl.innerText = `主角名字: ${state.playerName}\n身份: ${CLASSES[state.classKey].name}\n解鎖進化與奢侈品: ${state.purchasedUpgrades.length} 項\n\n${desc}${achHTML}`;
             
             const summaryModal = document.getElementById('summary-modal');
             if (summaryModal) summaryModal.classList.remove('hidden');
         }
 
         /* -------------------------------------------------------------------------
-         * ROMANCE EVENTS DATABASE (BLIND CHOICE OPTIONS)
-         * ------------------------------------------------------------------------- */
-        const SINGLE_ROMANCE_EVENTS = [
-            {
-                title: '蘭桂坊深夜酒吧邂逅',
-                minWealth: 3000,
-                desc: '在蘭桂坊高級酒吧喝洋酒，一位打扮時尚漂亮的女孩 Chloe 坐在你旁邊，主動與你攀談。',
-                options: [
-                    {
-                        text: '請喝高檔香檳，展現黑產大佬風采',
-                        cost: 3000,
-                        effect: s => {
-                            s.singleEncounterRejections = 0;
-                            s.wealth -= 3000;
-                            setPartner('Chloe', 75, 'dating');
-                            s.happiness = Math.min(100, s.happiness + 20);
-                            return { log: '【浪漫邂逅】花費 $3,000 請香檳，成功與 Chloe 確立戀愛關係！', status: '確立戀愛' };
-                        }
-                    },
-                    {
-                        text: '保持單身，拒絕攀談（不談感情）',
-                        effect: s => {
-                            s.singleEncounterRejections = (s.singleEncounterRejections || 0) + 1;
-                            let achMsg = '';
-                            if (s.singleEncounterRejections >= 3 && !s.noMoreRomanceEvents) {
-                                s.noMoreRomanceEvents = true;
-                                if (!s.achievements.includes('單身一世')) {
-                                    s.achievements.push('單身一世');
-                                    achMsg = ' 🏆【成就解鎖：單身一世】（不再觸發單身邂逅事件）';
-                                }
-                            }
-                            return { log: '【保持單身】拒絕了 Chloe 的攀談，專注於黑產事業。' + achMsg, status: '保持單身' };
-                        }
-                    }
-                ]
-            },
-            {
-                title: '奢侈品名店 VIP 導購邂逅',
-                minWealth: 15000,
-                desc: '你在尖沙咀名店用黑錢購買手袋時，甜美親切的 VIP 導購 雅婷 貼心地為你服務，並留下了個人電話。',
-                options: [
-                    {
-                        text: '購買名牌手袋作為見面禮送給雅婷',
-                        cost: 15000,
-                        effect: s => {
-                            s.singleEncounterRejections = 0;
-                            s.wealth -= 15000;
-                            setPartner('雅婷', 85, 'dating');
-                            s.happiness = Math.min(100, s.happiness + 25);
-                            return { log: '【豪氣追女】贈送 $15,000 名牌手袋，成功擄獲 雅婷 的芳心！', status: '擄獲芳心' };
-                        }
-                    },
-                    {
-                        text: '保持單身，不談感情',
-                        effect: s => {
-                            s.singleEncounterRejections = (s.singleEncounterRejections || 0) + 1;
-                            let achMsg = '';
-                            if (s.singleEncounterRejections >= 3 && !s.noMoreRomanceEvents) {
-                                s.noMoreRomanceEvents = true;
-                                if (!s.achievements.includes('單身一世')) {
-                                    s.achievements.push('單身一世');
-                                    achMsg = ' 🏆【成就解鎖：單身一世】（不再觸發單身邂逅事件）';
-                                }
-                            }
-                            return { log: '【保持單身】純粹買手袋洗錢，拒絕感情深入。' + achMsg, status: '保持單身' };
-                        }
-                    }
-                ]
-            }
-        ];
-
-        const RELATIONSHIP_EVENTS = [
-            {
-                title: '吵著要最新款愛馬仕名牌手袋',
-                minWealth: 30000,
-                desc: '你的伴侶在社交平台上看到閨蜜炫耀手袋，撒嬌要求你買一個 Hermes 手袋送她。',
-                options: [
-                    {
-                        text: '毫不猶豫爽快付款購買手袋',
-                        cost: 30000,
-                        effect: s => {
-                            s.wealth -= 30000;
-                            updatePartnerRel(+20);
-                            s.happiness = Math.min(100, s.happiness + 10);
-                            return { log: `【揮金如土】花費 $30,000 購買手袋，${s.partnerState.name} 喜出望外！`, status: '買袋安撫' };
-                        }
-                    },
-                    {
-                        text: '冷漠拒絕：「錢唔係咁花嘅！」',
-                        effect: s => {
-                            updatePartnerRel(-25);
-                            return { log: `【冷漠拒絕】拒絕購買手袋，${s.partnerState.name} 跟你冷戰一整週。`, status: '陷入冷戰' };
-                        }
-                    }
-                ]
-            }
-        ];
-
-        /* -------------------------------------------------------------------------
-         * POP-UP EVENT HANDLER (BLIND CHOICE RENDERING & COOLDOWN FILTER)
+         * POP-UP EVENT HANDLER
          * ------------------------------------------------------------------------- */
         function triggerSuddenEventModal(customEvent) {
             let evt = customEvent;
@@ -2264,35 +2516,24 @@
             if (!evt) {
                 let pool = [];
                 if (state.age < 30) {
-                    pool = EARLY_EVENTS.filter(e => {
-                        if (e.id === 'legit_job' && (state.classKey === 'rich_kid' || state.legitJobTriggered)) return false;
-                        return true;
-                    });
+                    pool = EARLY_EVENTS.filter(e => canTriggerEvent(e));
                 } else {
-                    pool = [...LATE_EVENTS];
+                    pool = LATE_EVENTS.filter(e => canTriggerEvent(e));
                 }
 
                 if (!state.partnerState.active && !state.noMoreRomanceEvents) {
-                    pool = pool.concat(SINGLE_ROMANCE_EVENTS);
+                    pool = pool.concat(SINGLE_ROMANCE_EVENTS.filter(e => canTriggerEvent(e)));
                 } else if (state.partnerState.active) {
-                    pool = pool.concat(RELATIONSHIP_EVENTS);
+                    pool = pool.concat(RELATIONSHIP_EVENTS.filter(e => canTriggerEvent(e)));
                 }
-
-                const currentTotalMonths = state.age * 12 + state.month;
-
-                pool = pool.filter(e => {
-                    const lastTriggered = (state.eventCooldowns && state.eventCooldowns[e.title]) || -999;
-                    if ((currentTotalMonths - lastTriggered) < 24) return false;
-                    if (e.minWealth !== undefined && state.wealth < e.minWealth) return false;
-                    return true;
-                });
 
                 if (!pool || pool.length === 0) return;
                 evt = pool[Math.floor(Math.random() * pool.length)];
+            } else {
+                if (!canTriggerEvent(evt)) return;
             }
 
-            if (!state.eventCooldowns) state.eventCooldowns = {};
-            state.eventCooldowns[evt.title] = state.age * 12 + state.month;
+            recordEventCooldown(evt);
 
             const dodgeBanner = document.getElementById('rich-kid-dodge-banner');
             if (dodgeBanner) {
@@ -2304,11 +2545,9 @@
                 }
             }
 
-            const categoryTag = (state.age < 30) ? '🌱 人生起步' : '⚡ 突發江湖事件';
-
             showEventModal({
                 age: `${state.age} 歲`,
-                category: categoryTag,
+                category: (state.age < 30) ? '🌱 人生起步' : '⚡ 突發江湖抉擇',
                 title: evt.title,
                 desc: evt.desc,
                 options: evt.options
@@ -2334,20 +2573,21 @@
             if (!optsContainer) return;
             optsContainer.innerHTML = '';
 
-            if (data.options && Array.isArray(data.options)) {
-                data.options.forEach((opt) => {
+            if (data.options && data.options.length > 0) {
+                data.options.forEach((opt, idx) => {
                     const canAfford = !opt.cost || state.wealth >= opt.cost;
                     const btn = document.createElement('button');
-                    btn.className = `w-full text-left p-3.5 rounded-2xl border transition-all text-xs flex flex-col gap-1 group ${
-                        canAfford 
-                            ? 'bg-slate-950 hover:bg-slate-800 border-slate-800 hover:border-amber-500/50 cursor-pointer' 
-                            : 'bg-slate-950/50 border-slate-900 opacity-50 cursor-not-allowed'
+
+                    btn.className = `w-full p-3 rounded-2xl text-left border transition-all text-xs flex flex-col gap-1 ${
+                        canAfford
+                            ? 'bg-slate-950 hover:bg-slate-800 border-slate-700 text-slate-100 hover:border-amber-500 active:scale-[0.99] cursor-pointer'
+                            : 'bg-slate-950/50 border-slate-800 text-slate-500 cursor-not-allowed opacity-60'
                     }`;
 
                     btn.innerHTML = `
-                        <div class="font-bold ${canAfford ? 'text-amber-400 group-hover:text-amber-300' : 'text-slate-500'} flex items-center gap-2">
-                            <span>👉</span>
-                            <span>${opt.text} ${!canAfford ? `<span class="text-red-400 text-[10px]">(資金不足 $${opt.cost.toLocaleString()})</span>` : ''}</span>
+                        <div class="font-bold text-white flex items-center justify-between">
+                            <span>${idx + 1}. ${opt.text}</span>
+                            ${opt.cost ? `<span class="text-[10px] font-mono font-bold ${canAfford ? 'text-amber-400' : 'text-red-400'}">門檻: $${opt.cost.toLocaleString()}</span>` : ''}
                         </div>
                     `;
 
@@ -2402,16 +2642,11 @@
             const sHeat = document.getElementById('stat-heat');
             const sHealth = document.getElementById('stat-health');
             const sHappiness = document.getElementById('stat-happiness');
-            const mWealth = document.getElementById('header-mobile-wealth');
-            const mHeat = document.getElementById('header-mobile-heat');
 
             if (sWealth) sWealth.innerText = '$' + state.wealth.toLocaleString();
             if (sHeat) sHeat.innerText = state.policeHeat.toFixed(1) + '%';
             if (sHealth) sHealth.innerText = state.health.toFixed(1) + '%';
             if (sHappiness) sHappiness.innerText = state.happiness.toFixed(1) + '%';
-
-            if (mWealth) mWealth.innerText = '$' + state.wealth.toLocaleString();
-            if (mHeat) mHeat.innerText = state.policeHeat.toFixed(1) + '%';
 
             const bWealth = document.getElementById('bar-wealth');
             const bHeat = document.getElementById('bar-heat');
@@ -2423,39 +2658,32 @@
             if (bHealth) bHealth.style.width = state.health + '%';
             if (bHappiness) bHappiness.style.width = state.happiness + '%';
 
-            const heatContainer = document.getElementById('container-heat-bar');
-            if (heatContainer) {
-                if (state.policeHeat > 75) heatContainer.classList.add('animate-siren-pulse');
-                else heatContainer.classList.remove('animate-siren-pulse');
-            }
-
             const activeTactic = TACTICS[state.activeTacticKey] || TACTICS.phone;
-            const upgCount = document.getElementById('unlocked-upgrades-count');
-            if (upgCount) upgCount.innerText = `${state.purchasedUpgrades.length} 項`;
-
             const heroIcon = document.getElementById('channel-hero-icon');
             const heroTitle = document.getElementById('channel-hero-title');
+            const liveIncome = document.getElementById('live-income-txt');
+            const upgradesCount = document.getElementById('unlocked-upgrades-count');
 
             if (heroIcon) heroIcon.innerText = activeTactic.icon;
             if (heroTitle) heroTitle.innerText = activeTactic.name;
+            if (liveIncome) liveIncome.innerText = `月淨預估: $0 ~ $${(activeTactic.maxMonthlyWealth * (state.age < 22 ? 0.2 : 1.0)).toLocaleString()}`;
+            if (upgradesCount) upgradesCount.innerText = `${state.purchasedUpgrades.length} 項`;
 
-            const isNovicePhase = (state.age === 20 || state.age === 21);
-            const hardshipMult = isNovicePhase ? 0.2 : 1.0;
+            const mWealth = document.getElementById('header-mobile-wealth');
+            const mHeat = document.getElementById('header-mobile-heat');
+            if (mWealth) mWealth.innerText = '$' + state.wealth.toLocaleString();
+            if (mHeat) mHeat.innerText = state.policeHeat.toFixed(1) + '%';
 
-            const lInc = document.getElementById('live-income-txt');
-            if (lInc) lInc.innerText = `月淨預估: $0 ~ $${Math.round(activeTactic.maxMonthlyWealth * hardshipMult).toLocaleString()}`;
+            const scammerAlias = document.getElementById('scammer-alias');
+            const classBadge = document.getElementById('header-class-badge');
+            const pTitle = document.getElementById('passive-title');
+            const pDesc = document.getElementById('passive-desc');
+            const currentClass = CLASSES[state.classKey] || CLASSES.hooligan;
 
-            let rank = '街頭老千 (Level 1)';
-            if (state.wealth >= 50000000) rank = '世紀大梟雄 (Level 5)';
-            else if (state.wealth >= 10000000) rank = '園區霸主 (Level 4)';
-            else if (state.wealth >= 1000000) rank = '暗網金主 (Level 3)';
-            else if (state.wealth >= 100000) rank = '資深操盤手 (Level 2)';
-
-            const rBadge = document.getElementById('rank-badge');
-            if (rBadge) rBadge.innerText = rank;
-
-            const lCount = document.getElementById('log-count');
-            if (lCount) lCount.innerText = `${state.logs.length} 筆`;
+            if (scammerAlias) scammerAlias.innerText = `${state.playerName} (${state.alias || '鬼見愁'})`;
+            if (classBadge) classBadge.innerHTML = `<span>${currentClass.avatar}</span> ${currentClass.name}`;
+            if (pTitle) pTitle.innerText = currentClass.passiveTitle;
+            if (pDesc) pDesc.innerText = currentClass.passiveDesc;
         }
 
         function addLog(msg, type) {
@@ -2496,12 +2724,10 @@
             if (s2) s2.classList.add('hidden');
             if (s3) s3.classList.add('hidden');
 
-            if (step === 1 && s1) {
-                s1.classList.remove('hidden');
-            } else if (step === 2 && s2) {
+            if (step === 1 && s1) s1.classList.remove('hidden');
+            else if (step === 2 && s2) {
                 const input = document.getElementById('player-name-input');
-                const nameInput = input ? input.value.trim() : '阿傑';
-                state.playerName = nameInput || '阿傑';
+                state.playerName = input ? input.value.trim() || '阿傑' : '阿傑';
                 s2.classList.remove('hidden');
             } else if (step === 3 && s3) {
                 s3.classList.remove('hidden');
@@ -2520,9 +2746,7 @@
 
                 const card = document.createElement('div');
                 card.className = `p-3.5 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between ${
-                    isSelected
-                        ? 'bg-amber-950/80 border-amber-500 shadow-lg shadow-amber-500/20'
-                        : 'bg-slate-950 border-slate-800 hover:border-slate-700'
+                    isSelected ? 'bg-amber-950/80 border-amber-500 shadow-lg shadow-amber-500/20' : 'bg-slate-950 border-slate-800 hover:border-slate-700'
                 }`;
 
                 card.innerHTML = `
@@ -2541,10 +2765,6 @@
                         </div>
                         <p class="text-[11px] text-slate-400 leading-relaxed mb-3">${cls.desc}</p>
                     </div>
-                    <div class="bg-slate-900/80 p-2 rounded-xl border border-slate-800 text-[10px]">
-                        <span class="font-bold text-amber-400">${cls.passiveTitle}:</span>
-                        <span class="text-slate-300"> ${cls.passiveDesc}</span>
-                    </div>
                 `;
 
                 card.onclick = () => {
@@ -2561,31 +2781,16 @@
             playSound('upgrade');
 
             if (state.classKey === 'random') {
-                const actualKeys = ['hooligan', 'rich_kid', 'it_dog', 'broker', 'james'];
-                state.classKey = actualKeys[Math.floor(Math.random() * actualKeys.length)];
+                const keys = ['hooligan', 'rich_kid', 'it_dog', 'broker', 'james'];
+                state.classKey = keys[Math.floor(Math.random() * keys.length)];
             }
 
             const cls = CLASSES[state.classKey] || CLASSES.hooligan;
-
             state.wealth = cls.initWealth;
             state.policeHeat = cls.initHeat;
             state.health = cls.initHealth;
             state.happiness = cls.initHappiness;
-            state.activeHavenKey = 'overtime';
-            state.activeTacticKey = 'phone';
-            state.tacticStreakMonths = 0;
-
-            const aliasEl = document.getElementById('scammer-alias');
-            const avatarEl = document.getElementById('avatar-box');
-            const badgeEl = document.getElementById('header-class-badge');
-            const passTitleEl = document.getElementById('passive-title');
-            const passDescEl = document.getElementById('passive-desc');
-
-            if (aliasEl) aliasEl.innerText = `${state.playerName} (${cls.title})`;
-            if (avatarEl) avatarEl.innerText = cls.avatar;
-            if (badgeEl) badgeEl.innerHTML = `<span>${cls.avatar}</span> ${cls.name}`;
-            if (passTitleEl) passTitleEl.innerText = cls.passiveTitle;
-            if (passDescEl) passDescEl.innerText = cls.passiveDesc;
+            state.eventCooldowns = {};
 
             const onboardModal = document.getElementById('onboarding-modal');
             if (onboardModal) onboardModal.classList.add('hidden');
@@ -2593,8 +2798,7 @@
             state.modalOpen = false;
             state.isPlaying = true;
 
-            addLog(`【黑化起源】${state.playerName} 帶著身份「${cls.name}」踏入黑道，資金 $${cls.initWealth.toLocaleString()}！`, 'good');
-
+            addLog(`【黑化起源】${state.playerName} 帶著身份「${cls.name}」踏入黑道！`, 'good');
             startTickEngine();
             updateHUD();
         }
@@ -2607,11 +2811,7 @@
             state.isPlaying = false;
             state.modalOpen = true;
 
-            const wealthEl = document.getElementById('modal-available-wealth');
-            if (wealthEl) wealthEl.innerText = '$' + state.wealth.toLocaleString();
-
-            renderStrategyModalContent();
-
+            switchEvoTab(state.activeEvoTab || 'tab-channels');
             const modal = document.getElementById('strategy-modal');
             if (modal) modal.classList.remove('hidden');
         }
@@ -2620,11 +2820,8 @@
             playSound('click');
             const modal = document.getElementById('strategy-modal');
             if (modal) modal.classList.add('hidden');
-
             state.modalOpen = false;
-            if (!state.isGameOver) {
-                state.isPlaying = true;
-            }
+            if (!state.isGameOver) state.isPlaying = true;
         }
 
         function confirmStrategyModal() {
@@ -2634,24 +2831,99 @@
 
         function switchEvoTab(tabId) {
             playSound('click');
-            state.activeEvoTab = tabId;
+            state.activeEvoTab = tabId || 'tab-channels';
 
-            const tabs = ['tab-channels', 'tab-transmission', 'tab-psychological', 'tab-abilities', 'tab-luxuries', 'tab-havens'];
-            tabs.forEach(t => {
-                const btn = document.getElementById('btn-' + t);
-                const content = document.getElementById(t);
-                if (btn && content) {
-                    if (t === tabId) {
-                        btn.className = 'px-3 py-1.5 rounded-xl transition-all flex items-center gap-1 bg-amber-500 text-black whitespace-nowrap cursor-pointer font-bold';
-                        content.classList.remove('hidden');
+            const panels = ['tab-channels', 'tab-transmission', 'tab-psychological', 'tab-abilities', 'tab-luxuries', 'tab-havens'];
+            panels.forEach(id => {
+                const p = document.getElementById(id);
+                if (p) {
+                    if (id === state.activeEvoTab) p.classList.remove('hidden');
+                    else p.classList.add('hidden');
+                }
+            });
+
+            const btnMap = {
+                'tab-channels': 'btn-tab-channels',
+                'tab-transmission': 'btn-tab-transmission',
+                'tab-psychological': 'btn-tab-psychological',
+                'tab-abilities': 'btn-tab-abilities',
+                'tab-luxuries': 'btn-tab-luxuries',
+                'tab-havens': 'btn-tab-havens'
+            };
+
+            Object.keys(btnMap).forEach(key => {
+                const btn = document.getElementById(btnMap[key]);
+                if (btn) {
+                    if (key === state.activeEvoTab) {
+                        btn.className = "px-3 py-1.5 rounded-xl transition-all flex items-center gap-1 bg-amber-500 text-black font-bold whitespace-nowrap cursor-pointer";
                     } else {
-                        btn.className = 'px-3 py-1.5 rounded-xl transition-all flex items-center gap-1 bg-slate-800 text-slate-400 hover:text-slate-200 whitespace-nowrap cursor-pointer';
-                        content.classList.add('hidden');
+                        btn.className = "px-3 py-1.5 rounded-xl transition-all flex items-center gap-1 bg-slate-800 text-slate-400 hover:text-slate-200 whitespace-nowrap cursor-pointer";
                     }
                 }
             });
 
             renderStrategyModalContent();
+        }
+
+        function selectTactic(key) {
+            const tac = TACTICS[key];
+            if (!tac) return;
+            if (state.wealth < (tac.minWealth || 0)) return;
+
+            if (state.activeTacticKey !== key) {
+                state.activeTacticKey = key;
+                state.tacticStreakMonths = 0;
+                playSound('click');
+                addLog(`【轉換策略】將主要詐騙管道切換為「${tac.name}」！`, 'good');
+            }
+            renderStrategyModalContent();
+            updateHUD();
+        }
+
+        function selectHaven(key) {
+            const hvn = HAVENS[key];
+            if (!hvn) return;
+
+            if (state.activeHavenKey !== key) {
+                state.activeHavenKey = key;
+                playSound('click');
+                addLog(`【運營姿態】切換避風港操作為「${hvn.name}」！`, 'good');
+            }
+            renderStrategyModalContent();
+            updateHUD();
+        }
+
+        function buyUpgrade(upgradeId) {
+            const upg = UPGRADES.find(u => u.id === upgradeId);
+            if (!upg) return;
+
+            const isPurchased = state.purchasedUpgrades.includes(upg.id);
+            if (isPurchased && !upg.repeatable) return;
+
+            if (state.wealth < upg.cost) return;
+
+            state.wealth -= upg.cost;
+            if (!upg.repeatable) {
+                state.purchasedUpgrades.push(upg.id);
+            }
+
+            if (upg.happinessBonus) {
+                state.happiness = Math.min(100, state.happiness + upg.happinessBonus);
+            }
+            if (upg.healthBonus) {
+                state.health = Math.min(100, state.health + upg.healthBonus);
+            }
+            if (upg.heatReduce) {
+                state.policeHeat = Math.max(0, state.policeHeat - upg.heatReduce);
+            }
+            if (upg.mansionBonus) {
+                state.mansionDecayBonus = true;
+            }
+
+            playSound('upgrade');
+            addLog(`【解鎖/享樂】購入「${upg.name}」！`, 'good');
+            renderStrategyModalContent();
+            updateHUD();
         }
 
         function renderStrategyModalContent() {
@@ -2667,89 +2939,68 @@
                     const isUnlocked = state.wealth >= (tac.minWealth || 0);
 
                     const item = document.createElement('div');
-                    item.className = `p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${
-                        isActive
-                            ? 'bg-amber-950/80 border-amber-500 shadow-lg shadow-amber-500/20'
-                            : isUnlocked
-                                ? 'bg-slate-950 border-slate-800 hover:border-slate-700 cursor-pointer'
-                                : 'bg-slate-950/50 border-slate-900 opacity-50 cursor-not-allowed'
+                    item.className = `p-3.5 rounded-2xl border transition-all ${
+                        isActive ? 'bg-amber-950/80 border-amber-500 shadow-md shadow-amber-500/20' : 
+                        isUnlocked ? 'bg-slate-950 border-slate-800 hover:border-slate-700 cursor-pointer' : 
+                        'bg-slate-950/50 border-slate-900 opacity-50 cursor-not-allowed'
                     }`;
-
                     item.innerHTML = `
-                        <div>
-                            <div class="flex items-center justify-between mb-1.5">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-2xl">${tac.icon}</span>
-                                    <h4 class="text-xs font-bold ${isUnlocked ? 'text-white' : 'text-slate-500'}">${tac.name}</h4>
-                                </div>
-                                ${isActive ? '<span class="text-[10px] px-2 py-0.5 rounded bg-amber-500 text-black font-bold">使用中</span>' : ''}
-                                ${!isUnlocked ? `<span class="text-[10px] px-2 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800 font-mono">🔒 需 $${tac.minWealth.toLocaleString()}</span>` : ''}
-                            </div>
-                            <p class="text-[11px] text-slate-400 leading-relaxed mb-2">${tac.desc}</p>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-xs font-bold text-white flex items-center gap-1.5">${tac.icon} ${tac.name}</span>
+                            ${isActive ? '<span class="text-[10px] px-2 py-0.5 rounded bg-amber-500 text-black font-bold">當前主攻</span>' : ''}
+                            ${!isUnlocked ? `<span class="text-[10px] px-2 py-0.5 rounded bg-red-950 text-red-400 border border-red-800">🔒 需 $${tac.minWealth.toLocaleString()}</span>` : ''}
                         </div>
-                        <div class="grid grid-cols-3 gap-1 text-[10px] font-mono border-t border-slate-800/80 pt-2 text-center">
-                            <span class="${isUnlocked ? 'text-amber-400' : 'text-slate-500'}">最高$${tac.maxMonthlyWealth}/月</span>
-                            <span class="${isUnlocked ? 'text-emerald-400' : 'text-slate-500'}">成功率 ${Math.round(tac.baseSuccess * 100)}%</span>
-                            <span class="${isUnlocked ? 'text-red-400' : 'text-slate-500'}">+${tac.monthlyHeat}%/月</span>
+                        <p class="text-[11px] text-slate-400 leading-relaxed mb-2">${tac.desc}</p>
+                        <div class="flex items-center justify-between text-[10px] font-mono text-slate-500 border-t border-slate-800/80 pt-1.5">
+                            <span>基礎成功率: ${(tac.baseSuccess * 100).toFixed(0)}%</span>
+                            <span>關注度: +${tac.monthlyHeat}%/月</span>
                         </div>
                     `;
-
-                    if (isUnlocked) {
-                        item.onclick = () => {
-                            playSound('click');
-                            if (state.activeTacticKey !== key) {
-                                state.tacticStreakMonths = 0;
-                            }
-                            state.activeTacticKey = key;
-                            renderStrategyModalContent();
-                        };
+                    if (isUnlocked && !isActive) {
+                        item.onclick = () => selectTactic(key);
                     }
-
                     tacticsGrid.appendChild(item);
                 });
             }
 
-            ['transmission', 'psychological', 'abilities', 'luxuries'].forEach(cat => {
-                const grid = document.getElementById(`upgrades-${cat}-grid`);
+            const renderUpgradeCategory = (containerId, category) => {
+                const grid = document.getElementById(containerId);
                 if (!grid) return;
                 grid.innerHTML = '';
 
-                const categoryUpgrades = UPGRADES.filter(u => u.category === cat);
-                categoryUpgrades.forEach(upg => {
-                    const isBought = state.purchasedUpgrades.includes(upg.id);
+                const catUpgrades = UPGRADES.filter(u => u.category === category);
+                catUpgrades.forEach(upg => {
+                    const isPurchased = state.purchasedUpgrades.includes(upg.id);
                     const canAfford = state.wealth >= upg.cost;
 
-                    const item = document.createElement('div');
-                    item.className = `p-3 rounded-2xl border flex flex-col justify-between transition-all ${
-                        isBought
-                            ? 'bg-emerald-950/40 border-emerald-800/80'
-                            : canAfford
-                                ? 'bg-slate-950 border-slate-800 hover:border-amber-500/50'
-                                : 'bg-slate-950/50 border-slate-900 opacity-60'
+                    const card = document.createElement('div');
+                    card.className = `p-3.5 rounded-2xl border transition-all ${
+                        isPurchased && !upg.repeatable ? 'bg-emerald-950/40 border-emerald-800/80 opacity-80' :
+                        canAfford ? 'bg-slate-950 border-slate-800 hover:border-slate-700 cursor-pointer' :
+                        'bg-slate-950/50 border-slate-900 opacity-50 cursor-not-allowed'
                     }`;
 
-                    item.innerHTML = `
-                        <div>
-                            <div class="flex items-center justify-between mb-1">
-                                <h4 class="text-xs font-bold ${isBought ? 'text-emerald-400' : 'text-white'}">${upg.name}</h4>
-                                <span class="text-xs font-mono font-bold ${isBought ? 'text-emerald-400' : 'text-amber-400'}">$${upg.cost.toLocaleString()}</span>
-                            </div>
-                            <p class="text-[10px] text-slate-400 leading-relaxed mb-2.5">${upg.desc}</p>
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-xs font-bold text-white">${upg.name}</span>
+                            <span class="text-[11px] font-mono font-bold ${isPurchased && !upg.repeatable ? 'text-emerald-400' : canAfford ? 'text-amber-400' : 'text-red-400'}">
+                                ${isPurchased && !upg.repeatable ? '已擁有' : '$' + upg.cost.toLocaleString()}
+                            </span>
                         </div>
-                        <button onclick="buyUpgrade('${upg.id}')" ${isBought && !upg.repeatable ? 'disabled' : ''} class="w-full py-1.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
-                            isBought && !upg.repeatable
-                                ? 'bg-emerald-950 text-emerald-500 border border-emerald-800/50'
-                                : canAfford
-                                    ? 'bg-amber-500 hover:bg-amber-400 text-black active:scale-95 shadow-md shadow-amber-500/20'
-                                    : 'bg-slate-800 text-slate-500 cursor-not-allowed'
-                        }">
-                            ${isBought && !upg.repeatable ? '✓ 已解鎖' : canAfford ? '解鎖 / 購買' : '資金不足'}
-                        </button>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">${upg.desc}</p>
                     `;
 
-                    grid.appendChild(item);
+                    if ((!isPurchased || upg.repeatable) && canAfford) {
+                        card.onclick = () => buyUpgrade(upg.id);
+                    }
+                    grid.appendChild(card);
                 });
-            });
+            };
+
+            renderUpgradeCategory('upgrades-transmission-grid', 'transmission');
+            renderUpgradeCategory('upgrades-psychological-grid', 'psychological');
+            renderUpgradeCategory('upgrades-abilities-grid', 'abilities');
+            renderUpgradeCategory('upgrades-luxuries-grid', 'luxuries');
 
             const havensGrid = document.getElementById('strategy-havens-grid');
             if (havensGrid) {
@@ -2758,94 +3009,43 @@
                     const hvn = HAVENS[key];
                     const isActive = state.activeHavenKey === key;
 
-                    const item = document.createElement('div');
-                    item.className = `p-3.5 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between ${
-                        isActive ? 'bg-purple-950/80 border-purple-500 shadow-lg shadow-purple-500/20' : 'bg-slate-950 border-slate-800 hover:border-slate-700'
+                    const card = document.createElement('div');
+                    card.className = `p-3.5 rounded-2xl border transition-all cursor-pointer ${
+                        isActive ? 'bg-rose-950/80 border-rose-500 shadow-md shadow-rose-500/20' : 'bg-slate-950 border-slate-800 hover:border-slate-700'
                     }`;
 
-                    item.innerHTML = `
-                        <div>
-                            <div class="flex items-center justify-between mb-1.5">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-2xl">${hvn.icon}</span>
-                                    <h4 class="text-xs font-bold text-white">${hvn.name}</h4>
-                                </div>
-                                ${isActive ? '<span class="text-[10px] px-2 py-0.5 rounded bg-purple-500 text-black font-bold">運營中</span>' : ''}
-                            </div>
-                            <p class="text-[11px] text-slate-400 leading-relaxed mb-2">${hvn.desc}</p>
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-xs font-bold text-white flex items-center gap-1.5">${hvn.icon} ${hvn.name}</span>
+                            ${isActive ? '<span class="text-[10px] px-2 py-0.5 rounded bg-rose-500 text-black font-bold">運行中</span>' : ''}
                         </div>
-                        <div class="text-[10px] font-mono border-t border-slate-800/80 pt-2 flex justify-between text-slate-300">
-                            <span>月維護費: $${hvn.monthlyCost.toLocaleString()}</span>
-                            <span class="${hvn.monthlyHeatDelta < 0 ? 'text-emerald-400' : 'text-slate-400'}">關注度: ${hvn.monthlyHeatDelta}%/月</span>
+                        <p class="text-[11px] text-slate-400 leading-relaxed mb-2">${hvn.desc}</p>
+                        <div class="flex items-center justify-between text-[10px] font-mono text-slate-500 border-t border-slate-800/80 pt-1.5">
+                            <span>維護費: $${hvn.monthlyCost.toLocaleString()}/月</span>
+                            <span class="${hvn.monthlyHeatDelta < 0 ? 'text-emerald-400' : 'text-slate-400'}">關注度: ${hvn.monthlyHeatDelta > 0 ? '+' : ''}${hvn.monthlyHeatDelta}%/月</span>
                         </div>
                     `;
 
-                    item.onclick = () => {
-                        playSound('click');
-                        state.activeHavenKey = key;
-                        renderStrategyModalContent();
-                    };
-
-                    havensGrid.appendChild(item);
+                    card.onclick = () => selectHaven(key);
+                    havensGrid.appendChild(card);
                 });
             }
         }
 
-        function buyUpgrade(upgId) {
-            const upg = UPGRADES.find(u => u.id === upgId);
-            if (!upg) return;
-
-            if (state.wealth >= upg.cost) {
-                state.wealth -= upg.cost;
-                playSound('upgrade');
-
-                if (!state.purchasedUpgrades.includes(upg.id) && !upg.repeatable) {
-                    state.purchasedUpgrades.push(upg.id);
-                }
-
-                if (upg.happinessBonus) {
-                    state.happiness = Math.min(100, state.happiness + upg.happinessBonus);
-                }
-                if (upg.healthBonus) {
-                    state.health = Math.min(100, state.health + upg.healthBonus);
-                }
-                if (upg.mansionBonus) {
-                    state.mansionDecayBonus = true;
-                }
-                if (upg.heatReduce) {
-                    state.policeHeat = Math.max(0, state.policeHeat - upg.heatReduce);
-                }
-
-                addLog(`【解鎖進化/奢侈品】解鎖了「${upg.name}」，耗資 $${upg.cost.toLocaleString()}！`, 'good');
-                renderStrategyModalContent();
-                updateHUD();
-            }
-        }
-
         /* -------------------------------------------------------------------------
-         * TIME CONTROL CONTROLLERS
+         * PLAY / PAUSE & ENGINE CONTROLS
          * ------------------------------------------------------------------------- */
         function togglePlayPause() {
             playSound('click');
             state.isPlaying = !state.isPlaying;
             const btn = document.getElementById('btn-toggle-play');
-
-            if (btn) {
-                if (state.isPlaying) {
-                    btn.innerHTML = `<i id="icon-play-pause" data-lucide="pause" class="w-4 h-4"></i>`;
-                } else {
-                    btn.innerHTML = `<i id="icon-play-pause" data-lucide="play" class="w-4 h-4"></i>`;
-                }
-            }
+            if (btn) btn.innerHTML = state.isPlaying ? `<i data-lucide="pause" class="w-4 h-4"></i>` : `<i data-lucide="play" class="w-4 h-4"></i>`;
             safeLucideIcons();
         }
 
         function toggleSpeed() {
             playSound('click');
-            if (state.speed === 1) state.speed = 2;
-            else if (state.speed === 2) state.speed = 5;
-            else state.speed = 1;
-
+            state.speed = (state.speed === 1) ? 2 : (state.speed === 2) ? 5 : 1;
             const speedBtn = document.getElementById('btn-speed');
             if (speedBtn) speedBtn.innerText = state.speed + 'x';
             startTickEngine();
@@ -2853,13 +3053,9 @@
 
         function startTickEngine() {
             if (state.gameInterval) clearInterval(state.gameInterval);
-            const intervalMs = 1200 / state.speed;
-
             state.gameInterval = setInterval(() => {
-                if (state.isPlaying && !state.modalOpen && !state.isGameOver) {
-                    tickMonth();
-                }
-            }, intervalMs);
+                if (state.isPlaying && !state.modalOpen && !state.isGameOver) tickMonth();
+            }, 1200 / state.speed);
         }
 
         function restartGame() {
@@ -2878,49 +3074,19 @@
             state.happiness = 80;
             state.activeTacticKey = 'phone';
             state.activeHavenKey = 'overtime';
-            state.tacticStreakMonths = 0;
             state.purchasedUpgrades = [];
             state.logs = [];
+            state.eventCooldowns = {};
+            state.legitJobTriggered = false;
             state.isGameOver = false;
-            state.fakeDeathUsed = false;
-            state.richKidShieldUsed = false;
             state.isPlaying = false;
             state.modalOpen = true;
-            state.mansionDecayBonus = false;
 
-            state.achievements = [];
-            state.singleEncounterRejections = 0;
-            state.noMoreRomanceEvents = false;
-            state.eventCooldowns = {};
+            goToOnboardingStep(1);
+        }
 
-            state.legitJobTriggered = false;
-            state.jamesCallTriggered = false;
-            state.jamesTsuiWahTriggered = false;
-            state.hooliganEvent1Triggered = false;
-            state.hooliganEvent2Triggered = false;
-            state.richKidEvent1Triggered = false;
-            state.richKidEvent2Triggered = false;
-            state.itDogEvent1Triggered = false;
-            state.itDogEvent2Triggered = false;
-            state.itDogCrowdfundingJoined = false;
-            state.itDogBetrayalTriggered = false;
-            state.brokerEvent1Triggered = false;
-            state.brokerEvent2Triggered = false;
-
-            state.partnerState = {
-                active: false,
-                name: '',
-                relationship: 0,
-                status: 'single',
-                hasChild: false,
-                hasThirdParty: false
-            };
-            state.hardOnSubordinatesCount = 0;
-            state.familyDarkChoicesCount = 0;
-            state.callousFamilyChoices = 0;
-            state.hasUmbrella = false;
-            state.hasCharity = false;
-
+        function initApp() {
+            safeLucideIcons();
             goToOnboardingStep(1);
         }
 
