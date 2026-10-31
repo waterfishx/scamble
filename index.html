@@ -627,7 +627,7 @@
             hasUmbrella: false,
             hasCharity: false,
             
-            // New v2.1.0 Features & Systems
+            // v2.1.0 Features
             achievements: [],
             singleEncounterRejections: 0,
             noMoreRomanceEvents: false,
@@ -888,7 +888,7 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * HEALTH CRISIS EVENTS
+         * HEALTH CRISIS EVENTS (BLIND CHOICE OPTIONS)
          * ------------------------------------------------------------------------- */
         const HEALTH_EVENTS = [
             {
@@ -896,7 +896,7 @@
                 desc: '你發現自己因為壓力過大每日狂抽三包菸，肺部劇烈疼痛，醫生警告你再不戒煙離肺癌不遠了。',
                 options: [
                     {
-                        text: '零成本嘗試決心戒煙（50% 機率成功）',
+                        text: '憑藉意志力嘗決心戒煙',
                         effect: s => {
                             if (Math.random() < 0.5) {
                                 s.health = Math.min(100, s.health + 20);
@@ -908,7 +908,7 @@
                         }
                     },
                     {
-                        text: '繼續抽煙排解黑產壓力（健康 -5%，心理 +5%）',
+                        text: '繼續抽煙排解黑產壓力',
                         effect: s => {
                             s.health = Math.max(0, s.health - 5);
                             s.happiness = Math.min(100, s.happiness + 5);
@@ -923,7 +923,7 @@
                 desc: '深夜辦公時，你的胸口突然傳來陣陣劇痛，冷汗直冒，顯然是心肌缺血的嚴重警號。',
                 options: [
                     {
-                        text: '花費 $30,000 進行微創心臟手術與名醫調理',
+                        text: '聘請私人名醫安排微創手術與調理',
                         cost: 30000,
                         effect: s => {
                             s.wealth -= 30000;
@@ -943,7 +943,7 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * CLASS-EXCLUSIVE STORYLINES
+         * CLASS-EXCLUSIVE STORYLINES (BLIND CHOICE OPTIONS)
          * ------------------------------------------------------------------------- */
         
         // 1. 街頭混混
@@ -954,20 +954,20 @@
 你知道她家境一直都是那麼貧窮，可是她跟你生活在不同的世界，她始終選擇了善良。你會怎麼做？`,
             options: [
                 {
-                    text: '上前打招呼：她溫柔對待，你卻木頭般怔住，伸出的手始終握不住 (心理 -15)',
+                    text: '上前打招呼：鼓起勇氣走過去跟她說話',
                     effect: s => {
                         s.happiness = Math.max(0, s.happiness - 15);
-                        return { log: '【自慚形穢】你伸出的手僵硬在半空，握不住她乾淨的世界 (心理 -15)。', status: '上前打招呼' };
+                        return { log: '【自慚形穢】你伸出的手僵硬在半空，握不住她乾淨的世界。', status: '上前打招呼' };
                     }
                 },
                 {
-                    text: '掉頭離開：她認得出你的背影，但是沒有叫住你（無效果）',
+                    text: '掉頭離開：裝作沒看見轉身離去',
                     effect: s => {
                         return { log: '【轉身離去】你低頭快速走過，兩人在街道兩端漸行漸遠。', status: '掉頭離開' };
                     }
                 },
                 {
-                    text: '呼叫手下向她進行匿名經濟援助 ($3,000)',
+                    text: '呼叫手下向她進行匿名經濟援助',
                     cost: 3000,
                     effect: s => {
                         s.wealth -= 3000;
@@ -985,7 +985,7 @@
 對方老大傳來手下被懸空綁在天台邊緣的照片，並附上一句話：「我最鍾意啲物件响高空跌落嚟嘅感覺...」`,
             options: [
                 {
-                    text: '展開營救：親自帶隊硬闖 (金錢 -$50,000, 健康 -20%, 兄友弟恭)',
+                    text: '展開營救：親自帶隊帶同資金與人馬硬闖',
                     cost: 50000,
                     effect: s => {
                         s.wealth -= 50000;
@@ -996,7 +996,7 @@
                     }
                 },
                 {
-                    text: '置之不理：冷血割席，任由其處置 (手下刻薄 +1, 心理 -10)',
+                    text: '置之不理：冷酷割席，任由對方處置',
                     effect: s => {
                         s.hardOnSubordinatesCount += 1;
                         s.happiness = Math.max(0, s.happiness - 10);
@@ -1014,14 +1014,14 @@
 「你若還有點良心，就給我正正當當考入警隊！」`,
             options: [
                 {
-                    text: '遵從父親意願投考警察，回歸豪門家族',
+                    text: '遵從父親意願投考警察，回歸豪門正途',
                     effect: s => {
                         triggerGameOver('【EX 級特別結局】繼承家產', '冇計，同人唔同命，有些人天生就是不會被放棄。你洗心革面踏入警隊，晚年接手家族豪門生意，風光順遂。');
                         return { log: '【繼承家產】你接受了父親的安排回歸正途，解鎖 EX 結局！', status: '繼承家產' };
                     }
                 },
                 {
-                    text: '「扭著屁股離開」：向老爸豎起中指繼續黑產',
+                    text: '扭著屁股離開：向老爸豎起中指繼續黑產',
                     effect: s => {
                         s.happiness = Math.min(100, s.happiness + 10);
                         return { log: '【狂傲叛逆】你摔門而出，誓要在黑產界做出比父親更龐大的帝國！', status: '扭著屁股離開' };
@@ -1037,22 +1037,22 @@
 父親私下將一個加密冷錢包塞給你：「裡面有五百萬美金黑金私鑰，拿去逃命，別讓債主找到你...」`,
             options: [
                 {
-                    text: '動用黑產資金 $500,000 替父親還清賭債暴徒',
+                    text: '動用黑產資金替父親擺平黑道債主',
                     cost: 500000,
                     effect: s => {
                         s.wealth -= 500000;
                         s.policeHeat = Math.max(0, s.policeHeat - 15);
                         s.familyDarkChoicesCount = Math.max(0, s.familyDarkChoicesCount - 1);
-                        return { log: '【替父還債】花費 $500,000 擺平家族債主，保住了父親最後的尊嚴。', status: '替父還債' };
+                        return { log: '【替父還債】花費 $50,0000 擺平家族債主，保住了父親最後的尊嚴。', status: '替父還債' };
                     }
                 },
                 {
-                    text: '私吞私鑰逃走，任由父親遭債主逼迫 (資金 +$500,000, 家庭黑化 +1)',
+                    text: '私吞私鑰逃走，任由父親遭債主逼迫',
                     effect: s => {
                         s.wealth += 500000;
                         s.familyDarkChoicesCount += 1;
                         s.happiness = Math.max(0, s.happiness - 15);
-                        return { log: '【冷血捲款】拿走家族最後 $500,000 黑金離去，父親心灰意冷。', status: '冷血捲款' };
+                        return { log: '【冷血捲款】拿走家族最後黑金私鑰離去，父親心灰意冷。', status: '冷血捲款' };
                     }
                 }
             ]
@@ -1066,10 +1066,10 @@
 結果竟然讓中學時教你 IT 的老師遇見！老師看著你滿身名牌卻一身傷痕與疲態，眼神充滿痛心...`,
             options: [
                 {
-                    text: '含淚激動與恩師擁抱述懷 (心理平穩 +20%)',
+                    text: '含淚激動與恩師擁抱述懷',
                     effect: s => {
                         s.happiness = Math.min(100, s.happiness + 20);
-                        return { log: '【恩師述懷】恩師沒有責怪你，溫暖的擁抱讓久違的真情撫平內心傷痛 (心理 +20)。', status: '恩師擁抱' };
+                        return { log: '【恩師述懷】恩師沒有責怪你，溫暖的擁抱讓久違的真情撫平內心傷痛。', status: '恩師擁抱' };
                     }
                 }
             ]
@@ -1082,12 +1082,12 @@
 這是一個橫跨黑白兩道的巨額概念項目，你想加入嗎？`,
             options: [
                 {
-                    text: '支付 $50,000 研發資金加入合作',
+                    text: '投入資金加入合作開發',
                     cost: 50000,
                     effect: s => {
                         s.wealth -= 50000;
                         s.itDogCrowdfundingJoined = true;
-                        return { log: '【加入眾籌】投入 $50,000 合作開發 AI 虛擬女友眾籌平台。', status: '加入眾籌' };
+                        return { log: '【加入眾籌】投入資金合作開發 AI 虛擬女友眾籌平台。', status: '加入眾籌' };
                     }
                 },
                 {
@@ -1106,11 +1106,11 @@
 記住，在這個爾虞我詐的社會，騙子才是最真實的！`,
             options: [
                 {
-                    text: '默然承受巨額損失 (金錢 -$700,000)',
+                    text: '默然承受巨額損失',
                     effect: s => {
                         s.wealth -= 700000;
                         s.happiness = Math.max(0, s.happiness - 15);
-                        return { log: '【黑吃黑背叛】合作夥伴捲走 $700,000 資產潛逃，你深刻領悟了黑道真諦。', status: '慘遭背叛' };
+                        return { log: '【黑吃黑背叛】合作夥伴捲走資產潛逃，你深刻領悟了黑道真諦。', status: '慘遭背叛' };
                     }
                 }
             ]
@@ -1124,15 +1124,15 @@
 他高調拿著份毒藥商業鋪位合約向你推銷，嘲笑你一輩子只是個低端經紀。`,
             options: [
                 {
-                    text: '用反向話術陷阱誘騙他入局反詐 $50,000 (資金 +$50,000)',
+                    text: '用反向話術陷阱誘騙他入局',
                     effect: s => {
                         s.wealth += 50000;
                         s.policeHeat = Math.min(100, s.policeHeat + 5);
-                        return { log: '【經紀反殺】運用高超話術設局反呃昔日惡毒上司 $50,000！', status: '設局反殺' };
+                        return { log: '【經紀反殺】運用高超話術設局反呃昔日惡毒上司！', status: '設局反殺' };
                     }
                 },
                 {
-                    text: '拿出巨額現金支票打臉羞辱他 (心理平穩 +25%)',
+                    text: '拿出現金支票當場打臉羞辱他',
                     effect: s => {
                         s.happiness = Math.min(100, s.happiness + 25);
                         return { log: '【揮金打臉】當場砸出數十萬現金支票打臉昔日上司，心中鬱氣一掃而空！', status: '揮金打臉' };
@@ -1145,20 +1145,20 @@
             title: '昔日老客戶的臨終叩門 (經紀專屬)',
             desc: `年少時被你用話術騙光積蓄買毒藥保單的貧困老伯病重叩門。
 
-他顫抖著拿著當年你簽名的合約，哀求退還 $80,000 積蓄治病續命。`,
+他顫抖著拿著當年你簽名的合約，哀求退還積蓄治病續命。`,
             options: [
                 {
-                    text: '大發慈悲，全額私下退還 $80,000 (金錢 -$80,000, 心理 +25)',
+                    text: '大發慈悲，全額私下退還積蓄給老伯',
                     cost: 80000,
                     effect: s => {
                         s.wealth -= 80000;
                         s.happiness = Math.min(100, s.happiness + 25);
                         s.callousFamilyChoices = Math.max(0, s.callousFamilyChoices - 1);
-                        return { log: '【慈悲退款】私下退還 $80,000 給老伯治病，洗滌了心靈罪惡。', status: '全額退款' };
+                        return { log: '【慈悲退款】私下退還積蓄給老伯治病，洗滌了心靈罪惡。', status: '全額退款' };
                     }
                 },
                 {
-                    text: '叫保安粗暴將其趕走 (冷血 +1, 心理 -15)',
+                    text: '叫保安粗暴將老伯趕走',
                     effect: s => {
                         s.callousFamilyChoices += 1;
                         s.happiness = Math.max(0, s.happiness - 15);
@@ -1181,7 +1181,7 @@
                     text: '按下撥號鍵，詢問她的近況',
                     effect: s => {
                         s.happiness = Math.max(0, s.happiness - 15);
-                        return { log: '【舊情難忘】電話接通後傳來冷漠的聲音，你默默掛斷，內心一陣刺痛 (心理 -15)。', status: '撥通電話' };
+                        return { log: '【舊情難忘】電話接通後傳來冷漠的聲音，你默默掛斷，內心一陣刺痛。', status: '撥通電話' };
                     }
                 },
                 {
@@ -1202,36 +1202,36 @@
 你在前往茶餐廳的路上，竟然碰見了她！因為這些年來你外表的轉變，她現在還未認出你來，你想怎樣做？`,
             options: [
                 {
-                    text: '擦肩而過，裝作不相認（無效果）',
+                    text: '擦肩而過，裝作不相認',
                     effect: s => {
                         return { log: '【相忘江湖】你戴上墨鏡與她擦肩而過，過往雲煙一筆勾銷。', status: '擦肩而過' };
                     }
                 },
                 {
-                    text: '主動打招呼，平淡如水般正常對話（心理 +10%）',
+                    text: '主動打招呼，平淡如水般正常對話',
                     effect: s => {
                         s.happiness = Math.min(100, s.happiness + 10);
-                        return { log: '【平淡如水】你禮貌地與她寒暄幾句。她驚訝於你的成熟，你發現自己終於能坦然面對過去 (心理 +10)。', status: '正常對話' };
+                        return { log: '【平淡如水】你禮貌地與她寒暄幾句。她驚訝於你的成熟，你發現自己終於能坦然面對過去。', status: '正常對話' };
                     }
                 },
                 {
-                    text: '亮出豪車名錶，以高姿態冷嘲熱諷（心理 +30%）',
+                    text: '亮出豪車名錶，以高姿態冷嘲熱諷',
                     effect: s => {
                         s.happiness = Math.min(100, s.happiness + 30);
-                        return { log: '【虛榮報復】你按響限量超跑車鑰匙，指著身上的名牌酸她。看著她悔恨與震驚的眼神，你的陰暗虛榮心獲得極大滿足！(心理 +30)', status: '高姿態報復' };
+                        return { log: '【虛榮報復】你按響限量超跑車鑰匙，指著身上的名牌酸她。看著她悔恨與震驚的眼神，你的陰暗虛榮心獲得極大滿足！', status: '高姿態報復' };
                     }
                 }
             ]
         };
 
         /* -------------------------------------------------------------------------
-         * EARLY & LATE LIFE EVENTS POOL
+         * EARLY & LATE LIFE EVENTS POOL (EXPANDED TO 20+ UNDERGROUND EVENTS)
          * ------------------------------------------------------------------------- */
         const EARLY_EVENTS = [
             {
                 id: 'legit_job',
                 title: '正經工作的誘惑',
-                desc: '中學時期玩得最好的兄弟忽然打電話給你：「我公司依家招攬運營主管，人工穩定 $28,000，有雙糧跟醫保。過嚟一齊正經打工啦，別再搞那些歪門邪道了！」',
+                desc: '中學時期玩得最好的兄弟忽然打電話給你：「我公司依家招攬運營主管，人工穩定，有雙糧跟醫保。過嚟一齊正經打工啦，別再搞那些歪門邪道了！」',
                 options: [
                     {
                         text: '接受邀請，重返正途（辭去黑產）',
@@ -1254,10 +1254,10 @@
                 id: 'rent_eviction',
                 title: '房東深夜登門催租',
                 minWealth: 9000,
-                desc: '你窩在 50 呎劏房裡，房東粗暴地敲門要你立即補交兩個月欠租 $9,000，否則明早把你的行李扔到街上。',
+                desc: '你窩在 50 呎劏房裡，房東粗暴地敲門要你立即補交兩個月欠租，否則明早把你的行李扔到街上。',
                 options: [
                     {
-                        text: '用詐騙賺來的非法資金全額繳清 ($9,000)',
+                        text: '用詐騙賺來的非法資金全額繳清',
                         cost: 9000,
                         effect: s => {
                             s.wealth -= 9000;
@@ -1265,7 +1265,7 @@
                         }
                     },
                     {
-                        text: '連夜收拾破爛行李流落街頭（健康 -10%）',
+                        text: '連夜收拾破爛行李流落街頭',
                         effect: s => {
                             s.health = Math.max(0, s.health - 10);
                             return { log: '【流落街頭】連夜被驅逐出劏房，身心俱疲。', status: '流落街頭' };
@@ -1275,13 +1275,14 @@
             }
         ];
 
+        // RESTORED COMPLETE 22 LATE-GAME UNDERGROUND EVENTS POOL
         const LATE_EVENTS = [
             {
                 title: 'Say My Name 品牌崛起',
                 desc: '你的詐騙帝國在全球地下網絡聲名大噪，同行紛紛效仿你的犯罪腳本。',
                 options: [
                     {
-                        text: '高調擴張，向同行收取腳本專利費 ($100,000)',
+                        text: '高調擴張，向同行收取腳本專利費',
                         effect: s => {
                             s.wealth += 100000;
                             s.policeHeat = Math.min(100, s.policeHeat + 5);
@@ -1303,13 +1304,13 @@
                 desc: '一位專門為黑產辯護的頂級資深律師主動找上門，聲稱能為你打造全球離岸免責屏障。',
                 options: [
                     {
-                        text: '支付 $200,000 聘請為首席法律顧問',
+                        text: '支付費用聘請為首席法律顧問',
                         cost: 200000,
                         effect: s => {
                             s.wealth -= 200000;
                             s.hasUmbrella = true;
                             s.policeHeat = Math.max(0, s.policeHeat - 25);
-                            return { log: '【律師顧問】聘請頂級律師團隊，警方關注度大幅降低 25%！', status: '聘請律師' };
+                            return { log: '【律師顧問】聘請頂級律師團隊，警方關注度大幅降低！', status: '聘請律師' };
                         }
                     },
                     {
@@ -1326,19 +1327,446 @@
                 desc: '警署內線秘密向你發送加密訊息：「高層又調來新的專案小組，我頂唔住了，隨時會查到你身上！」',
                 options: [
                     {
-                        text: '支付 $150,000 封口安家費給內線',
+                        text: '支付封口安家費給內線',
                         cost: 150000,
                         effect: s => {
                             s.wealth -= 150000;
                             s.policeHeat = Math.max(0, s.policeHeat - 15);
-                            return { log: '【封口費】發放 $150,000 封口費，暫時壓下警方的追查。', status: '安撫內線' };
+                            return { log: '【封口費】發放安家費，暫時壓下警方的追查。', status: '安撫內線' };
                         }
                     },
                     {
                         text: '斷絕聯絡，放棄這條情報線',
                         effect: s => {
                             s.policeHeat = Math.min(100, s.policeHeat + 10);
-                            return { log: '【割席斷線】主動切斷內線聯繫，警方關注度上升 10%。', status: '切斷內線' };
+                            return { log: '【割席斷線】主動切斷內線聯繫，警方關注度上升。', status: '切斷內線' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '受害者的詛咒血書',
+                desc: '機房門口深夜被人貼上一封沾滿血跡的信，一名老人在傾家蕩產後寫下絕命書痛斥你的罪行。',
+                options: [
+                    {
+                        text: '匿名退還該老人的遭騙資金',
+                        cost: 50000,
+                        effect: s => {
+                            s.wealth -= 50000;
+                            s.happiness = Math.min(100, s.happiness + 15);
+                            return { log: '【匿名退款】私下退款給老者，內心保留了最後一絲溫暖。', status: '退款贖罪' };
+                        }
+                    },
+                    {
+                        text: '將血書掛在機房大廳激勵手下狂飆業績',
+                        effect: s => {
+                            s.wealth += 80000;
+                            s.happiness = Math.max(0, s.happiness - 15);
+                            return { log: '【冷酷洗腦】用血書刺激手下狼性，業績飆升但心理更加壓抑。', status: '血書洗腦' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '暗網黑客的高額勒索',
+                minWealth: 100000,
+                desc: '暗網知名黑客攻破了你的客戶資料庫，要求在 24 小時內支付加密貨幣贖金，否則公開向反詐中心舉報。',
+                options: [
+                    {
+                        text: '支付比特幣贖金息事寧人',
+                        cost: 100000,
+                        effect: s => {
+                            s.wealth -= 100000;
+                            return { log: '【支付贖金】花費 $100,000 擺平暗網黑客勒索。', status: '支付贖金' };
+                        }
+                    },
+                    {
+                        text: '反向高薪僱用該黑客為技術總監',
+                        cost: 180000,
+                        effect: s => {
+                            s.wealth -= 180000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 15);
+                            return { log: '【招安黑客】將黑客攬入麾下，防護網大增，關注度下降！', status: '招安黑客' };
+                        }
+                    },
+                    {
+                        text: '硬撕破臉，直接熔毀數據伺服器',
+                        effect: s => {
+                            s.wealth = Math.max(0, s.wealth - 50000);
+                            s.policeHeat = Math.min(100, s.policeHeat + 10);
+                            return { log: '【銷毀伺服器】強行熔毀數據，業務受損且關注度上升。', status: '熔毀伺服器' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '臥底警察的最後告白',
+                desc: '跟隨你多年的骨幹手下深夜約你在海邊見面，掏出警員證：「哥，我係臥底。聽我一句勸，自首吧...」',
+                options: [
+                    {
+                        text: '給他一筆安家費，親手護送他離開並連夜搬遷',
+                        cost: 100000,
+                        effect: s => {
+                            s.wealth -= 100000;
+                            s.hardOnSubordinatesCount = Math.max(0, s.hardOnSubordinatesCount - 1);
+                            s.policeHeat = Math.max(0, s.policeHeat - 10);
+                            return { log: '【義氣放行】放走臥底並連夜搬遷機房，保留了江湖義氣。', status: '放走臥底' };
+                        }
+                    },
+                    {
+                        text: '動用地下清道夫將其秘密處理掉',
+                        effect: s => {
+                            s.hardOnSubordinatesCount += 1;
+                            s.happiness = Math.max(0, s.happiness - 20);
+                            s.policeHeat = Math.min(100, s.policeHeat + 15);
+                            return { log: '【極刑處理】秘密處決臥底，警察失蹤引來警方重點搜捕！', status: '秘密處決' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '親弟加入反詐專案組',
+                desc: '家族親弟在大學畢業後高調考入警方反詐特別行動組，並在新聞發佈會上記者面前宣誓要掃平所有網路詐騙。',
+                options: [
+                    {
+                        text: '匿名捐款給其專案組並摸清警方底牌',
+                        cost: 60000,
+                        effect: s => {
+                            s.wealth -= 60000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 10);
+                            return { log: '【摸清底牌】匿名贊助摸清警方動向，成功防範反詐風暴。', status: '摸清底牌' };
+                        }
+                    },
+                    {
+                        text: '冷漠割席，斷絕一切家族聯繫',
+                        effect: s => {
+                            s.familyDarkChoicesCount += 1;
+                            s.happiness = Math.max(0, s.happiness - 10);
+                            return { log: '【家族割席】徹底斷絕兄弟關係，獨自沉淪黑道。', status: '家族割席' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '加密貨幣牛市狂歡',
+                minWealth: 200000,
+                desc: '全球加密貨幣迎來歷史級超大牛市，你手頭清洗儲備的虛擬資產價值一夜暴漲！',
+                options: [
+                    {
+                        text: '果斷全部套現為瑞士銀行實體法幣',
+                        effect: s => {
+                            s.wealth += 300000;
+                            return { log: '【牛市套現】將加密貨幣高位套現，獲利 $300,000 實體資產！', status: '牛市套現' };
+                        }
+                    },
+                    {
+                        text: '開 10 倍槓桿加碼龐氏幣盤',
+                        effect: s => {
+                            if (Math.random() < 0.6) {
+                                s.wealth += 800000;
+                                return { log: '【槓桿狂爆】槓桿賭博大勝，狂賺 $800,000 暗網資金！', status: '槓桿大勝' };
+                            } else {
+                                s.wealth = Math.max(0, s.wealth - 200000);
+                                return { log: '【槓桿爆倉】市場插針暴跌慘遭爆倉，損失慘重！', status: '槓桿爆倉' };
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                title: '高層幹部帶槍叛逃',
+                desc: '機房最信任的運營總監偷走了一套核心客戶名單與一把槍，意圖在鄰國自立門戶。',
+                options: [
+                    {
+                        text: '在黑市發起追殺令徹查叛徒',
+                        cost: 80000,
+                        effect: s => {
+                            s.wealth -= 80000;
+                            s.hardOnSubordinatesCount += 1;
+                            return { log: '【追殺叛徒】發起追殺令奪回名單，令幫派肅殺威嚴。', status: '追殺叛徒' };
+                        }
+                    },
+                    {
+                        text: '向警方匿名舉報叛徒位置「借刀殺人」',
+                        effect: s => {
+                            s.policeHeat = Math.min(100, s.policeHeat + 5);
+                            return { log: '【借刀殺人】借警方之手逮捕叛徒，化解了危機。', status: '借刀殺人' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '反遭 AI 克隆語音騙走資金',
+                minWealth: 70000,
+                desc: '暗網同行用你自己的 AI 克隆語音騙過了你的財務主管，將機房賬戶上的資金轉走。',
+                options: [
+                    {
+                        text: '升級內部多重生物特徵加密流程',
+                        cost: 70000,
+                        effect: s => {
+                            s.wealth -= 70000;
+                            return { log: '【升級防禦】花費 $70,000 升級防護，避免黑吃黑再次發生。', status: '升級防禦' };
+                        }
+                    },
+                    {
+                        text: '咬牙當花錢買教訓',
+                        effect: s => {
+                            s.wealth = Math.max(0, s.wealth - 70000);
+                            s.happiness = Math.max(0, s.happiness - 10);
+                            return { log: '【慘遭黑呃】被同行黑吃黑騙走資金，內心極度鬱悶。', status: '慘遭黑呃' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '前妻/前女友的巨額贍養費威脅',
+                minWealth: 200000,
+                desc: '前女友無意中發現了你的海外加密貨幣帳戶，威脅若不支付巨額補償，就向稅務局舉報。',
+                options: [
+                    {
+                        text: '支付封口費平息風波',
+                        cost: 200000,
+                        effect: s => {
+                            s.wealth -= 200000;
+                            s.callousFamilyChoices = Math.max(0, s.callousFamilyChoices - 1);
+                            return { log: '【封口擺平】花費 $200,000 封口費平息舉報危機。', status: '擺平威脅' };
+                        }
+                    },
+                    {
+                        text: '偽造其洗錢證據反向脅迫',
+                        effect: s => {
+                            s.callousFamilyChoices += 1;
+                            s.happiness = Math.max(0, s.happiness - 15);
+                            return { log: '【反向脅迫】用惡毒手段逼退前女友，關係徹底破裂。', status: '反向脅迫' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '網紅 YouTuber 深入園區偷拍',
+                desc: '一名百萬網紅 YouTuber 喬裝求職者潛入你的機房進行暗訪偷拍，影片即將上傳網絡。',
+                options: [
+                    {
+                        text: '花錢買下該頻道併購強制下架影片',
+                        cost: 120000,
+                        effect: s => {
+                            s.wealth -= 120000;
+                            return { log: '【公關封殺】花費 $120,000 買下頻道下架影片，封鎖新聞。', status: '買下頻道' };
+                        }
+                    },
+                    {
+                        text: '連夜轉移機房設備至新地點',
+                        cost: 50000,
+                        effect: s => {
+                            s.wealth -= 50000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 10);
+                            return { log: '【連夜搬遷】連夜搬離舊機房，避開了全網曝光風口。', status: '連夜搬遷' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '重病富豪求醫心切',
+                minWealth: 500000,
+                desc: '身患絕症的海外地產富豪尋求暗網黑市幹細胞治療，你的手下問要不要對其進行「終極詐騙」。',
+                options: [
+                    {
+                        text: '販賣假幹細胞療程全數榨乾',
+                        effect: s => {
+                            s.wealth += 500000;
+                            s.happiness = Math.max(0, s.happiness - 20);
+                            return { log: '【榨乾富豪】詐騙重病富豪狂攬 $500,000，但罪惡感暴增！', status: '榨乾富豪' };
+                        }
+                    },
+                    {
+                        text: '拒絕交易，避免招惹富豪家族勢力',
+                        effect: s => {
+                            return { log: '【理性拒絕】放棄高風險目標，保持業務穩定。', status: '理性拒絕' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '離岸銀行法規大改組',
+                minWealth: 300000,
+                desc: '開曼群島與瑞士離岸銀行突發審查，要求實名認證，大量無主黑金面臨凍結。',
+                options: [
+                    {
+                        text: '支付 20% 手續費迅速洗至迪拜房產',
+                        cost: 300000,
+                        effect: s => {
+                            s.wealth -= 300000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 15);
+                            return { log: '【黑錢洗白】將黑錢轉為迪拜地產，資金更為安全！', status: '轉為地產' };
+                        }
+                    },
+                    {
+                        text: '轉為冷錢包加密貨幣',
+                        effect: s => {
+                            s.policeHeat = Math.min(100, s.policeHeat + 5);
+                            return { log: '【轉冷錢包】將資產轉為加密貨幣，暫時避開銀行凍結。', status: '轉冷錢包' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '慈善晚宴上的洗白機會',
+                minWealth: 250000,
+                desc: '頂級國際慈善基金會邀請你作為神秘大額企業家贊助晚宴，有機會大幅洗白社會聲譽。',
+                options: [
+                    {
+                        text: '慷慨捐贈成為慈善大使',
+                        cost: 250000,
+                        effect: s => {
+                            s.wealth -= 250000;
+                            s.hasCharity = true;
+                            s.policeHeat = Math.max(0, s.policeHeat - 30);
+                            s.happiness = Math.min(100, s.happiness + 20);
+                            return { log: '【慈善洗白】大額捐款成為慈善大使，警方關注度大幅降低 30%！', status: '慈善洗白' };
+                        }
+                    },
+                    {
+                        text: '低調婉拒出席',
+                        effect: s => {
+                            return { log: '【低調拒絕】保持低調，不公開露面。', status: '低調拒絕' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '手下心靈崩潰集體罷工',
+                desc: '機房 50 名電話接線員因日夜高壓與道德煎熬集體崩潰，鎖在宿舍拒絕接聽電話。',
+                options: [
+                    {
+                        text: '發放高額年終獎金並安排休假',
+                        cost: 60000,
+                        effect: s => {
+                            s.wealth -= 60000;
+                            s.hardOnSubordinatesCount = Math.max(0, s.hardOnSubordinatesCount - 1);
+                            s.happiness = Math.min(100, s.happiness + 10);
+                            return { log: '【獎金安撫】發放獎金撫平手下焦慮，士氣回升。', status: '獎金安撫' };
+                        }
+                    },
+                    {
+                        text: '扣押護照並讓打手強行壓回崗位',
+                        effect: s => {
+                            s.hardOnSubordinatesCount += 1;
+                            s.happiness = Math.max(0, s.happiness - 15);
+                            return { log: '【高壓鎮壓】強行鎮壓罷工，內部怨氣達到臨界點。', status: '高壓鎮壓' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '國際刑警發布紅通令',
+                minWealth: 400000,
+                desc: '國際刑警組織對你的海外假身份發布了紅色通緝令，多個跨國機場已部署面部識別。',
+                options: [
+                    {
+                        text: '購買加勒比海外交護照更換國籍身份',
+                        cost: 400000,
+                        effect: s => {
+                            s.wealth -= 400000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 35);
+                            return { log: '【外交護照】購入外交護照解鎖全新身份，關注度狂降 35%！', status: '外交護照' };
+                        }
+                    },
+                    {
+                        text: '啟動假死逃脫計劃',
+                        cost: 150000,
+                        effect: s => {
+                            s.wealth -= 150000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 20);
+                            return { log: '【假死隱匿】製造偽造意外假死，成功抹去部分追查。', status: '假死隱匿' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '暴風雨摧毀海外機房',
+                desc: '超強熱帶氣旋正面吹襲你的東南亞海外機房，衛星天線與電力網絡全毀。',
+                options: [
+                    {
+                        text: '緊急採購柴油發電機與星鏈衛星設備',
+                        cost: 50000,
+                        effect: s => {
+                            s.wealth -= 50000;
+                            return { log: '【星鏈搶修】搶修完畢，機房迅速恢復運作。', status: '星鏈搶修' };
+                        }
+                    },
+                    {
+                        text: '順勢停工全體放假休養一個月',
+                        effect: s => {
+                            s.happiness = Math.min(100, s.happiness + 10);
+                            return { log: '【順勢休養】停工放假，全員心理壓力獲得緩解。', status: '順勢休養' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '受害長者兒女上門尋仇',
+                desc: '一位受害長者的兒子持刀衝進你在尖沙咀地產開的傀儡辦公室，瘋狂砸毀設備。',
+                options: [
+                    {
+                        text: '賠償私下補償金私下和解',
+                        cost: 70000,
+                        effect: s => {
+                            s.wealth -= 70000;
+                            s.happiness = Math.min(100, s.happiness + 10);
+                            return { log: '【賠償私解】支付 $70,000 私下私解，避免事件鬧大。', status: '賠償私解' };
+                        }
+                    },
+                    {
+                        text: '讓安保打手將其送走並報警',
+                        effect: s => {
+                            s.policeHeat = Math.min(100, s.policeHeat + 10);
+                            return { log: '【強行驅逐】安保驅逐尋仇者，但引來警方現場調閱監控。', status: '強行驅逐' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '暗網拍賣國家級民政數據',
+                minWealth: 300000,
+                desc: '黑客組織在暗網公開拍賣 5,000,000 條極高質量的完整公民個資與資產紀錄。',
+                options: [
+                    {
+                        text: '獨家出價競標購入該數據庫',
+                        cost: 300000,
+                        effect: s => {
+                            s.wealth -= 300000;
+                            s.victimsCount += 500;
+                            return { log: '【獨家買庫】購入頂級數據庫，後續詐騙精準度暴增！', status: '獨家買庫' };
+                        }
+                    },
+                    {
+                        text: '放棄競標避開警方關注',
+                        effect: s => {
+                            return { log: '【放棄競標】放棄購買高風險數據，保持低調。', status: '放棄競標' };
+                        }
+                    }
+                ]
+            },
+            {
+                title: '臨終父親的最後請求',
+                desc: '病危的父親在公立醫院ICU病房想見你最後一面，但便衣警員正在醫院周圍巡邏。',
+                options: [
+                    {
+                        text: '喬裝成醫生潛入探望',
+                        cost: 30000,
+                        effect: s => {
+                            s.wealth -= 30000;
+                            s.happiness = Math.min(100, s.happiness + 20);
+                            s.familyDarkChoicesCount = Math.max(0, s.familyDarkChoicesCount - 1);
+                            return { log: '【臨終探望】冒險潛入ICU見老父最後一面，無憾告別。', status: '臨終探望' };
+                        }
+                    },
+                    {
+                        text: '狠心不理會，繼續執行黑產計劃',
+                        effect: s => {
+                            s.familyDarkChoicesCount += 1;
+                            s.happiness = Math.max(0, s.happiness - 25);
+                            return { log: '【絕情切割】忍痛不見，父親抱憾離世，內心留下無可挽回的創傷。', status: '絕情切割' };
                         }
                     }
                 ]
@@ -1447,9 +1875,7 @@
                 state.age += 1;
             }
 
-            // --- GUARANTEED CLASS-EXCLUSIVE EVENTS CHECK ---
-            
-            // 1. END OF YEAR 2 (Age 21 Month 12)
+            // GUARANTEED CLASS-EXCLUSIVE EVENTS CHECK
             if (state.age === 21 && state.month === 12) {
                 if (state.classKey === 'james' && !state.jamesCallTriggered) {
                     state.jamesCallTriggered = true;
@@ -1477,7 +1903,6 @@
                 }
             }
 
-            // 2. AGE 30+ IT DOG EVENTS
             if (state.classKey === 'it_dog') {
                 if (state.happiness < 40 && state.purchasedUpgrades.includes('car') && !state.itDogEvent1Triggered) {
                     state.itDogEvent1Triggered = true;
@@ -1499,7 +1924,6 @@
                 }
             }
 
-            // 3. JAMES TSUI WAH AT AGE 23+ ($1M Wealth)
             if (state.classKey === 'james' && state.age >= 23 && state.wealth >= 1000000 && !state.jamesTsuiWahTriggered) {
                 state.jamesTsuiWahTriggered = true;
                 triggerSuddenEventModal(JAMES_EVENT_2);
@@ -1507,7 +1931,6 @@
                 return;
             }
 
-            // 4. HOOLIGAN AGE 32 SUBORDINATE RESCUE
             if (state.classKey === 'hooligan' && state.age === 32 && state.month === 1 && !state.hooliganEvent2Triggered) {
                 state.hooliganEvent2Triggered = true;
                 triggerSuddenEventModal(HOOLIGAN_EVENT_2);
@@ -1515,7 +1938,6 @@
                 return;
             }
 
-            // 5. BROKER AGE 33 OLD CLIENT
             if (state.classKey === 'broker' && state.age === 33 && state.month === 1 && !state.brokerEvent2Triggered) {
                 state.brokerEvent2Triggered = true;
                 triggerSuddenEventModal(BROKER_EVENT_2);
@@ -1523,7 +1945,6 @@
                 return;
             }
 
-            // 6. RICH KID AGE 35 BANKRUPTCY
             if (state.classKey === 'rich_kid' && state.age === 35 && state.month === 1 && !state.richKidEvent2Triggered) {
                 state.richKidEvent2Triggered = true;
                 triggerSuddenEventModal(RICH_KID_EVENT_2);
@@ -1531,7 +1952,7 @@
                 return;
             }
 
-            // --- NORMAL TICK MATH ---
+            // NORMAL TICK MATH
             state.tacticStreakMonths = (state.tacticStreakMonths || 0) + 1;
             const streakYears = Math.floor(state.tacticStreakMonths / 12);
             if (state.month === 1 && streakYears > 0 && streakYears <= 5) {
@@ -1664,7 +2085,6 @@
             let rating = 'F 級 (破產白忙)';
             let ratingDesc = '身敗名裂，牢底坐穿。你的名字成為了反詐宣傳片裡面的經典反面教材。';
 
-            // PRIORITY CASCADE ENDING EVALUATION
             if (title.includes('浪子回頭') || title.includes('棄暗投明')) {
                 rating = 'EX 級 (浪子回頭金不換)';
                 ratingDesc = '你果斷斬斷黑產鏈條，退還了所有非法財產，回到正行做一名踏實的打工仔。雖然沒有暴富，但每一個夜晚你都能睡得安穩香甜。';
@@ -1737,7 +2157,7 @@
         }
 
         /* -------------------------------------------------------------------------
-         * ROMANCE EVENTS DATABASE (WITH SINGLE REJECTION COUNTER & ACHIEVEMENT)
+         * ROMANCE EVENTS DATABASE (BLIND CHOICE OPTIONS)
          * ------------------------------------------------------------------------- */
         const SINGLE_ROMANCE_EVENTS = [
             {
@@ -1746,7 +2166,7 @@
                 desc: '在蘭桂坊高級酒吧喝洋酒，一位打扮時尚漂亮的女孩 Chloe 坐在你旁邊，主動與你攀談。',
                 options: [
                     {
-                        text: '花費 $3,000 請喝高檔香檳，展現黑產大佬風采',
+                        text: '請喝高檔香檳，展現黑產大佬風采',
                         cost: 3000,
                         effect: s => {
                             s.singleEncounterRejections = 0;
@@ -1779,7 +2199,7 @@
                 desc: '你在尖沙咀名店用黑錢購買手袋時，甜美親切的 VIP 導購 雅婷 貼心地為你服務，並留下了個人電話。',
                 options: [
                     {
-                        text: '購買 $15,000 手袋作為見面禮送給雅婷',
+                        text: '購買名牌手袋作為見面禮送給雅婷',
                         cost: 15000,
                         effect: s => {
                             s.singleEncounterRejections = 0;
@@ -1812,10 +2232,10 @@
             {
                 title: '吵著要最新款愛馬仕名牌手袋',
                 minWealth: 30000,
-                desc: '你的伴侶在社交平台上看到閨蜜炫耀手袋，撒嬌要求你買一個 $30,000 的 Hermes 手袋送她。',
+                desc: '你的伴侶在社交平台上看到閨蜜炫耀手袋，撒嬌要求你買一個 Hermes 手袋送她。',
                 options: [
                     {
-                        text: '毫不猶豫爽快付款 ($30,000)',
+                        text: '毫不猶豫爽快付款購買手袋',
                         cost: 30000,
                         effect: s => {
                             s.wealth -= 30000;
@@ -1836,7 +2256,7 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * POP-UP EVENT HANDLER (WITH COOLDOWN & MIN WEALTH FILTERS)
+         * POP-UP EVENT HANDLER (BLIND CHOICE RENDERING & COOLDOWN FILTER)
          * ------------------------------------------------------------------------- */
         function triggerSuddenEventModal(customEvent) {
             let evt = customEvent;
@@ -1860,7 +2280,6 @@
 
                 const currentTotalMonths = state.age * 12 + state.month;
 
-                // Filter Pool by 24-Month Cooldown AND Wealth Threshold
                 pool = pool.filter(e => {
                     const lastTriggered = (state.eventCooldowns && state.eventCooldowns[e.title]) || -999;
                     if ((currentTotalMonths - lastTriggered) < 24) return false;
