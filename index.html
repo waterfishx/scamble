@@ -75,9 +75,9 @@
                     <div>
                         <h1 class="text-base md:text-lg font-black tracking-wide text-white flex items-center gap-2">
                             《呃者生存》
-                            <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-950 text-red-400 border border-red-800 font-mono font-bold tracking-normal">千局人生 v2.6</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-950 text-red-400 border border-red-800 font-mono font-bold tracking-normal">千局人生 v2.7</span>
                         </h1>
-                        <p class="text-xs text-slate-400">20 歲至 60 歲 80億分之一黑色生存法則</p>
+                        <p class="text-xs text-slate-400">充滿黑色幽默的生存法則</p>
                     </div>
                 </div>
 
@@ -352,7 +352,7 @@
 
                     <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800">
                         <div class="font-bold text-emerald-400 mb-1 flex items-center gap-1.5">
-                            <span>🧬</span> 《瘟疫公司》式詐騙進化
+                            <span>🧬</span> 詐騙進化與策略選擇
                         </div>
                         <p class="text-slate-400 text-[11px] leading-relaxed">點擊頂部「⚡ 轉換策略與進化」隨時暫停時間，升級傳播途徑、心理洗腦與反偵查能力。</p>
                     </div>
@@ -402,7 +402,7 @@
     <div id="strategy-modal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
         <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-3xl w-full p-5 md:p-6 shadow-2xl relative overflow-hidden animate-modal-pop max-h-[92vh] flex flex-col">
             
-            <!-- Modal Header -->
+            <!-- Modal Header (REMOVED PLAGUE EVOLUTION TAG AS REQUESTED) -->
             <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
@@ -411,7 +411,6 @@
                     <div>
                         <h2 class="text-base font-black text-white flex items-center gap-2">
                             詐騙進化、奢侈品與策略調整
-                            <span class="text-[10px] px-2 py-0.5 rounded-md bg-purple-950 text-purple-400 border border-purple-800 font-mono">Plague Evolution</span>
                         </h2>
                         <p class="text-xs text-slate-400">遊戲時間已暫停。調整主攻渠道、傳播途徑與購買奢侈品享受。</p>
                     </div>
@@ -965,7 +964,7 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * CLASS EXCLUSIVE EVENTS
+         * CLASS EXCLUSIVE EVENTS (ALL MULTI-CHOICE)
          * ------------------------------------------------------------------------- */
         const JAMES_EVENT_1 = {
             id: 'james_event_1',
@@ -991,7 +990,7 @@
         const JAMES_EVENT_2 = {
             id: 'james_event_2',
             title: '翠華茶餐廳的重逢 (占士專屬)',
-            desc: '你賺到了第一桶金，你開始飄了。你忽然想起那一日前女友宣讀判詞的地方——翠華茶餐廳。你不再是當日那個敏感的少年，穿著打扮也完全不同。你在前往茶餐廳的路上，竟然碰見了她！因為這些年你外表的轉變，她還未認出你來...',
+            desc: '你賺到了第一桶金，你開始飄了。你忽然想起那一日前女友宣讀判詞的地方——翠華茶餐廳。你在前往茶餐廳的路上，竟然碰見了她！因為這些年你外表的轉變，她還未認出你來...',
             options: [
                 {
                     text: '不相認，擦肩而過',
@@ -1122,16 +1121,26 @@
             ]
         };
 
+        // REFACTORED TO MULTI-CHOICE
         const IT_DOG_EVENT_1 = {
             id: 'it_dog_event_1',
             title: '停車場遇見中學 IT 老師 (IT狗專屬)',
             desc: '日夜操勞導致你買外賣飯盒跌傷腿，在一拐一拐去取超跑時遇見中學教你 IT 的老師。老師見你滿面滄桑，熱情關心你的生活...',
             options: [
                 {
-                    text: '含淚激動與老師擁抱',
+                    text: '含淚激動與老師擁抱，感謝當年教誨',
                     effect: s => {
                         s.happiness = Math.min(100, s.happiness + 20);
+                        s.health = Math.min(100, s.health + 5);
                         return { log: '【恩師溫暖】老師溫暖的鼓勵讓你重拾久違的人性光明，心靈平穩 +20%！', status: '恩師擁抱' };
+                    }
+                },
+                {
+                    text: '冷冷繞道避開，不忍讓恩師知道自己墜入魔道',
+                    effect: s => {
+                        s.happiness = Math.max(0, s.happiness - 10);
+                        s.policeHeat = Math.max(0, s.policeHeat - 2);
+                        return { log: '【自慚形穢】壓低帽簷繞道避開恩師，獨自忍受內心煎熬。', status: '避開恩師' };
                     }
                 }
             ]
@@ -1160,17 +1169,28 @@
             ]
         };
 
+        // REFACTORED TO MULTI-CHOICE
         const IT_DOG_EVENT_BETRAYAL = {
             id: 'it_dog_betrayal',
             title: '合作夥伴捲款潛逃 (IT狗專屬)',
             desc: '你的 AI 眾籌合作夥伴在一夜之間捲走公司所有資產並從此人間蒸發！記住，在這個爾虞我詐的社會，騙子最真實！',
             options: [
                 {
-                    text: '默然承受巨額損失',
+                    text: '默然承受巨額損失，升級系統安全鎖',
                     effect: s => {
                         s.wealth = Math.max(0, s.wealth - 700000);
-                        s.happiness = Math.max(0, s.happiness - 20);
+                        s.happiness = Math.max(0, s.happiness - 15);
                         return { log: '【夥伴背叛】合作夥伴捲走 $700,000 資產潛逃，深刻領悟黑道真諦！', status: '夥伴背叛' };
+                    }
+                },
+                {
+                    text: '動用暗網駭客追查，凍結叛徒海外錢包',
+                    cost: 100000,
+                    effect: s => {
+                        s.wealth -= 100000;
+                        s.wealth += 400000;
+                        s.policeHeat = Math.min(100, s.policeHeat + 5);
+                        return { log: '【反向凍結】反向駭入叛徒錢包追回 $400,000 資產！', status: '反向凍結' };
                     }
                 }
             ]
@@ -1226,7 +1246,7 @@
         };
 
         /* -------------------------------------------------------------------------
-         * COMPLETE EARLY LIFE EVENTS (12 EVENTS)
+         * COMPLETE EARLY LIFE EVENTS (12 EVENTS, ALL MULTI-CHOICE)
          * ------------------------------------------------------------------------- */
         const EARLY_EVENTS = [
             {
@@ -1319,21 +1339,33 @@
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'threads_student',
                 title: 'Threads 買不起樓的大學生',
                 desc: '一位大學生在 Threads 大聲疾呼「買不起樓」，希望能找到輕鬆賺快錢的兼職。',
                 options: [
                     {
-                        text: '化身成功人士主動伸出橄欖枝招攬',
+                        text: '化身成功人士招攬，誘騙其簽下下線合約',
                         effect: s => {
                             s.victimsCount += 1;
                             s.wealth += 4000;
+                            s.policeHeat = Math.min(100, s.policeHeat + 0.5);
                             return { log: '【暴富誘惑】大學生秒回訊息，順利吸納為洗錢下線人頭。', status: '招攬大學生' };
+                        }
+                    },
+                    {
+                        text: '給予真誠建議並資助少許學費',
+                        cost: 2000,
+                        effect: s => {
+                            s.wealth -= 2000;
+                            s.happiness = Math.min(100, s.happiness + 10);
+                            return { log: '【真誠勸導】資助大學生 $2,000 並勸其專心學業，內心充滿溫暖。', status: '資助學生' };
                         }
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'threads_card_debt',
                 title: 'Threads 卡債累累奢華女子',
@@ -1344,11 +1376,21 @@
                         effect: s => {
                             s.victimsCount += 1;
                             s.wealth += 12000;
+                            s.happiness = Math.max(0, s.happiness - 5);
                             return { log: '【虛榮陷阱】利用對方的虛榮心，成功誘騙其借貸投入假投資盤！', status: '陷害卡債女' };
+                        }
+                    },
+                    {
+                        text: '假扮專業理財顧問收取諮詢費用',
+                        effect: s => {
+                            s.wealth += 3000;
+                            s.policeHeat = Math.min(100, s.policeHeat + 0.2);
+                            return { log: '【假理財顧問】收取 $3,000 諮詢費，將其介紹給正規機構。', status: '假理財顧問' };
                         }
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'gym_vip_leads',
                 title: '健身房 VIP 高薪會員名單',
@@ -1356,7 +1398,7 @@
                 desc: '透過暗網賣家買入了一份某本地知名健身房外洩的 VIP 會員資料庫。',
                 options: [
                     {
-                        text: '購買 VIP 會員名單進行精準打擊',
+                        text: '購入 VIP 名單進行精準打擊',
                         cost: 15000,
                         effect: s => {
                             s.wealth -= 15000;
@@ -1364,9 +1406,19 @@
                             s.wealth += 45000;
                             return { log: '【精準名單】買入健身房 VIP 名單，獲利大幅提升！', status: '買入VIP名單' };
                         }
+                    },
+                    {
+                        text: '嫌價格昂貴，改為購買免費公開流出樣本',
+                        effect: s => {
+                            s.victimsCount += 2;
+                            s.wealth += 8000;
+                            s.policeHeat = Math.min(100, s.policeHeat + 2);
+                            return { log: '【低成本攻擊】使用免費流出樣本獲利 $8,000，但警方注意到過時漏洞。', status: '免費樣本' };
+                        }
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'loan_urgent_leads',
                 title: '高風險私人貸款急需名單',
@@ -1382,9 +1434,18 @@
                             s.wealth += 60000;
                             return { log: '【利用急迫】對私貸申請者實施二刷詐騙，狂攬資金！', status: '買入私貸名單' };
                         }
+                    },
+                    {
+                        text: '舉報該高利貸機構，拿回黑市舉報獎金',
+                        effect: s => {
+                            s.wealth += 5000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 5);
+                            return { log: '【舉報黑吃黑】舉報地下高利貸獲得 $5,000 獎金，關注度下降！', status: '舉報高利貸' };
+                        }
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'retired_teachers_leads',
                 title: 'Telegram 退休教職員高額清單',
@@ -1401,9 +1462,17 @@
                             s.happiness = Math.max(0, s.happiness - 10);
                             return { log: '【收割退休金】對退休教師實施龐氏洗腦，獲利豐厚！', status: '收割退休金' };
                         }
+                    },
+                    {
+                        text: '轉手賣給暗網同業賺取中間差價',
+                        effect: s => {
+                            s.wealth += 20000;
+                            return { log: '【名單轉賣】將退休教職員名單轉賣給暗網同業，淨賺 $20,000。', status: '名單轉賣' };
+                        }
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'sim_card_destroy',
                 title: '深水埗後巷太空卡斷線',
@@ -1417,9 +1486,18 @@
                             s.policeHeat = Math.max(0, s.policeHeat - 8);
                             return { log: '【後巷剪卡】銷毀舊太空卡，警方的追查頓時陷入死胡同！', status: '後巷剪卡' };
                         }
+                    },
+                    {
+                        text: '冒險繼續使用舊卡省錢，賭警方查不到',
+                        effect: s => {
+                            s.wealth += 2000;
+                            s.policeHeat = Math.min(100, s.policeHeat + 5);
+                            return { log: '【僥倖心理】省下 $2,000 換卡費，但警方追查進度推進。', status: '僥倖留卡' };
+                        }
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'prepaid_card_buy',
                 title: '報攤現金預付卡避追查',
@@ -1433,9 +1511,19 @@
                             s.policeHeat = Math.max(0, s.policeHeat - 12);
                             return { log: '【報攤買卡】現金購入無實名預付卡，警察追蹤線索中斷。', status: '報攤買卡' };
                         }
+                    },
+                    {
+                        text: '使用虛構身分在網上申請電子人頭戶',
+                        cost: 1000,
+                        effect: s => {
+                            s.wealth -= 1000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 4);
+                            return { log: '【虛構身分】申請電子人頭戶，效果略遜但省下不少費用。', status: '虛構戶口' };
+                        }
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'fps_puppet_account',
                 title: '地下洗錢集團 FPS 傀儡戶口',
@@ -1450,13 +1538,21 @@
                             s.policeHeat = Math.max(0, s.policeHeat - 18);
                             return { log: '【FPS傀儡戶】經多重 FPS 傀儡戶口洗白，穿上安全防火衣！', status: 'FPS傀儡戶' };
                         }
+                    },
+                    {
+                        text: '冒險使用一次性第三方去中心化交易所中轉',
+                        effect: s => {
+                            s.policeHeat = Math.max(0, s.policeHeat - 8);
+                            s.happiness = Math.max(0, s.happiness - 5);
+                            return { log: '【交易所中轉】利用去中心化交易所洗錢，手續繁瑣且略感壓抑。', status: '交易所中轉' };
+                        }
                     }
                 ]
             }
         ];
 
         /* -------------------------------------------------------------------------
-         * COMPLETE LATE LIFE EVENTS (25 UNDERGROUND EVENTS)
+         * COMPLETE LATE LIFE EVENTS (25 UNDERGROUND EVENTS, ALL MULTI-CHOICE)
          * ------------------------------------------------------------------------- */
         const LATE_EVENTS = [
             {
@@ -1505,6 +1601,7 @@
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'threads_fired_executive',
                 title: 'Threads 被裁員金融主管',
@@ -1517,9 +1614,19 @@
                             s.wealth += 80000;
                             return { log: '【焦慮陷阱】利用失業主管的焦慮，誘騙其投入數十萬積蓄！', status: '誘騙失業主管' };
                         }
+                    },
+                    {
+                        text: '招攬其為機房專屬合規財務總監',
+                        cost: 30000,
+                        effect: s => {
+                            s.wealth -= 30000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 10);
+                            return { log: '【專業人才】聘請前主管梳理財務帳目，警方關注度 -10%！', status: '聘請主管' };
+                        }
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'fine_dining_show',
                 title: '高檔餐廳的內幕電話演秀',
@@ -1534,9 +1641,20 @@
                             s.wealth += 120000;
                             return { log: '【內幕演秀】昂貴的實體演秀讓目標信以為真，傾囊投入資金！', status: '內幕電話演秀' };
                         }
+                    },
+                    {
+                        text: '改用虛構新聞簡報低成本說服',
+                        cost: 2000,
+                        effect: s => {
+                            s.wealth -= 2000;
+                            s.wealth += 30000;
+                            s.policeHeat = Math.min(100, s.policeHeat + 3);
+                            return { log: '【低成本簡報】憑簡報說服目標獲利 $30,000，但懷疑度上升。', status: '新聞簡報' };
+                        }
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'reset_phone_ocean',
                 title: '二手手機重置與剪卡拋海',
@@ -1550,9 +1668,19 @@
                             s.policeHeat = Math.max(0, s.policeHeat - 15);
                             return { log: '【剪卡拋海】將 SIM 卡剪碎拋入大海，警方數位追蹤線索驟斷！', status: '剪卡拋海' };
                         }
+                    },
+                    {
+                        text: '用高溫熔毀箱直接將手機與硬體徹底銷毀',
+                        cost: 25000,
+                        effect: s => {
+                            s.wealth -= 25000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 22);
+                            return { log: '【高溫熔毀】極致銷毀設備，追查線索完全乾淨！', status: '高溫熔毀' };
+                        }
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'foreign_fps_network',
                 title: '外籍勞工轉數快分流網絡',
@@ -1566,6 +1694,16 @@
                             s.wealth -= 80000;
                             s.policeHeat = Math.max(0, s.policeHeat - 25);
                             return { log: '【外勞分流】建立外勞轉數快洗錢網絡，穿上厚厚的防火衣！', status: '外勞分流網絡' };
+                        }
+                    },
+                    {
+                        text: '改為利用地下賭場籌碼中轉洗白',
+                        cost: 120000,
+                        effect: s => {
+                            s.wealth -= 120000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 30);
+                            s.happiness = Math.min(100, s.happiness + 5);
+                            return { log: '【賭場中轉】利用地下賭場洗白資金，順便狂歡一晚！', status: '賭場洗錢' };
                         }
                     }
                 ]
@@ -1912,6 +2050,7 @@
                     }
                 ]
             },
+            // REFACTORED TO MULTI-CHOICE
             {
                 id: 'red_notice',
                 title: '國際刑警發布紅通令',
@@ -1925,6 +2064,16 @@
                             s.wealth -= 400000;
                             s.policeHeat = Math.max(0, s.policeHeat - 35);
                             return { log: '【外交護照】購入外交護照解鎖全新身份，關注度狂降 35%！', status: '外交護照' };
+                        }
+                    },
+                    {
+                        text: '連夜潛入無引渡條約之私人避稅島嶼避風頭',
+                        cost: 600000,
+                        effect: s => {
+                            s.wealth -= 600000;
+                            s.policeHeat = Math.max(0, s.policeHeat - 45);
+                            s.happiness = Math.min(100, s.happiness + 10);
+                            return { log: '【私人避稅島】潛入無引渡條約島嶼避風頭，警方徹底束手無策！', status: '避稅島避險' };
                         }
                     }
                 ]
@@ -2025,7 +2174,7 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * ROMANCE & RELATIONSHIP EVENTS
+         * ROMANCE & RELATIONSHIP EVENTS (ALL MULTI-CHOICE)
          * ------------------------------------------------------------------------- */
         const SINGLE_ROMANCE_EVENTS = [
             {
