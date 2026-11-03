@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>《呃者生存》：千局人生 v3.0</title>
+    <title>《呃者生存》：千局人生 v3.3</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -86,7 +86,7 @@
                     <div>
                         <h1 class="text-base md:text-lg font-black tracking-wide text-white flex items-center gap-2">
                             《呃者生存》
-                            <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-950 text-red-400 border border-red-800 font-mono font-bold tracking-normal">千局人生 v3.0</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-950 text-red-400 border border-red-800 font-mono font-bold tracking-normal">千局人生 v3.3</span>
                         </h1>
                         <p class="text-xs text-slate-400">充滿黑色幽默的生存法則</p>
                     </div>
@@ -167,29 +167,31 @@
         <!-- TOP SECTION: CHARACTER CARD & ACTIVE TACTIC HERO -->
         <section class="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4">
             
-            <!-- Scammer Profile & Alias Card -->
+            <!-- Scammer Profile & Alias Card (Mobile Text Truncation Fixed) -->
             <div class="md:col-span-6 bg-slate-900 border border-slate-800 rounded-2xl p-3.5 shadow-xl flex items-center justify-between">
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3 min-w-0 flex-1">
                     <div id="avatar-box" class="w-12 h-12 rounded-2xl bg-slate-950 border border-amber-500/30 flex items-center justify-center text-2xl shadow-inner flex-shrink-0">
                         🕶️
                     </div>
-                    <div>
-                        <div class="flex items-center gap-2">
+                    <div class="min-w-0 flex-1">
+                        <div class="flex flex-wrap items-center gap-2">
                             <span id="scammer-alias" class="text-sm md:text-base font-black text-slate-100">阿傑 (鬼見愁)</span>
-                            <span id="rank-badge" class="text-[10px] px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/80 font-bold">
+                            <span id="rank-badge" class="text-[10px] px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/80 font-bold whitespace-nowrap">
                                 街頭老千 (Level 1)
                             </span>
                         </div>
-                        <div class="text-[11px] text-slate-400 mt-0.5 flex items-center gap-1.5">
-                            <span id="passive-title" class="text-amber-400 font-bold">天賦：狠勁爆發</span>
-                            <span class="text-slate-600">|</span>
-                            <span id="passive-desc" class="text-slate-400 truncate max-w-[180px] md:max-w-[280px]">低階詐騙收益+30%</span>
+                        
+                        <!-- Responsive Ability Text Display for Mobile -->
+                        <div class="text-[11px] text-slate-400 mt-1 flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-1.5">
+                            <span id="passive-title" class="text-amber-400 font-bold whitespace-nowrap">天賦：狠勁爆發</span>
+                            <span class="hidden sm:inline text-slate-600">|</span>
+                            <span id="passive-desc" class="text-slate-300 text-[11px] leading-snug">低階詐騙收益+30%</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Strategy Button Desktop/Tablet -->
-                <button onclick="openStrategyModal()" class="hidden md:flex px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-red-500 hover:from-amber-400 hover:to-red-400 text-black font-black text-xs shadow-md shadow-amber-500/20 active:scale-95 transition-all items-center gap-1.5 cursor-pointer flex-shrink-0">
+                <button onclick="openStrategyModal()" class="hidden md:flex px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-red-500 hover:from-amber-400 hover:to-red-400 text-black font-black text-xs shadow-md shadow-amber-500/20 active:scale-95 transition-all items-center gap-1.5 cursor-pointer flex-shrink-0 ml-2">
                     <i data-lucide="dna" class="w-4 h-4"></i> ⚡ 策略進化
                 </button>
             </div>
@@ -283,7 +285,7 @@
                 </div>
             </div>
 
-            <!-- Dynamic Pixel Scene Window with Ambient Backdrop & Crisp Center Stage -->
+            <!-- Dynamic Pixel Scene Window with Full-Cover Background & Precise Layout Position -->
             <div id="pixel-lifestyle-container" class="w-full h-56 sm:h-64 md:h-80 rounded-xl bg-slate-950 border border-slate-800 relative overflow-hidden flex items-center justify-center shadow-inner">
                 <!-- Dynamic Image Layers Rendered via JS -->
             </div>
@@ -572,7 +574,7 @@
                     <span id="event-modal-age" class="text-xs font-mono font-bold text-amber-400">20 歲</span>
                 </div>
                 <!-- MINIMIZE / INSPECT STATUS BUTTON -->
-                <button onclick="minimizeEventModal()" class="px-2.5 py-1 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-[11px] flex items-center gap-1 transition-all border border-slate-700 cursor-pointer" title="暫時退出彈窗查看狀態">
+                <button onclick="minimizeEventModal()" class="px-2.5 py-1 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-[11px] flex items-center gap-1 transition-all border border-slate-700 cursor-pointer" title="暫時退出彈窗查看狀況">
                     <i data-lucide="search" class="w-3.5 h-3.5 text-amber-400"></i>
                     <span>🔍 暫時退出 / 檢查狀況</span>
                 </button>
@@ -694,10 +696,15 @@
             partnerHandbagRefusalCount: 0,
             homelessMonths: 0,
             
+            // Dynamic escalating costs
+            partyCost: 10000,
+            tonicCost: 5000,
+
             achievements: [],
             singleEncounterRejections: 0,
             noMoreRomanceEvents: false,
             eventCooldowns: {},
+            triggeredEventsList: [],
 
             legitJobTriggered: false,
             jamesCallTriggered: false,
@@ -933,18 +940,18 @@
             { id: 'shell_company', category: 'abilities', name: '傀儡人頭戶水房', cost: 25000, heatReduce: 5, desc: '批量收購老弱殘兵傀儡銀行帳戶。即時降低關注度 5%，且每月警方關注度上升速度 -30%' },
             { id: 'hacker_firewall', category: 'abilities', name: '駭客防護網', cost: 80000, heatReduce: 10, desc: '隱蔽 IP 與伺服器位置。即時降低關注度 10%，且每月警方關注度上升速度 -40%' },
             { id: 'political_umbrella', category: 'abilities', name: '政商保護傘', cost: 800000, heatReduce: 25, desc: '買通地方高官與警政中層。即時降低關注度 25%，且每月警方關注度上升速度 -60%' },
-            { id: 'disk_melter', category: 'abilities', name: '加密數據銷毀器', cost: 2000000, heatReduce: 40, desc: '關注度達 70% 後上升速率大幅減慢 75%，且每月自動壓制關注度 -1.0%' },
+            { id: 'disk_melter', category: 'abilities', name: '加密數據銷毀器', cost: 2000000, heatReduce: 40, desc: '關注度達 70% 後上升速率大幅減慢 75%，且每月自動壓制關注度 -0.5%' },
 
             { id: 'watch', category: 'luxuries', name: '⌚ 名牌潛水錶', cost: 8000, happinessBonus: 10, desc: '擺脫廉價感，心靈平穩 +10%' },
             { id: 'car', category: 'luxuries', name: '🏎️ 二手限量跑車', cost: 50000, happinessBonus: 20, desc: '享受引擎轟鳴聲，心靈平穩 +20%' },
             { id: 'handbag', category: 'luxuries', name: '👜 奢華名牌高訂', cost: 150000, happinessBonus: 25, desc: '頂級黑產彰顯，心靈平穩 +25%' },
-            { id: 'health_tonic', category: 'luxuries', name: '💊 高級深海魚油與昂貴補品', cost: 5000, healthBonus: 15, repeatable: true, desc: '滋補養生，生理健康 +15%' },
-            { id: 'annual_checkup', category: 'luxuries', name: '🏥 全身私家醫院頂級體檢', cost: 20000, healthBonus: 30, repeatable: true, desc: '名醫診斷，生理健康 +30%' },
+            { id: 'health_tonic', category: 'luxuries', name: '💊 高級深海魚油與昂貴補品', cost: 5000, healthBonus: 10, repeatable: true, desc: '滋補養生，生理健康 +10% (每次費用加倍，最高 $160,000)' },
+            { id: 'annual_checkup', category: 'luxuries', name: '🏥 全私家醫院頂級體檢', cost: 500000, healthBonus: 30, repeatable: true, desc: '名醫診斷，生理健康 +30%' },
             { id: 'gym_vip', category: 'luxuries', name: '🏋️ 私人名師健身教練團', cost: 60000, healthBonus: 50, desc: '專屬私人教練重塑體能，生理健康 +50%' },
             { id: 'mansion', category: 'luxuries', name: '🏢 半山海景豪宅', cost: 800000, happinessBonus: 40, mansionBonus: true, desc: '俯瞰維港夜景，心靈平穩 +40%，月心靈衰退 -15%' },
             { id: 'yacht', category: 'luxuries', name: '🛥️ 頂級超級遊艇', cost: 3500000, happinessBonus: 60, desc: '公海私人派對，心靈平穩 +60%' },
             { id: 'private_island', category: 'luxuries', name: '🏝️ 私人避稅島嶼', cost: 25000000, happinessBonus: 100, heatReduce: 20, desc: '買下管轄權，心靈平穩 +100%，警方關注度 -20%' },
-            { id: 'party', category: 'luxuries', name: '🍾 狂歡派對', cost: 20000, happinessBonus: 25, repeatable: true, desc: '邀請名流狂歡，即時恢復心靈平穩 +25%' }
+            { id: 'party', category: 'luxuries', name: '🍾 狂歡派對', cost: 10000, happinessBonus: 10, repeatable: true, desc: '邀請名流狂歡，即時恢復心靈平穩 +10% (每次費用加倍，最高 $640,000)' }
         ];
 
         const ACHIEVEMENTS = {
@@ -969,7 +976,7 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * HEALTH CRISIS EVENTS (ENSURED AT LEAST 1 ZERO-COST CHOICE)
+         * HEALTH CRISIS EVENTS (REPEATABLE WHEN HEALTH IS LOW)
          * ------------------------------------------------------------------------- */
         const HEALTH_EVENTS = [
             {
@@ -1304,7 +1311,7 @@
         };
 
         /* -------------------------------------------------------------------------
-         * COMPLETE EARLY LIFE EVENTS (12 EVENTS - ENSURED AT LEAST 1 ZERO-COST CHOICE)
+         * COMPLETE EARLY LIFE EVENTS (12 EVENTS)
          * ------------------------------------------------------------------------- */
         const EARLY_EVENTS = [
             {
@@ -1600,7 +1607,7 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * COMPLETE LATE LIFE EVENTS (25 EVENTS - ENSURED AT LEAST 1 ZERO-COST CHOICE)
+         * COMPLETE LATE LIFE EVENTS (25 EVENTS)
          * ------------------------------------------------------------------------- */
         const LATE_EVENTS = [
             {
@@ -1852,7 +1859,7 @@
                         effect: s => {
                             s.wealth -= 60000;
                             s.policeHeat = Math.max(0, s.policeHeat - 10);
-                            return { log: '【摸清底牌】匿名贊助摸清警方動向，成功防範反詐風暴。', status: '摸清底牌' };
+                            return { log: '【摸清底牌】匿名贊助摸清警方動態，成功防範反詐風暴。', status: '摸清底牌' };
                         }
                     },
                     {
@@ -2116,7 +2123,7 @@
                         cost: 50000,
                         effect: s => {
                             s.wealth -= 50000;
-                            return { log: '【星鏈搶修】搶修完畢，機房迅速恢復運作。', status: '星鏈搶修' };
+                            return { log: '【星鏈搶修】搶修完畢，機房迅速恢復運能。', status: '星鏈搶修' };
                         }
                     },
                     {
@@ -2202,7 +2209,7 @@
         ];
 
         /* -------------------------------------------------------------------------
-         * ROMANCE & RELATIONSHIP EVENTS (ENSURED AT LEAST 1 ZERO-COST CHOICE)
+         * ROMANCE & RELATIONSHIP EVENTS (HERMES BAG REPEATS FOR ENDINGS)
          * ------------------------------------------------------------------------- */
         const SINGLE_ROMANCE_EVENTS = [
             {
@@ -2398,6 +2405,14 @@
                 if (state.legitJobTriggered || state.classKey === 'rich_kid') return false;
             }
 
+            // REPEATABLE ENDING/NARRATIVE EVENTS
+            const isRepeatableEvent = (key === 'partner_hermes_bag' || key === 'bar_encounter' || key === 'luxury_shop_encounter' || key === 'quit_smoking' || key === 'heart_attack_crisis');
+
+            // SINGLE TRIGGER CHECK FOR NON-NARRATIVE RANDOM EVENTS
+            if (!isRepeatableEvent && state.triggeredEventsList && state.triggeredEventsList.includes(key)) {
+                return false;
+            }
+
             if (state.eventCooldowns && state.eventCooldowns[key]) {
                 if (currentTotalMonths - state.eventCooldowns[key] < 24) {
                     return false;
@@ -2416,10 +2431,15 @@
             const key = evt.id || evt.title;
             if (!state.eventCooldowns) state.eventCooldowns = {};
             state.eventCooldowns[key] = state.age * 12 + state.month;
+            
+            if (!state.triggeredEventsList) state.triggeredEventsList = [];
+            if (!state.triggeredEventsList.includes(key)) {
+                state.triggeredEventsList.push(key);
+            }
         }
 
         /* -------------------------------------------------------------------------
-         * DYNAMIC PIXEL VISUAL SCENE RENDER ENGINE ("我的江湖生活") WITH NON-OVERLAPPING LAYOUT
+         * DYNAMIC PIXEL VISUAL SCENE RENDER ENGINE ("我的江湖生活 v3.3 Layout")
          * ------------------------------------------------------------------------- */
         function renderPixelScene() {
             const container = document.getElementById('pixel-lifestyle-container');
@@ -2475,67 +2495,62 @@
             const heroImageSrc = (isRich || hasMansion) ? ASSETS.manSuit : ASSETS.manVest;
             const womanImageSrc = isPartnerAngry ? ASSETS.womanDressAngry : ASSETS.womanDress;
 
-            // Construct Multi-layer Panoramic Stage
+            // Construct Full-Cover Stage Layout (Adjusted positions: Hero/Partner moved up slightly, Car moved further right)
             let sceneHTML = `
-                <div class="relative w-full h-full flex items-center justify-between overflow-hidden bg-slate-950 p-2">
-                    <!-- LAYER 0: Blurred Ambient Backdrop -->
-                    <img src="${bgImageSrc}" alt="Ambient Backdrop" class="absolute inset-0 w-full h-full object-cover filter blur-md opacity-20 scale-110 pointer-events-none" />
-                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-transparent to-slate-950 opacity-80 pointer-events-none"></div>
+                <div class="relative w-full h-full overflow-hidden bg-slate-950">
+                    
+                    <!-- 1. FULL-COVER BACKGROUND (01 or 02) -->
+                    <img src="${bgImageSrc}" alt="Background" class="absolute inset-0 w-full h-full object-cover pixel-art-box z-0 pointer-events-none" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/20 pointer-events-none z-1"></div>
 
-                    <!-- UNLOCKED PRIVATE ISLAND (Top Left Background) -->
-                    ${hasIsland ? `
-                        <div class="absolute top-2 left-2 z-10 flex flex-col items-center">
-                            <span class="text-[8px] font-bold px-1 rounded bg-slate-950/80 text-cyan-400 border border-cyan-800 mb-0.5">私人島嶼</span>
-                            <img src="${ASSETS.privateIsland}" alt="Private Island" class="h-16 md:h-20 object-contain pixel-art-box drop-shadow-lg" />
+                    <!-- 2. PROTAGONIST (03 or 04) - LEFT SIDE (MOVED UPWARDS SLIGHTLY) -->
+                    <div class="absolute bottom-9 sm:bottom-11 left-[8%] md:left-[12%] z-20 flex flex-col items-center">
+                        <span class="text-[9px] font-black px-1.5 py-0.5 rounded bg-slate-950/90 text-amber-400 border border-amber-500/50 mb-0.5 shadow-md whitespace-nowrap">
+                            ${state.playerName}
+                        </span>
+                        <img src="${heroImageSrc}" alt="Hero" class="h-28 sm:h-36 md:h-44 object-contain pixel-art-box drop-shadow-2xl" />
+                    </div>
+
+                    <!-- 3. PARTNER (05 or 05_angry) - CENTER-LEFT SIDE (MOVED UPWARDS SLIGHTLY) -->
+                    ${hasPartner ? `
+                        <div class="absolute bottom-9 sm:bottom-11 left-[28%] md:left-[32%] z-20 flex flex-col items-center">
+                            <span class="text-[9px] font-black px-1.5 py-0.5 rounded bg-slate-950/90 ${isPartnerAngry ? 'text-red-400 border-red-500' : 'text-rose-400 border-rose-500/50'} border mb-0.5 shadow-md whitespace-nowrap">
+                                ${partnerName} ${isPartnerAngry ? '😡' : ''}
+                            </span>
+                            <img src="${womanImageSrc}" alt="${partnerName}" class="h-28 sm:h-36 md:h-44 object-contain pixel-art-box drop-shadow-2xl" />
                         </div>
                     ` : ''}
 
-                    <!-- UNLOCKED YACHT (Top Right Background) -->
-                    ${hasYacht ? `
-                        <div class="absolute top-2 right-2 z-10 flex flex-col items-center">
-                            <span class="text-[8px] font-bold px-1 rounded bg-slate-950/80 text-blue-400 border border-blue-800 mb-0.5">頂級遊艇</span>
-                            <img src="${ASSETS.yacht}" alt="Yacht" class="h-16 md:h-20 object-contain pixel-art-box drop-shadow-lg" />
+                    <!-- 4. RED SPORTS CAR (06) - MOVED FURTHER RIGHT (GAP ENLARGED) -->
+                    ${hasCar ? `
+                        <div class="absolute bottom-6 sm:bottom-8 left-[62%] md:left-[66%] z-20 flex flex-col items-center">
+                            <span class="text-[9px] font-bold px-2 py-0.5 rounded bg-slate-950/90 text-amber-400 border border-amber-500/60 mb-0.5 shadow-md whitespace-nowrap">限量跑車</span>
+                            <img src="${ASSETS.sportsCar}" alt="Sports Car" class="h-24 sm:h-32 md:h-38 object-contain pixel-art-box drop-shadow-2xl" />
                         </div>
                     ` : ''}
 
-                    <!-- STAGE LEFT/CENTER: ROOM & CHARACTERS (Centered Left) -->
-                    <div class="relative h-full aspect-square max-w-[50%] flex items-center justify-center ml-[2%] md:ml-[6%]">
-                        <!-- ROOM BASE IMAGE -->
-                        <img src="${bgImageSrc}" alt="Room" class="w-full h-full object-contain pixel-art-box relative z-10 drop-shadow-xl" />
-
-                        <!-- HERO (In Room Center-Left) -->
-                        <img src="${heroImageSrc}" alt="Hero" 
-                             class="absolute pixel-art-box transition-all duration-300 drop-shadow-xl z-20"
-                             style="height: 48%; bottom: 18%; left: 35%; transform: translateX(-50%);" />
-
-                        <!-- FEMALE COMPANION (In Room Center-Right, Elevated Z-Index) -->
-                        ${hasPartner ? `
-                            <div class="absolute flex flex-col items-center z-30" style="height: 52%; bottom: 18%; left: 60%; transform: translateX(-50%);">
-                                <span class="text-[9px] font-black px-1.5 py-0.5 rounded bg-slate-950/90 ${isPartnerAngry ? 'text-red-400 border-red-500' : 'text-rose-400 border-rose-500/50'} border mb-0.5 shadow-md whitespace-nowrap">
-                                    ${partnerName} ${isPartnerAngry ? '😡' : ''}
-                                </span>
-                                <img src="${womanImageSrc}" alt="${partnerName}" class="h-[80%] object-contain pixel-art-box drop-shadow-2xl" />
-                            </div>
-                        ` : ''}
-
-                        <!-- PHYSICAL TRAINER TEAM (On top of room image, bottom-left) -->
+                    <!-- 5. MINIATURE UNLOCKED ASSETS BAR (07, 08, 09) - LEFT TO RIGHT AT THE BOTTOM -->
+                    <div class="absolute bottom-2 left-3 z-30 flex items-center gap-2 md:gap-3 pointer-events-none">
                         ${hasGym ? `
-                            <div class="absolute bottom-2 left-[5%] z-35 flex flex-col items-center">
-                                <span class="text-[8px] font-bold px-1 rounded bg-slate-950/90 text-emerald-400 border border-emerald-800 mb-0.5 whitespace-nowrap">私教團隊</span>
-                                <img src="${ASSETS.trainerTeam}" alt="Trainer Team" class="h-20 md:h-24 object-contain pixel-art-box drop-shadow-2xl" />
+                            <div class="flex items-center gap-1 bg-slate-950/85 backdrop-blur px-2 py-0.5 rounded-lg border border-emerald-800/80 shadow-md">
+                                <img src="${ASSETS.trainerTeam}" alt="Gym Team" class="h-7 md:h-9 object-contain pixel-art-box" />
+                                <span class="text-[8px] md:text-[9px] font-bold text-emerald-400 whitespace-nowrap">私教團隊</span>
+                            </div>
+                        ` : ''}
+                        ${hasYacht ? `
+                            <div class="flex items-center gap-1 bg-slate-950/85 backdrop-blur px-2 py-0.5 rounded-lg border border-blue-800/80 shadow-md">
+                                <img src="${ASSETS.yacht}" alt="Yacht" class="h-7 md:h-9 object-contain pixel-art-box" />
+                                <span class="text-[8px] md:text-[9px] font-bold text-blue-400 whitespace-nowrap">頂級遊艇</span>
+                            </div>
+                        ` : ''}
+                        ${hasIsland ? `
+                            <div class="flex items-center gap-1 bg-slate-950/85 backdrop-blur px-2 py-0.5 rounded-lg border border-cyan-800/80 shadow-md">
+                                <img src="${ASSETS.privateIsland}" alt="Private Island" class="h-7 md:h-9 object-contain pixel-art-box" />
+                                <span class="text-[8px] md:text-[9px] font-bold text-cyan-400 whitespace-nowrap">私人島嶼</span>
                             </div>
                         ` : ''}
                     </div>
 
-                    <!-- STAGE RIGHT: SPORTS CAR (Completely Separate, Right Side, No Overlap) -->
-                    <div class="relative h-full flex-1 flex items-end justify-center mr-[2%] md:mr-[6%] z-15">
-                        ${hasCar ? `
-                            <div class="flex flex-col items-center mb-4">
-                                <span class="text-[9px] font-bold px-2 py-0.5 rounded bg-slate-950/90 text-amber-400 border border-amber-500/60 mb-1 shadow-md">限量跑車</span>
-                                <img src="${ASSETS.sportsCar}" alt="Sports Car" class="max-h-32 md:max-h-44 object-contain pixel-art-box drop-shadow-2xl animate-pulse" />
-                            </div>
-                        ` : ''}
-                    </div>
                 </div>
             `;
 
@@ -2543,7 +2558,7 @@
         }
 
         /* -------------------------------------------------------------------------
-         * MONTH TICK ENGINE (2,400MS BASE INTERVAL - 2X SLOWER)
+         * MONTH TICK ENGINE
          * ------------------------------------------------------------------------- */
         function tickMonth() {
             state.month += 1;
@@ -2686,7 +2701,7 @@
                 netHeatDelta -= 0.5;
             }
             if (state.purchasedUpgrades.includes('disk_melter')) {
-                netHeatDelta -= 1.0;
+                netHeatDelta -= 0.5; // Tuned from 1.0% to 0.5%
             }
 
             state.policeHeat = Math.max(0, Math.min(100, state.policeHeat + netHeatDelta));
@@ -2695,7 +2710,7 @@
 
             if (checkGameOverConditions()) return;
 
-            // Health crisis triggers with 24-month cooldown check
+            // Health crisis triggers with cooldown check
             if (state.health < 55 && Math.random() < 0.15 && !state.modalOpen) {
                 const validHealthEvents = HEALTH_EVENTS.filter(e => canTriggerEvent(e));
                 if (validHealthEvents.length > 0) {
@@ -2706,12 +2721,12 @@
                 }
             }
 
-            // EVENT PROBABILITY ADJUSTMENT: AGE 20 (YEAR 1) = 0%, AGE 21 (YEAR 2) = 14%, AGE 22+ = 8%~10%
+            // EVENT PROBABILITY: AGE 20 = 0%, AGE 21 = 14%, AGE 22+ = 8%~10%
             let randomEventChance = 0.08;
             if (state.age === 20) {
-                randomEventChance = 0; // Year 1: zero sudden events
+                randomEventChance = 0;
             } else if (state.age === 21) {
-                randomEventChance = 0.14; // Year 2: slightly increased chance
+                randomEventChance = 0.14;
             }
 
             if (randomEventChance > 0 && Math.random() < randomEventChance && !state.modalOpen) {
@@ -2978,21 +2993,19 @@
             safeLucideIcons();
         }
 
-        // MINIMIZE EVENT MODAL TO INSPECT STATUS (LIKE 1 IN 8 BILLION)
         function minimizeEventModal() {
             playSound('click');
             const modal = document.getElementById('event-modal');
             if (modal) modal.classList.add('hidden');
 
             state.modalOpen = false;
-            state.isPlaying = false; // Keep paused while inspecting!
+            state.isPlaying = false;
 
             const pendingBanner = document.getElementById('pending-event-banner');
             if (pendingBanner) pendingBanner.classList.remove('hidden');
             safeLucideIcons();
         }
 
-        // REOPEN EVENT MODAL FROM FLOATING BANNER
         function reopenEventModal() {
             playSound('click');
             if (state.pendingEventData) {
@@ -3059,7 +3072,6 @@
             if (pTitle) pTitle.innerText = currentClass.passiveTitle;
             if (pDesc) pDesc.innerText = currentClass.passiveDesc;
 
-            // Render Pixel Visual Lifestyle Scene
             renderPixelScene();
         }
 
@@ -3163,11 +3175,16 @@
             }
 
             const cls = CLASSES[state.classKey] || CLASSES.hooligan;
-            state.wealth = cls.initWealth;
+            
+            // Apply ±20% starting wealth random fluctuation (factor between 0.8 and 1.2)
+            const wealthFlucFactor = 0.8 + (Math.random() * 0.4);
+            state.wealth = Math.round((cls.initWealth * wealthFlucFactor) / 100) * 100;
+
             state.policeHeat = cls.initHeat;
             state.health = cls.initHealth;
             state.happiness = cls.initHappiness;
             state.eventCooldowns = {};
+            state.triggeredEventsList = [];
 
             const onboardModal = document.getElementById('onboarding-modal');
             if (onboardModal) onboardModal.classList.add('hidden');
@@ -3175,7 +3192,7 @@
             state.modalOpen = false;
             state.isPlaying = true;
 
-            addLog(`【黑化起源】${state.playerName} 帶著身份「${cls.name}」踏入黑道！`, 'good');
+            addLog(`【黑化起源】${state.playerName} 帶著身份「${cls.name}」與初始資金 $${state.wealth.toLocaleString()} 踏入黑道！`, 'good');
             startTickEngine();
             updateHUD();
         }
@@ -3274,27 +3291,42 @@
             const upg = UPGRADES.find(u => u.id === upgradeId);
             if (!upg) return;
 
+            let cost = upg.cost;
+            if (upgradeId === 'party') {
+                cost = state.partyCost || 10000;
+            } else if (upgradeId === 'health_tonic') {
+                cost = state.tonicCost || 5000;
+            }
+
             const isPurchased = state.purchasedUpgrades.includes(upg.id);
             if (isPurchased && !upg.repeatable) return;
 
-            if (state.wealth < upg.cost) return;
+            if (state.wealth < cost) return;
 
-            state.wealth -= upg.cost;
-            if (!upg.repeatable) {
-                state.purchasedUpgrades.push(upg.id);
-            }
+            state.wealth -= cost;
 
-            if (upg.happinessBonus) {
-                state.happiness = Math.min(100, state.happiness + upg.happinessBonus);
-            }
-            if (upg.healthBonus) {
-                state.health = Math.min(100, state.health + upg.healthBonus);
-            }
-            if (upg.heatReduce) {
-                state.policeHeat = Math.max(0, state.policeHeat - upg.heatReduce);
-            }
-            if (upg.mansionBonus) {
-                state.mansionDecayBonus = true;
+            if (upgradeId === 'party') {
+                state.happiness = Math.min(100, state.happiness + 10);
+                state.partyCost = Math.min(640000, cost * 2);
+            } else if (upgradeId === 'health_tonic') {
+                state.health = Math.min(100, state.health + 10);
+                state.tonicCost = Math.min(160000, cost * 2);
+            } else {
+                if (!upg.repeatable) {
+                    state.purchasedUpgrades.push(upg.id);
+                }
+                if (upg.happinessBonus) {
+                    state.happiness = Math.min(100, state.happiness + upg.happinessBonus);
+                }
+                if (upg.healthBonus) {
+                    state.health = Math.min(100, state.health + upg.healthBonus);
+                }
+                if (upg.heatReduce) {
+                    state.policeHeat = Math.max(0, state.policeHeat - upg.heatReduce);
+                }
+                if (upg.mansionBonus) {
+                    state.mansionDecayBonus = true;
+                }
             }
 
             playSound('upgrade');
@@ -3340,6 +3372,12 @@
                 });
             }
 
+            const getUpgradeCost = (upg) => {
+                if (upg.id === 'party') return state.partyCost || 10000;
+                if (upg.id === 'health_tonic') return state.tonicCost || 5000;
+                return upg.cost;
+            };
+
             const renderUpgradeCategory = (containerId, category) => {
                 const grid = document.getElementById(containerId);
                 if (!grid) return;
@@ -3347,8 +3385,9 @@
 
                 const catUpgrades = UPGRADES.filter(u => u.category === category);
                 catUpgrades.forEach(upg => {
+                    const currentCost = getUpgradeCost(upg);
                     const isPurchased = state.purchasedUpgrades.includes(upg.id);
-                    const canAfford = state.wealth >= upg.cost;
+                    const canAfford = state.wealth >= currentCost;
 
                     const card = document.createElement('div');
                     card.className = `p-3.5 rounded-2xl border transition-all ${
@@ -3361,7 +3400,7 @@
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-xs font-bold text-white">${upg.name}</span>
                             <span class="text-[11px] font-mono font-bold ${isPurchased && !upg.repeatable ? 'text-emerald-400' : canAfford ? 'text-amber-400' : 'text-red-400'}">
-                                ${isPurchased && !upg.repeatable ? '已擁有' : '$' + upg.cost.toLocaleString()}
+                                ${isPurchased && !upg.repeatable ? '已擁有' : '$' + currentCost.toLocaleString()}
                             </span>
                         </div>
                         <p class="text-[11px] text-slate-400 leading-relaxed">${upg.desc}</p>
@@ -3415,7 +3454,6 @@
         function togglePlayPause() {
             playSound('click');
             if (state.isEventPending) {
-                // Force player to resolve the pending event before continuing
                 reopenEventModal();
                 return;
             }
@@ -3435,7 +3473,6 @@
 
         function startTickEngine() {
             if (state.gameInterval) clearInterval(state.gameInterval);
-            // 2,400MS BASE INTERVAL FOR 2X SLOWER MONTH TICK
             state.gameInterval = setInterval(() => {
                 if (state.isPlaying && !state.modalOpen && !state.isGameOver && !state.isEventPending) tickMonth();
             }, 2400 / state.speed);
@@ -3462,6 +3499,7 @@
             state.purchasedUpgrades = [];
             state.logs = [];
             state.eventCooldowns = {};
+            state.triggeredEventsList = [];
             state.legitJobTriggered = false;
             state.isGameOver = false;
             state.modalOpen = true;
@@ -3469,6 +3507,8 @@
             state.pendingEventData = null;
             state.partnerHandbagRefusalCount = 0;
             state.homelessMonths = 0;
+            state.partyCost = 10000;
+            state.tonicCost = 5000;
             state.partnerState = {
                 active: false,
                 name: '',
