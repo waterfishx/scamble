@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>《呃者生存》：千局人生 v3.6.1</title>
+<title>《呃者生存》：千局人生 v3.9.1</title>
 <!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -94,23 +94,52 @@
   #layout-collection { gap: 6px; padding: 6px 8px; }
   #layout-operations > div { min-width: 0; }
 }
+</style><style id="desktop-header-layout-style">
+/* v3.7.1: explicit desktop header rows; phone layout remains unchanged. */
+@media (min-width: 768px) {
+  #header-layout { display: grid; grid-template-columns: minmax(0,1fr); gap: 10px; align-items: center; width: 100%; }
+  #header-brand { width: auto; min-width: 0; justify-content: flex-start; }
+  #header-brand > div { flex-shrink: 0; }
+  #header-brand-icon { flex: 0 0 44px; }
+  #header-title { flex-wrap: nowrap; white-space: nowrap; line-height: 1.4; }
+  #header-version { flex-shrink: 0; white-space: nowrap; }
+  #header-toolbar { display: grid; width: 100%; min-width: 0; box-sizing: border-box;
+    grid-template-columns: max-content max-content repeat(3,minmax(80px,1fr));
+    column-gap: 10px; row-gap: 8px; justify-content: stretch; align-items: center; }
+  #header-class-badge, #header-strategy-desktop,
+  #header-counter-online, #header-counter-victims, #header-counter-age {
+    white-space: nowrap; min-width: 0;
+  }
+  #header-class-badge, #header-strategy-desktop { justify-self: start; }
+  #header-actions { grid-column: 1 / -1; justify-self: end; display: flex; flex-wrap: nowrap;
+    gap: 6px; padding-left: 0; border-left: 0; white-space: nowrap; }
+  #header-actions > * { flex: 0 0 auto; white-space: nowrap; }
+}
+@media (min-width: 1200px) {
+  #header-layout { grid-template-columns: max-content minmax(0,1fr); gap: 20px; }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  #header-subtitle { display: none; }
+  #header-brand-icon { width: 36px; height: 36px; flex-basis: 36px; }
+  #header-toolbar { column-gap: 8px; }
+}
 </style></head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-amber-500 selection:text-black antialiased">
 <!-- TOP DASHBOARD / HEADER -->
 <header class="border-b border-slate-800 bg-slate-900/95 backdrop-blur sticky top-0 z-40 px-4 py-3 shadow-2xl">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3" id="header-layout">
 <!-- Game Title & Mobile Strategy Button -->
-<div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-start">
+<div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-start" id="header-brand">
 <div class="flex items-center gap-3">
-<div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-500 via-red-500 to-purple-600 flex items-center justify-center text-black font-extrabold text-2xl shadow-lg shadow-amber-500/20">
+<div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-500 via-red-500 to-purple-600 flex items-center justify-center text-black font-extrabold text-2xl shadow-lg shadow-amber-500/20" id="header-brand-icon">
                         💸
                     </div>
 <div>
-<h1 class="text-base md:text-lg font-black tracking-wide text-white flex items-center gap-2">
+<h1 class="text-base md:text-lg font-black tracking-wide text-white flex items-center gap-2" id="header-title">
                             《呃者生存》
-                            <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-950 text-red-400 border border-red-800 font-mono font-bold tracking-normal">千局人生 v3.6.1</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-950 text-red-400 border border-red-800 font-mono font-bold tracking-normal" id="header-version">千局人生 v3.9.1</span>
 </h1>
-<p class="text-xs text-slate-400">充滿黑色幽默的生存法則</p>
+<p class="text-xs text-slate-400" id="header-subtitle">充滿黑色幽默的生存法則</p>
 </div>
 </div>
 <!-- TOP QUICK STRATEGY BUTTON (MOBILE) -->
@@ -119,7 +148,7 @@
                 </button>
 </div>
 <!-- Total Victims, Live Scammers & Time Controls -->
-<div class="flex flex-wrap items-center gap-2 md:gap-3 bg-slate-950 px-3 md:px-4 py-2 rounded-2xl border border-slate-800 shadow-inner w-full md:w-auto justify-between md:justify-end">
+<div class="flex flex-wrap items-center gap-2 md:gap-3 bg-slate-950 px-3 md:px-4 py-2 rounded-2xl border border-slate-800 shadow-inner w-full md:w-auto justify-between md:justify-end" id="header-toolbar">
 <!-- Class Badge -->
 <div class="px-2.5 py-1 rounded-xl bg-amber-950/80 border border-amber-800 text-amber-400 text-xs font-bold flex items-center gap-1" id="header-class-badge">
 <span>🥊</span> 街頭混混
@@ -130,11 +159,11 @@
 <span class="text-red-400 bg-red-950/60 px-2 py-0.5 rounded border border-red-800/60" id="header-mobile-heat">0.0%</span>
 </div>
 <!-- Header Strategy Evolution Button (Desktop) -->
-<button class="hidden md:flex px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-red-500 hover:from-amber-400 hover:to-red-400 text-black font-black text-xs shadow-md shadow-amber-500/20 active:scale-95 transition-all items-center gap-1.5 cursor-pointer" onclick="openStrategyModal()">
+<button class="hidden md:flex px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-red-500 hover:from-amber-400 hover:to-red-400 text-black font-black text-xs shadow-md shadow-amber-500/20 active:scale-95 transition-all items-center gap-1.5 cursor-pointer" id="header-strategy-desktop" onclick="openStrategyModal()">
 <i class="w-4 h-4" data-lucide="dna"></i> ⚡ 轉換策略與進化
                 </button>
 <!-- Live Concurrent Scammers Counter -->
-<div class="text-right px-2 md:px-3 border-l border-r border-slate-800">
+<div class="text-right px-2 md:px-3 border-l border-r border-slate-800" id="header-counter-online">
 <div class="text-[9px] md:text-[10px] font-bold text-slate-400 tracking-wider flex items-center gap-1 justify-end">
 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 在線同行
                     </div>
@@ -143,7 +172,7 @@
                     </div>
 </div>
 <!-- Total Victims Counter -->
-<div class="text-right px-2 md:px-3 border-r border-slate-800">
+<div class="text-right px-2 md:px-3 border-r border-slate-800" id="header-counter-victims">
 <div class="text-[9px] md:text-[10px] font-bold text-slate-400 tracking-wider flex items-center gap-1 justify-end">
 <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> 累積受害者
                     </div>
@@ -152,14 +181,14 @@
                     </div>
 </div>
 <!-- Age & Month Ticker -->
-<div class="text-center px-1">
+<div class="text-center px-1" id="header-counter-age">
 <div class="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase">當前年齡</div>
 <div class="font-mono text-xs md:text-sm font-black text-amber-400" id="age-display">
                         20 歲 <span class="text-[10px] text-slate-500 font-normal" id="month-display">(1 月)</span>
 </div>
 </div>
 <!-- Play/Pause, Speed, & Audio Buttons -->
-<div class="flex items-center gap-1 pl-1 border-l border-slate-800">
+<div class="flex items-center gap-1 pl-1 border-l border-slate-800" id="header-actions">
 <button class="p-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold transition-all shadow-md active:scale-95 cursor-pointer" id="btn-toggle-play" onclick="togglePlayPause()" title="播放 / 暫停">
 <i class="w-4 h-4" data-lucide="pause" id="icon-play-pause"></i>
 </button>
@@ -469,7 +498,7 @@
 <button class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-all cursor-pointer" onclick="closeStrategyModal()">
 <i class="w-4 h-4" data-lucide="x"></i>
 </button>
-</div>
+</div><p class="mb-3 text-[10px] text-slate-500 leading-relaxed" id="strategy-rules-brief">成功率上限 95%；升級收入加成先相加，再乘職業／新手期倍率。避風港數值非月結淨變化。</p>
 <!-- Tab Buttons Bar -->
 <div class="flex items-center gap-1.5 border-b border-slate-800 pb-2 mb-3 overflow-x-auto text-xs font-bold">
 <button class="px-3 py-1.5 rounded-xl transition-all flex items-center gap-1 bg-amber-500 text-black whitespace-nowrap cursor-pointer" id="btn-tab-channels" onclick="switchEvoTab('tab-channels')">
@@ -648,6 +677,8 @@
             bgMansion: '02_mid_levels_mansion.png',
             manVest: '03_man_white_vest.png',
             manSuit: '04_man_suit_sunglasses.png',
+            stockWoman: '03_stock_woman.png',
+            cuteGirl: '03_cute_girl.png',
             womanDress: '05_woman_evening_dress.png',
             womanDressAngry: '05_woman_evening_dress_angry.png',
             sportsCar: '06_red_sports_car.png',
@@ -699,6 +730,10 @@
             homelessMonths: 0,
             childrenCount: 0,
             parenthoodStartMonth: null,
+            lastDebtPaidAge: null,
+            debtDefaulted: false,
+            storyProgress: {},
+            relationshipEpoch: 0,
             
             // Dynamic escalating costs
             partyCost: 10000,
@@ -816,6 +851,34 @@
                 passiveTitle: '天賦：免死金牌',
                 passiveDesc: '警方關注度達 100% 時自動觸發「假死金蟬脫殼」（關注度降至 30%，全局一次）'
             },
+            debt_housewife: {
+                "name": "投資失利的師奶",
+                "title": "困難・年度還債",
+                "avatar": "📉",
+                "initWealth": 100000,
+                "initHeat": 0,
+                "initHealth": 85,
+                "initHappiness": 70,
+                "fixedStartingWealth": true,
+                "difficulty": "困難",
+                "desc": "外匯槓桿失利背負巨債。每年12月還款$50,000，不足即破產；無伴侶及浪子回頭路線。",
+                "passiveTitle": "天賦：財經老手",
+                "passiveDesc": "層壓／加密／量子收入上限+35%；渠道關注增幅-50%；每年12月還款$50,000。"
+},
+            jirai_girl: {
+                "name": "嬌滴滴的地雷妹",
+                "title": "困難・社交成癮",
+                "avatar": "🎀",
+                "initWealth": 20000,
+                "initHeat": 0,
+                "initHealth": 90,
+                "initHappiness": 70,
+                "fixedStartingWealth": true,
+                "difficulty": "困難",
+                "desc": "以欺騙為樂的社交媒體中毒者。收入30%用作養牛郎；身心消耗較快，無伴侶及浪子回頭路線。",
+                "passiveTitle": "天賦：社交成癮者",
+                "passiveDesc": "釣魚／情感／AI成功率+10個百分點；收入×0.7；身心消耗×1.2；傳播／心理升級半價。"
+},
             random: {
                 name: '隨機角色',
                 title: '命運抽籤',
@@ -952,13 +1015,13 @@
         };
 
         const UPGRADES = [
-            { id: 'sms_gateway', category: 'transmission', name: '群發簡訊網關', cost: 10000, desc: '租用偽基地台，單日自動發送數萬條釣魚連結。' },
-            { id: 'darkweb_leads', category: 'transmission', name: '暗網精準名單', cost: 35000, desc: '購入洩漏之銀行與保險 VIP 精準名單，大幅提高轉化率。' },
-            { id: 'botnet_army', category: 'transmission', name: '社交媒體軍團', cost: 120000, desc: '自動化水軍帳號轟炸 Threads/IG，建立假人設營銷網絡。' },
-            { id: 'ai_voice_clone', category: 'transmission', name: 'AI換臉黑科技', cost: 500000, desc: '極高擬真度聲紋與面容克隆。' },
+            { id: 'sms_gateway', category: 'transmission', name: '群發簡訊網關', cost: 10000, desc: '電話／釣魚收入上限 +30%。' },
+            { id: 'darkweb_leads', category: 'transmission', name: '暗網精準名單', cost: 35000, desc: '釣魚／情感／加密貨幣成功率 +5 個百分點。' },
+            { id: 'botnet_army', category: 'transmission', name: '社交媒體軍團', cost: 120000, desc: '情感／層壓／加密貨幣收入上限 +20%。' },
+            { id: 'ai_voice_clone', category: 'transmission', name: 'AI換臉黑科技', cost: 500000, desc: 'AI 深偽收入上限 +25%。' },
             
-            { id: 'fake_police_script', category: 'psychological', name: '假冒公安恐嚇腳本', cost: 15000, desc: '高壓話術指控目標涉嫌洗錢，逼迫其轉帳至安全帳戶。' },
-            { id: 'isolation_tactic', category: 'psychological', name: '孤立受害者策略', cost: 40000, desc: '切斷受害者與親友的一切聯繫。' },
+            { id: 'fake_police_script', category: 'psychological', name: '假冒公安恐嚇腳本', cost: 15000, desc: '電話／釣魚成功率 +5 個百分點。' },
+            { id: 'isolation_tactic', category: 'psychological', name: '孤立受害者策略', cost: 40000, desc: '情感／層壓收入上限 +15%。' },
             { id: 'charity_whitewash', category: 'psychological', name: '慈善洗白假基金', cost: 200000, desc: '成立名義慈善基金，減少每月的愧疚感與心靈衰退 30%。' },
             
             { id: 'shell_company', category: 'abilities', name: '傀儡人頭戶水房', cost: 25000, heatReduce: 5, desc: '批量收購老弱殘兵傀儡銀行帳戶。即時降低關注度 5%，且每月警方關注度上升速度 -30%' },
@@ -968,7 +1031,7 @@
 
             { id: 'watch', category: 'luxuries', name: '⌚ 名牌潛水錶', cost: 8000, happinessBonus: 10, desc: '擺脫廉價感，心靈平穩 +10%' },
             { id: 'car', category: 'luxuries', name: '🏎️ 二手限量跑車', cost: 50000, happinessBonus: 20, desc: '享受引擎轟鳴聲，心靈平穩 +20%' },
-            { id: 'handbag', category: 'luxuries', name: '👜 奢華名牌高訂', cost: 150000, happinessBonus: 25, desc: '購入後主角換上西裝墨鏡造型，心靈平穩 +25%（與豪宅背景分開解鎖）' },
+            { id: 'handbag', category: 'luxuries', name: '👜 奢華名牌高訂', cost: 150000, happinessBonus: 25, desc: '心靈平穩 +25%；一般角色換上西裝，師奶／地雷妹保留專屬立繪。' },
             { id: 'health_tonic', category: 'luxuries', name: '💊 高級深海魚油與昂貴補品', cost: 5000, healthBonus: 10, repeatable: true, desc: '滋補養生，生理健康 +10% (每次費用加倍，最高 $160,000)' },
             { id: 'annual_checkup', category: 'luxuries', name: '🏥 全私家醫院頂級體檢', cost: 500000, healthBonus: 30, repeatable: true, desc: '名醫診斷，生理健康 +30%' },
             { id: 'gym_vip', category: 'luxuries', name: '🏋️ 私人名師健身教練團', cost: 60000, healthBonus: 50, desc: '專屬私人教練重塑體能，生理健康 +50%' },
@@ -2528,12 +2591,11 @@
 
         function getPersonalEventPool() {
             let pool = [];
-            if (state.partnerState.active) {
-                pool = RELATIONSHIP_EVENTS.filter(canTriggerEvent);
-            } else if (!state.noMoreRomanceEvents) {
-                pool = SINGLE_ROMANCE_EVENTS.filter(canTriggerEvent);
-            }
-            return pool.concat(PERSONAL_EVENTS.filter(canTriggerEvent));
+            if (state.partnerState.active) pool = RELATIONSHIP_EVENTS.filter(canTriggerEvent);
+            else if (!state.noMoreRomanceEvents) pool = SINGLE_ROMANCE_EVENTS.filter(canTriggerEvent);
+            pool = pool.concat(PERSONAL_EVENTS.filter(canTriggerEvent), LIFE_STORY_EVENTS.filter(canTriggerEvent));
+            const unseen = pool.filter(evt => !(state.triggeredEventsList || []).includes(evt.id || evt.title));
+            return unseen.length > 0 ? unseen : pool;
         }
 
         function pickWeightedEvent(pool) {
@@ -2558,7 +2620,7 @@
         const SAVE_CONFIG = {
             key: 'ezhe_survival_save_v1',
             format: 1,
-            appVersion: '3.6.0',
+            appVersion: '3.9.1',
             autoSaveEvents: true,
             autoSaveMonthly: true
         };
@@ -2576,7 +2638,94 @@
             'itDogEvent1Triggered', 'itDogEvent2Triggered', 'itDogCrowdfundingJoined',
             'itDogBetrayalTriggered', 'brokerEvent1Triggered', 'brokerEvent2Triggered',
             'childrenCount', 'parenthoodStartMonth', 'partnerState', 'pendingEventId',
-            'pendingEventShield'
+            'pendingEventShield', 'storyProgress', 'relationshipEpoch', 'lastDebtPaidAge', 'debtDefaulted'
+        ];
+
+        function hasLifeStoryElapsed(snapshot, id, months) {
+            const record = snapshot.storyProgress && snapshot.storyProgress[id];
+            return Boolean(record && snapshot.age * 12 + snapshot.month - record.month >= months);
+        }
+
+        function completeLifeStory(snapshot, id, choice, cost, applyEffect, message) {
+            if (snapshot.storyProgress[id]) return { log: '【故事已完成】本次不重複套用效果。', type: 'info' };
+            if (snapshot.wealth < cost) return { log: '【資金不足】本次未套用效果。', type: 'bad' };
+            const partnerEpoch = snapshot.relationshipEpoch;
+            snapshot.wealth -= cost;
+            applyEffect();
+            snapshot.storyProgress[id] = { choice, month: snapshot.age * 12 + snapshot.month, partnerEpoch };
+            return { log: '【人生抉擇】' + message, type: 'info' };
+        }
+
+        const LIFE_STORY_EVENTS = [
+            {
+                id: "life_partner_study", isPersonalEvent: true,
+                title: "她想重新開始讀書",
+                desc: "伴侶把課程簡介放到桌上。她說，不想以後每個決定都只能問你拿錢。",
+                condition: s => !s.storyProgress["life_partner_study"] && (s => s.age >= 22 && s.partnerState.active)(s),
+                options: [
+                    { text: "支持進修，分擔學費（改善關係）", cost: 8000, effect: s => completeLifeStory(s, "life_partner_study", 0, 8000, () => { updatePartnerRel(10); }, "支出 $8,000；伴侶關係 +10。") },
+                    { text: "陪她安排兼讀計劃（付出時間）", effect: s => completeLifeStory(s, "life_partner_study", 1, 0, () => { updatePartnerRel(5); }, "沒有金錢支出；伴侶關係 +5。") },
+                    { text: "要求她放棄進修（限制對方）", effect: s => completeLifeStory(s, "life_partner_study", 2, 0, () => { updatePartnerRel(-15); s.callousFamilyChoices += 1; }, "伴侶關係 -15；冷酷家庭選擇 +1。") },
+                ]
+            },
+            {
+                id: "life_partner_graduation", isPersonalEvent: true,
+                title: "畢業典禮上留給你的座位",
+                desc: "她完成了課程，在畢業典禮上留了一個座位給你。",
+                describe: s => ['當年你分擔了學費，讓她有機會重新開始。','當年你陪她安排兼讀，見證她一步一步完成學業。','當年你曾要求她放棄，但她仍努力完成了課程。'][s.storyProgress.life_partner_study?.choice ?? 1] + '今天，她在畢業典禮上留了一個座位給你。',
+                condition: s => !s.storyProgress["life_partner_graduation"] && (s => s.partnerState.active && hasLifeStoryElapsed(s, 'life_partner_study', 12) && s.storyProgress.life_partner_study.partnerEpoch === s.relationshipEpoch)(s),
+                options: [
+                    { text: "出席典禮，一起慶祝（付費陪伴）", cost: 2000, effect: s => completeLifeStory(s, "life_partner_graduation", 0, 2000, () => { updatePartnerRel(15); s.happiness = Math.min(100, s.happiness + 5); }, "支出 $2,000；伴侶關係 +15；心靈 +5。") },
+                    { text: "認真通話，表達祝福（保持聯絡）", effect: s => completeLifeStory(s, "life_partner_graduation", 1, 0, () => { updatePartnerRel(3); }, "沒有金錢支出；伴侶關係 +3。") },
+                    { text: "嘲諷她讀書沒有用（否定努力）", effect: s => completeLifeStory(s, "life_partner_graduation", 2, 0, () => { updatePartnerRel(-15); s.callousFamilyChoices += 1; }, "伴侶關係 -15；冷酷家庭選擇 +1。") },
+                ]
+            },
+            {
+                id: "life_child_school", isPersonalEvent: true,
+                title: "學校邀請家長分享人生經驗",
+                desc: "學校希望家長分享人生經驗。孩子沒有問你賺多少，只問你有甚麼值得他學習。",
+                condition: s => !s.storyProgress["life_child_school"] && (s => s.childrenCount > 0 && s.parenthoodStartMonth !== null && s.age * 12 + s.month - s.parenthoodStartMonth >= 72)(s),
+                options: [
+                    { text: "分享犯過的錯（守住底線）", effect: s => completeLifeStory(s, "life_child_school", 0, 0, () => { s.happiness = Math.min(100, s.happiness + 4); }, "心靈 +4；不抹去過去的黑暗選擇。") },
+                    { text: "陪孩子準備分享內容（付出陪伴）", effect: s => completeLifeStory(s, "life_child_school", 1, 0, () => { s.happiness = Math.min(100, s.happiness + 2); }, "心靈 +2。") },
+                    { text: "教孩子有錢就不用守規矩（扭曲價值）", effect: s => completeLifeStory(s, "life_child_school", 2, 0, () => { s.familyDarkChoicesCount += 1; updatePartnerRel(-5); }, "家庭黑暗選擇 +1；若有伴侶，關係 -5。") },
+                ]
+            },
+            {
+                id: "life_child_gift", isPersonalEvent: true,
+                title: "孩子退回你送的昂貴禮物",
+                desc: "孩子把禮物推回來，想談談你們真正需要的東西。",
+                describe: s => ['孩子記得你曾坦白自己的錯誤，現在希望你也聽聽他的想法。','孩子記得你曾陪他準備分享，卻不想每次都用禮物代替談話。','孩子問：你以前說有錢就不用守規矩，那為甚麼我們還是不快樂？'][s.storyProgress.life_child_school?.choice ?? 1] + '他把禮物推回來，想和你認真談一次。',
+                condition: s => !s.storyProgress["life_child_gift"] && (s => s.childrenCount > 0 && s.parenthoodStartMonth !== null && s.age * 12 + s.month - s.parenthoodStartMonth >= 144 && Boolean(s.storyProgress.life_child_school))(s),
+                options: [
+                    { text: "收起禮物，聽他說話（修補關係）", effect: s => completeLifeStory(s, "life_child_gift", 0, 0, () => { s.happiness = Math.min(100, s.happiness + 5); updatePartnerRel(5); }, "心靈 +5；若有伴侶，關係 +5；禮物不另扣款。") },
+                    { text: "承認不懂他的想法，約定再談", effect: s => completeLifeStory(s, "life_child_gift", 1, 0, () => {  }, "沒有即時數值變化；記錄這次選擇。") },
+                    { text: "指責不知感恩，威脅斷絕往來", effect: s => completeLifeStory(s, "life_child_gift", 2, 0, () => { s.familyDarkChoicesCount += 1; s.callousFamilyChoices += 1; s.happiness = Math.max(0, s.happiness - 3); }, "家庭黑暗選擇 +1；冷酷家庭選擇 +1；心靈 -3。") },
+                ]
+            },
+            {
+                id: "life_team_bonus", isPersonalEvent: true,
+                title: "團隊分紅的承諾",
+                desc: "一名老部下提起你當初答應過的分紅。其他人沒有說話，但都在等你的答案。",
+                condition: s => !s.storyProgress["life_team_bonus"] && (s => s.age >= 25 && s.wealth >= 100000)(s),
+                options: [
+                    { text: "兌現承諾，支付分紅（緩和怨氣）", cost: 10000, effect: s => completeLifeStory(s, "life_team_bonus", 0, 10000, () => { s.hardOnSubordinatesCount = Math.max(0, s.hardOnSubordinatesCount - 1); }, "支出 $10,000；苛待下屬計數 -1，最低為 0。") },
+                    { text: "坦白暫時不分紅，不再空口承諾", effect: s => completeLifeStory(s, "life_team_bonus", 1, 0, () => {  }, "沒有即時數值變化；記錄這次選擇。") },
+                    { text: "否認承諾，責怪他們貪心", effect: s => completeLifeStory(s, "life_team_bonus", 2, 0, () => { s.hardOnSubordinatesCount += 1; s.happiness = Math.max(0, s.happiness - 3); }, "苛待下屬計數 +1；心靈 -3。") },
+                ]
+            },
+            {
+                id: "life_team_farewell", isPersonalEvent: true,
+                title: "老部下的告別晚餐",
+                desc: "老部下決定離開。他對你的態度，取決於當年的分紅承諾最後如何收場。",
+                describe: s => ['他仍記得你曾兌現分紅，今天願意親自來好好道別。','他記得你當年坦白沒有分紅，這次也想把話說清楚。','他沒有忘記當年的羞辱，告別時仍刻意保持距離。'][s.storyProgress.life_team_bonus?.choice ?? 1] + '他決定離開，這頓晚餐或許是最後一次坐在同一張桌旁。',
+                condition: s => !s.storyProgress["life_team_farewell"] && (s => s.age >= 45 && hasLifeStoryElapsed(s, 'life_team_bonus', 24))(s),
+                options: [
+                    { text: "支付離職補償，好聚好散", cost: 15000, effect: s => completeLifeStory(s, "life_team_farewell", 0, 15000, () => { s.hardOnSubordinatesCount = Math.max(0, s.hardOnSubordinatesCount - 1); }, "支出 $15,000；苛待下屬計數 -1，最低為 0。") },
+                    { text: "尊重決定，平靜道別", effect: s => completeLifeStory(s, "life_team_farewell", 1, 0, () => {  }, "沒有即時數值變化。") },
+                    { text: "當眾羞辱，威脅永遠不要回來", effect: s => completeLifeStory(s, "life_team_farewell", 2, 0, () => { s.hardOnSubordinatesCount += 1; s.happiness = Math.max(0, s.happiness - 3); }, "苛待下屬計數 +1；心靈 -3；不直接觸發背叛或死亡。") },
+                ]
+            },
         ];
 
         function getEventDatabase() {
@@ -2585,7 +2734,7 @@
                 RICH_KID_EVENT_1, RICH_KID_EVENT_2, IT_DOG_EVENT_1, IT_DOG_EVENT_2,
                 IT_DOG_EVENT_BETRAYAL, BROKER_EVENT_1, BROKER_EVENT_2,
                 ...EARLY_EVENTS, ...LATE_EVENTS, ...SINGLE_ROMANCE_EVENTS,
-                ...RELATIONSHIP_EVENTS, ...PERSONAL_EVENTS
+                ...RELATIONSHIP_EVENTS, ...PERSONAL_EVENTS, ...LIFE_STORY_EVENTS
             ];
         }
 
@@ -2599,7 +2748,7 @@
                 age: state.age + ' 歲',
                 category: event.isPersonalEvent ? '💞 感情與人性抉擇' : ((state.age < 30) ? '🌱 人生起步' : '⚡ 突發江湖抉擇'),
                 title: event.title,
-                desc: event.desc,
+                desc: event.describe ? event.describe(state) : event.desc,
                 options: event.options
             };
         }
@@ -2657,6 +2806,27 @@
             if (run.activeHavenKey && !HAVENS[run.activeHavenKey]) return '存檔包含無效的避風港。';
             if (run.classKey && !CLASSES[run.classKey]) return '存檔包含無效的起源角色。';
             if (run.pendingEventId && !findEventById(run.pendingEventId)) return '存檔包含無法重建的事件。';
+            if (run.relationshipEpoch !== undefined && (!Number.isSafeInteger(run.relationshipEpoch) || run.relationshipEpoch < 0)) return '感情故事識別碼無效。';
+            if (run.storyProgress !== undefined) {
+                if (!run.storyProgress || typeof run.storyProgress !== 'object' || Array.isArray(run.storyProgress)) return '人生故事記錄格式無效。';
+                const allowed = LIFE_STORY_EVENTS.map(evt => evt.id);
+                for (const [id, record] of Object.entries(run.storyProgress)) {
+                    if (!allowed.includes(id) || !record || typeof record !== 'object' || Array.isArray(record)) return '人生故事 ID 或內容無效。';
+                    if (!Number.isInteger(record.choice) || record.choice < 0 || record.choice > 2) return '人生故事選項無效。';
+                    if (!Number.isInteger(record.month) || record.month < 241 || record.month > run.age * 12 + run.month) return '人生故事月份無效。';
+                    if (!Number.isSafeInteger(record.partnerEpoch) || record.partnerEpoch < 0 || record.partnerEpoch > (run.relationshipEpoch || 0)) return '人生故事感情識別碼無效。';
+                }
+            }
+            if (run.lastDebtPaidAge !== undefined && run.lastDebtPaidAge !== null) {
+                if (!Number.isInteger(run.lastDebtPaidAge) || run.lastDebtPaidAge < 20 || run.lastDebtPaidAge >= 60 || run.lastDebtPaidAge > run.age || (run.lastDebtPaidAge === run.age && run.month < 12)) return '年度還款記錄無效。';
+            }
+            if (run.debtDefaulted !== undefined && typeof run.debtDefaulted !== 'boolean') return '還款違約旗標無效。';
+            if (run.debtDefaulted && run.classKey !== 'debt_housewife') return '角色與還款記錄不符。';
+            if (isHardClass(run.classKey)) {
+                if ((run.partnerState && run.partnerState.active) || (run.childrenCount || 0) > 0) return '困難角色不可載入伴侶或子女狀態。';
+                const pending = findEventById(run.pendingEventId);
+                if (pending && !isEventAllowedForClass(pending, run.classKey)) return '此角色不可載入該伴侶或浪子回頭事件。';
+            }
             return null;
         }
 
@@ -2760,6 +2930,10 @@
             syncCollectionAchievements();
             renderLog();
             updateHUD();
+            if (state.debtDefaulted) {
+                checkGameOverConditions();
+                return;
+            }
             startTickEngine();
             if (state.isEventPending) showEventModal(state.pendingEventData);
             saveGame();
@@ -2880,6 +3054,8 @@
         }
 
         function setPartner(name, rel, status) {
+            if (isHardClass(state.classKey)) return false;
+            state.relationshipEpoch += 1;
             state.partnerState.active = true;
             state.partnerState.name = name;
             state.partnerState.relationship = rel;
@@ -3077,8 +3253,68 @@
             if (state.tacticStreakMonths >= 36) unlockAchievement('tactic_master');
         }
 
+        const HARD_CLASS_KEYS = ['debt_housewife', 'jirai_girl'];
+
+        function isHardClass(classKey) { return HARD_CLASS_KEYS.includes(classKey); }
+
+        function isEventAllowedForClass(evt, classKey) {
+            if (!isHardClass(classKey)) return true;
+            const partnerIds = [
+                ...SINGLE_ROMANCE_EVENTS.map(e => e.id), ...RELATIONSHIP_EVENTS.map(e => e.id),
+                'personal_unexpected_pregnancy', 'personal_forgotten_anniversary',
+                'personal_partner_hospital', 'personal_partner_questions_money',
+                'life_partner_study', 'life_partner_graduation', 'ex_alimony_threat'
+            ];
+            return !partnerIds.includes(evt.id) && evt.id !== 'legit_job';
+        }
+
+        function getUpgradeCost(upg, snapshot = state) {
+            if (upg.id === 'party') return snapshot.partyCost || 10000;
+            if (upg.id === 'health_tonic') return snapshot.tonicCost || 5000;
+            const halfPrice = snapshot.classKey === 'jirai_girl'
+                && ['transmission', 'psychological'].includes(upg.category);
+            return halfPrice ? Math.ceil(upg.cost * 0.50) : upg.cost;
+        }
+
+        function getAnnualDebtDue(snapshot) {
+            return snapshot.classKey === 'debt_housewife' && snapshot.month === 12
+                && snapshot.age < 60 && snapshot.lastDebtPaidAge !== snapshot.age ? 50000 : 0;
+        }
+
+        function settleAnnualDebt() {
+            if (state.isGameOver || state.debtDefaulted) return;
+            const due = getAnnualDebtDue(state);
+            if (!due) return;
+            if (state.wealth < due) {
+                state.debtDefaulted = true;
+                addLog('【還款違約】12月應還 $50,000，可用資金不足。', 'bad');
+                return;
+            }
+            state.wealth -= due;
+            state.lastDebtPaidAge = state.age;
+            addLog('【年度還款】已償還 $50,000；本年度不會重複扣款。', 'info');
+        }
+
+        function applyEventOptionEffect(option) {
+            const mult = (CLASS_MONTHLY_EFFECTS[state.classKey] || {}).eventVitalLossMultiplier || 1;
+            if (mult === 1) return option.effect(state);
+            const before = { health: state.health, happiness: state.happiness };
+            const result = option.effect(state);
+            if (state.isGameOver) return result;
+            let changed = false;
+            ['health', 'happiness'].forEach(key => {
+                const delta = state[key] - before[key];
+                if (delta < 0) {
+                    state[key] = Math.max(0, before[key] + delta * mult);
+                    changed = true;
+                }
+            });
+            if (changed) addLog(`【角色消耗×1.2】本次實際健康變化 ${formatSignedNumber(state.health - before.health, 2)}、心靈變化 ${formatSignedNumber(state.happiness - before.happiness, 2)}。`, 'info');
+            return result;
+        }
+
         function canTriggerEvent(evt) {
-            if (!evt) return false;
+            if (!evt || !isEventAllowedForClass(evt, state.classKey)) return false;
             if (evt.condition && !evt.condition(state)) return false;
             const currentTotalMonths = state.age * 12 + state.month;
             const key = evt.id || evt.title;
@@ -3174,7 +3410,10 @@
 
             // Determine image sources
             const bgImageSrc = hasMansion ? ASSETS.bgMansion : ASSETS.bgFlat;
-            const heroImageSrc = hasCouture ? ASSETS.manSuit : ASSETS.manVest;
+            // Fixed character art takes priority over couture; other roles keep existing outfit rules.
+            const heroImageSrc = state.classKey === 'debt_housewife' ? ASSETS.stockWoman
+                : state.classKey === 'jirai_girl' ? ASSETS.cuteGirl
+                : hasCouture ? ASSETS.manSuit : ASSETS.manVest;
             const womanImageSrc = isPartnerAngry ? ASSETS.womanDressAngry : ASSETS.womanDress;
 
             // Construct Full-Cover Stage Layout (Adjusted positions: Hero/Partner moved up slightly, Car moved further right)
@@ -3255,6 +3494,16 @@
             broker: {
                 incomeTactics: ['romance', 'mlm'], incomeMultiplier: 1.40,
                 happinessDecayMultiplier: 0.75
+            },
+            debt_housewife: {
+                incomeTactics: ['mlm', 'crypto', 'quantum'], incomeMultiplier: 1.35,
+                channelHeatMultiplier: 0.50
+            },
+            jirai_girl: {
+                globalIncomeMultiplier: 0.70,
+                successTactics: ['phishing', 'romance', 'ai_deepfake'], successBonus: 0.10,
+                happinessDecayMultiplier: 1.20, healthDecayMultiplier: 1.20,
+                eventVitalLossMultiplier: 1.20
             }
         };
 
@@ -3268,6 +3517,52 @@
             };
         }
 
+        const UPGRADE_MONTHLY_EFFECTS = {
+            "sms_gateway": {
+                        "tactics": [
+                                    "phone",
+                                    "phishing"
+                        ],
+                        "incomeBonus": 0.3
+            },
+            "darkweb_leads": {
+                        "tactics": [
+                                    "phishing",
+                                    "romance",
+                                    "crypto"
+                        ],
+                        "successBonus": 0.05
+            },
+            "botnet_army": {
+                        "tactics": [
+                                    "romance",
+                                    "mlm",
+                                    "crypto"
+                        ],
+                        "incomeBonus": 0.2
+            },
+            "ai_voice_clone": {
+                        "tactics": [
+                                    "ai_deepfake"
+                        ],
+                        "incomeBonus": 0.25
+            },
+            "fake_police_script": {
+                        "tactics": [
+                                    "phone",
+                                    "phishing"
+                        ],
+                        "successBonus": 0.05
+            },
+            "isolation_tactic": {
+                        "tactics": [
+                                    "romance",
+                                    "mlm"
+                        ],
+                        "incomeBonus": 0.15
+            }
+};
+
         function calculateMonthlyEffects(snapshot) {
             const tacticKey = TACTICS[snapshot.activeTacticKey] ? snapshot.activeTacticKey : 'phone';
             const tactic = TACTICS[tacticKey];
@@ -3277,16 +3572,30 @@
             const upgrades = new Set(snapshot.purchasedUpgrades || []);
             const streakYears = Math.floor(Math.max(0, snapshot.tacticStreakMonths || 0) / 12);
             const noviceMultiplier = snapshot.age === 20 || snapshot.age === 21 ? 0.20 : 1;
-            const incomeMultiplier = (abilities.incomeTactics || []).includes(tacticKey)
-                ? abilities.incomeMultiplier : 1;
-            const successRate = Math.min(0.95, tactic.baseSuccess + streakYears * 0.10);
+            const incomeMultiplier = ((abilities.incomeTactics || []).includes(tacticKey)
+                ? abilities.incomeMultiplier : 1) * (abilities.globalIncomeMultiplier || 1);
+            let upgradeIncomeBonus = 0;
+            let upgradeSuccessBonus = 0;
+            const activeMonthlyUpgrades = [];
+            upgrades.forEach(id => {
+                const rule = Object.prototype.hasOwnProperty.call(UPGRADE_MONTHLY_EFFECTS, id) ? UPGRADE_MONTHLY_EFFECTS[id] : null;
+                if (!rule || !rule.tactics.includes(tacticKey)) return;
+                upgradeIncomeBonus += rule.incomeBonus || 0;
+                upgradeSuccessBonus += rule.successBonus || 0;
+                activeMonthlyUpgrades.push(id);
+            });
+            const upgradeIncomeMultiplier = 1 + upgradeIncomeBonus;
+            const classSuccessBonus = (abilities.successTactics || []).includes(tacticKey) ? abilities.successBonus : 0;
+            const successRateWithoutUpgrades = Math.min(0.95, tactic.baseSuccess + streakYears * 0.10 + classSuccessBonus);
+            const successRate = Math.min(0.95, tactic.baseSuccess + streakYears * 0.10 + classSuccessBonus + upgradeSuccessBonus);
             // Exclusive integer cap, matching the existing floor(random * cap) income draw.
-            const maxIncome = Math.max(0, Math.round(tactic.maxMonthlyWealth * noviceMultiplier * incomeMultiplier));
+            const maxIncome = Math.max(0, Math.round(tactic.maxMonthlyWealth * noviceMultiplier * incomeMultiplier * upgradeIncomeMultiplier));
             const incomeMax = Math.max(0, maxIncome - 1);
             const expectedGrossIncome = successRate * incomeMax / 2;
             const havenCost = haven.monthlyCost;
             const familyCost = getFamilyMonthlyCost(snapshot);
             const totalCost = havenCost + familyCost;
+            const annualDebtDue = getAnnualDebtDue(snapshot);
 
             const havenBenefitMultiplier = abilities.havenBenefitMultiplier || 1;
             const havenHeatDelta = haven.monthlyHeatDelta < 0
@@ -3313,17 +3622,20 @@
             const happinessDecay = tactic.happinessDecay * classDecayMultiplier
                 * mansionDecayMultiplier * charityDecayMultiplier;
             const happinessDelta = havenHappinessBoost - happinessDecay;
-            const healthDelta = -0.15;
+            const healthDelta = -0.15 * (abilities.healthDecayMultiplier || 1);
             const clampPercent = value => Math.max(0, Math.min(100, value));
             return {
                 tacticKey, havenKey, successRate, maxIncome, incomeMax,
-                expectedGrossIncome, expectedNetIncome: expectedGrossIncome - totalCost,
-                havenCost, familyCost, totalCost, heatDelta, healthDelta, happinessDelta,
+                expectedGrossIncome, expectedNetIncome: expectedGrossIncome - totalCost - annualDebtDue,
+                havenCost, familyCost, totalCost, annualDebtDue, heatDelta, healthDelta, happinessDelta,
                 appliedHeatDelta: clampPercent(snapshot.policeHeat + heatDelta) - snapshot.policeHeat,
                 appliedHealthDelta: clampPercent(snapshot.health + healthDelta) - snapshot.health,
                 appliedHappinessDelta: clampPercent(snapshot.happiness + happinessDelta) - snapshot.happiness,
                 breakdown: {
-                    noviceMultiplier, incomeMultiplier, streakYears,
+                    noviceMultiplier, incomeMultiplier, streakYears, classSuccessBonus,
+                    upgradeIncomeBonus, upgradeIncomeMultiplier, upgradeSuccessBonus,
+                    successRateWithoutUpgrades, effectiveUpgradeSuccessBonus: successRate - successRateWithoutUpgrades,
+                    activeMonthlyUpgrades,
                     channelHeat, havenHeatDelta, havenHappinessBoost,
                     antiDetectionMultiplier, passiveHeatSuppression,
                     classDecayMultiplier, mansionDecayMultiplier, charityDecayMultiplier, happinessDecay
@@ -3369,6 +3681,7 @@
             state.health = Math.max(0, Math.min(100, state.health + monthly.healthDelta));
             state.happiness = Math.max(0, Math.min(100, state.happiness + monthly.happinessDelta));
 
+            settleAnnualDebt();
             clampVitals();
             checkRuntimeAchievements();
             if (checkGameOverConditions()) return;
@@ -3476,6 +3789,10 @@
 
         function checkGameOverConditions() {
             clampVitals();
+            if (state.debtDefaulted) {
+                triggerGameOver('無力償還到期債務', '12月應還 $50,000；當月收入及固定支出結算後，可用資金不足，因還款違約而破產。');
+                return true;
+            }
             if (state.wealth < 0) {
                 triggerGameOver('資不抵債負債破產', '此遊戲不設借貸，不是吧，你連做詐騙都要負債？');
                 return true;
@@ -3538,10 +3855,10 @@
                 endingId = 'inheritance';
                 rating = 'EX 級 (繼承家產)';
                 ratingDesc = '冇計，同人唔同命，有些人天生就是不會被放棄。你洗心革面踏入警隊，晚年接手家族豪門生意。';
-            } else if (state.wealth < 0) {
+            } else if (state.wealth < 0 || state.debtDefaulted) {
                 endingId = 'bankruptcy';
                 rating = 'F 級 (負債破產)';
-                ratingDesc = '此遊戲不設借貸，不是吧，你連做詐騙都要負債？';
+                ratingDesc = state.debtDefaulted ? '12月應還 $50,000，但當月結算後資金不足。還款違約，這次人生以破產告終。' : '此遊戲不設借貸，不是吧，你連做詐騙都要負債？';
             } else if (state.health <= 0) {
                 endingId = 'overwork';
                 rating = 'F 級 (過勞猝死)';
@@ -3654,13 +3971,7 @@
                 else dodgeBanner.classList.add('hidden');
             }
 
-            state.pendingEventData = {
-                age: `${state.age} 歲`,
-                category: evt.isPersonalEvent ? '💞 感情與人性抉擇' : ((state.age < 30) ? '🌱 人生起步' : '⚡ 突發江湖抉擇'),
-                title: evt.title,
-                desc: evt.desc,
-                options: evt.options
-            };
+            state.pendingEventData = buildEventDisplay(evt);
 
             showEventModal(state.pendingEventData);
             if (SAVE_CONFIG.autoSaveEvents) saveGame();
@@ -3709,6 +4020,8 @@
 
                     if (canAfford) {
                         btn.onclick = () => {
+                            if (!state.isEventPending || state.pendingEventData !== data) return;
+                            if (opt.cost && state.wealth < opt.cost) return;
                             playSound('click');
                             let resultLog = null;
 
@@ -3716,7 +4029,7 @@
                                 state.richKidShieldUsed = false;
                                 resultLog = { log: '【富二代天賦】家族律師團動用資源化解了此事件的負面衝擊！', status: '律師團避險' };
                             } else if (opt.effect) {
-                                resultLog = opt.effect(state);
+                                resultLog = applyEventOptionEffect(opt);
                             }
 
                             if (resultLog && resultLog.log) {
@@ -3815,9 +4128,12 @@
             if (liveIncome) {
                 liveIncome.innerText = `下月成功時收入: $0 ~ $${forecast.incomeMax.toLocaleString()}｜成功率 ${(forecast.successRate * 100).toFixed(0)}%\n期望淨收入: $${forecast.expectedNetIncome.toLocaleString(undefined, { maximumFractionDigits: 0 })}（不含突發事件）\n每月固定支出: $${forecast.totalCost.toLocaleString()}\n避風港 $${forecast.havenCost.toLocaleString()}／家庭 $${forecast.familyCost.toLocaleString()}`;
             }
+            if (liveIncome && state.classKey === 'debt_housewife') {
+                liveIncome.innerText += forecast.annualDebtDue > 0 ? '\n下月12月還款：$50,000（已列入期望淨收入；不足即破產）' : '\n每年12月還款：$50,000';
+            }
             const monthlyDetail = document.getElementById('monthly-effects-detail');
             if (monthlyDetail) {
-                monthlyDetail.innerText = `下月試算，不含突發事件；期望收入不是保證收入。\n渠道關注 +${forecast.breakdown.channelHeat.toFixed(3)}，避風港修正 ${formatSignedNumber(forecast.breakdown.havenHeatDelta, 3)}\n關注淨變化（含0–100邊界）: ${formatSignedNumber(forecast.appliedHeatDelta, 3)} 個百分點\n心靈衰退 -${forecast.breakdown.happinessDecay.toFixed(4)}，避風港恢復 +${forecast.breakdown.havenHappinessBoost.toFixed(3)}\n心靈淨變化（含0–100邊界）: ${formatSignedNumber(forecast.appliedHappinessDelta, 3)} 個百分點\n健康淨變化（含0–100邊界）: ${formatSignedNumber(forecast.appliedHealthDelta, 3)} 個百分點\n本渠道收入倍率 ×${forecast.breakdown.incomeMultiplier.toFixed(2)}；新手期倍率 ×${forecast.breakdown.noviceMultiplier.toFixed(2)}\n心靈衰退倍率：職業 ×${forecast.breakdown.classDecayMultiplier.toFixed(2)}／豪宅 ×${forecast.breakdown.mansionDecayMultiplier.toFixed(2)}／慈善升級 ×${forecast.breakdown.charityDecayMultiplier.toFixed(2)}`;
+                monthlyDetail.innerText = `下月試算，不含突發事件；期望收入不是保證收入。\n渠道關注 +${forecast.breakdown.channelHeat.toFixed(3)}，避風港修正 ${formatSignedNumber(forecast.breakdown.havenHeatDelta, 3)}\n關注淨變化（含0–100邊界）: ${formatSignedNumber(forecast.appliedHeatDelta, 3)} 個百分點\n心靈衰退 -${forecast.breakdown.happinessDecay.toFixed(4)}，避風港恢復 +${forecast.breakdown.havenHappinessBoost.toFixed(3)}\n心靈淨變化（含0–100邊界）: ${formatSignedNumber(forecast.appliedHappinessDelta, 3)} 個百分點\n健康淨變化（含0–100邊界）: ${formatSignedNumber(forecast.appliedHealthDelta, 3)} 個百分點\n職業收入倍率 ×${forecast.breakdown.incomeMultiplier.toFixed(2)}；升級收入倍率 ×${forecast.breakdown.upgradeIncomeMultiplier.toFixed(2)}；新手期倍率 ×${forecast.breakdown.noviceMultiplier.toFixed(2)}\n職業成功率加成 +${(forecast.breakdown.classSuccessBonus * 100).toFixed(1)} 個百分點；升級成功率加成 +${(forecast.breakdown.upgradeSuccessBonus * 100).toFixed(1)} 個百分點；上限後實際增加 +${(forecast.breakdown.effectiveUpgradeSuccessBonus * 100).toFixed(1)} 個百分點\n生效升級：${forecast.breakdown.activeMonthlyUpgrades.map(id => UPGRADES.find(u => u.id === id).name).join('、') || '無'}\n心靈衰退倍率：職業 ×${forecast.breakdown.classDecayMultiplier.toFixed(2)}／豪宅 ×${forecast.breakdown.mansionDecayMultiplier.toFixed(2)}／慈善升級 ×${forecast.breakdown.charityDecayMultiplier.toFixed(2)}`;
             }
             const playBtn = document.getElementById('btn-toggle-play');
             if (playBtn) playBtn.innerHTML = state.isPlaying
@@ -3844,7 +4160,9 @@
 
             const familyStatus = document.getElementById('personal-life-status');
             if (familyStatus) {
-                const relationshipText = state.partnerState.active
+                const relationshipText = isHardClass(state.classKey)
+                    ? '感情：此角色不開放伴侶'
+                    : state.partnerState.active
                     ? `伴侶：${state.partnerState.name}｜關係 ${state.partnerState.relationship}/100`
                     : '感情：目前單身';
                 familyStatus.innerText = `${relationshipText}｜撫養責任：${state.childrenCount || 0}｜家庭固定支出 $${getFamilyMonthlyCost().toLocaleString()}/月`;
@@ -3921,7 +4239,7 @@
                             <div class="flex items-center gap-2">
                                 <span class="text-2xl">${cls.avatar}</span>
                                 <div>
-                                    <h3 class="text-sm font-bold text-white">${cls.name}</h3>
+                                    <h3 class="text-sm font-bold text-white">${cls.name}${cls.difficulty ? ' <span class="text-red-400 text-[10px]">困難</span>' : ''}</h3>
                                     <span class="text-[10px] text-amber-400 font-mono">${cls.title}</span>
                                 </div>
                             </div>
@@ -3930,6 +4248,7 @@
                             </span>
                         </div>
                         <p class="text-[11px] text-slate-400 leading-relaxed mb-3">${cls.desc}</p>
+                        ${cls.fixedStartingWealth ? `<p class="text-[10px] text-amber-400 mb-2">固定資金 $${cls.initWealth.toLocaleString()}｜健康 ${cls.initHealth}｜心靈 ${cls.initHappiness}</p><p class="text-[10px] text-slate-300">${cls.passiveDesc}</p>` : ''}
                     </div>
                 `;
 
@@ -3956,7 +4275,7 @@
 
             // Apply ±20% starting wealth random fluctuation (factor between 0.8 and 1.2)
             const wealthFlucFactor = 0.8 + (Math.random() * 0.4);
-            state.wealth = Math.round((cls.initWealth * wealthFlucFactor) / 100) * 100;
+            state.wealth = cls.fixedStartingWealth ? cls.initWealth : Math.round((cls.initWealth * wealthFlucFactor) / 100) * 100;
 
             state.policeHeat = cls.initHeat;
             state.health = cls.initHealth;
@@ -4077,12 +4396,7 @@
             const upg = UPGRADES.find(u => u.id === upgradeId);
             if (!upg) return;
 
-            let cost = upg.cost;
-            if (upgradeId === 'party') {
-                cost = state.partyCost || 10000;
-            } else if (upgradeId === 'health_tonic') {
-                cost = state.tonicCost || 5000;
-            }
+            const cost = getUpgradeCost(upg);
 
             const isPurchased = state.purchasedUpgrades.includes(upg.id);
             if (isPurchased && !upg.repeatable) return;
@@ -4122,6 +4436,35 @@
                     saveGame();
         }
 
+        function getUpgradePurchasePreview(snapshot, upgradeId) {
+            const rule = Object.prototype.hasOwnProperty.call(UPGRADE_MONTHLY_EFFECTS, upgradeId) ? UPGRADE_MONTHLY_EFFECTS[upgradeId] : null;
+            if (!rule) return null;
+            const next = getNextMonthSnapshot(snapshot);
+            const purchased = (snapshot.purchasedUpgrades || []).includes(upgradeId);
+            const before = calculateMonthlyEffects(next);
+            const after = calculateMonthlyEffects({
+                ...next,
+                purchasedUpgrades: [...new Set([...(snapshot.purchasedUpgrades || []), upgradeId])]
+            });
+            return {
+                purchased,
+                applicable: rule.tactics.includes(before.tacticKey),
+                tacticNames: rule.tactics.map(key => TACTICS[key].name),
+                before, after,
+                expectedNetDelta: after.expectedNetIncome - before.expectedNetIncome
+            };
+        }
+
+        function formatUpgradePurchasePreview(preview, upgradeId) {
+            const money = value => '$' + value.toLocaleString(undefined, { maximumFractionDigits: 2 });
+            let status = preview.purchased ? '已擁有，效果已計入下月試算' : '本渠道可生效';
+            if (!preview.applicable) status = (preview.purchased ? '已擁有；' : '') + '目前渠道不適用；持有後切換至適用渠道才生效';
+            if (!preview.purchased && preview.applicable && UPGRADE_MONTHLY_EFFECTS[upgradeId].successBonus && preview.before.successRate >= 0.95) {
+                status = '成功率已達95%上限，本項目前不再提高成功率';
+            }
+            return `適用渠道：${preview.tacticNames.join('、')}\n${status}\n下月成功率：${(preview.before.successRate * 100).toFixed(1)}% → ${(preview.after.successRate * 100).toFixed(1)}%\n成功時收入：$0–$${preview.before.incomeMax.toLocaleString()} → $0–$${preview.after.incomeMax.toLocaleString()}\n期望每月淨收入：${money(preview.before.expectedNetIncome)} → ${money(preview.after.expectedNetIncome)}（變化 ${formatSignedNumber(preview.expectedNetDelta, 2)}）\n以上不含突發事件；不保證每月收入。購買價格另計，不當作固定月費。`;
+        }
+
         function renderStrategyModalContent() {
             const wealthEl = document.getElementById('modal-available-wealth');
             if (wealthEl) wealthEl.innerText = '$' + state.wealth.toLocaleString();
@@ -4133,11 +4476,6 @@
                     const tac = TACTICS[key];
                     const isActive = state.activeTacticKey === key;
                     const isUnlocked = state.wealth >= (tac.minWealth || 0);
-                    const tacticPreview = calculateMonthlyEffects(getNextMonthSnapshot({
-                        ...state, activeTacticKey: key,
-                        tacticStreakMonths: isActive ? state.tacticStreakMonths : 0
-                    }));
-
                     const item = document.createElement('div');
                     item.className = `p-3.5 rounded-2xl border transition-all ${
                         isActive ? 'bg-amber-950/80 border-amber-500 shadow-md shadow-amber-500/20' : 
@@ -4155,7 +4493,6 @@
                             <span>基礎成功率: ${(tac.baseSuccess * 100).toFixed(0)}%</span>
                             <span>關注度: +${tac.monthlyHeat}%/月</span>
                         </div>
-                        <p class="mt-2 text-[10px] text-cyan-300 leading-relaxed">下月試算：成功率 ${(tacticPreview.successRate * 100).toFixed(0)}%，成功時收入 $0–$${tacticPreview.incomeMax.toLocaleString()}（含本角色；其他條件不變）</p>
                     `;
                     if (isUnlocked && !isActive) {
                         item.onclick = () => selectTactic(key);
@@ -4163,12 +4500,6 @@
                     tacticsGrid.appendChild(item);
                 });
             }
-
-            const getUpgradeCost = (upg) => {
-                if (upg.id === 'party') return state.partyCost || 10000;
-                if (upg.id === 'health_tonic') return state.tonicCost || 5000;
-                return upg.cost;
-            };
 
             const renderUpgradeCategory = (containerId, category) => {
                 const grid = document.getElementById(containerId);
@@ -4236,10 +4567,6 @@
                         </div>
                     `;
 
-                    const note = document.createElement('p');
-                    note.className = 'mt-2 text-[10px] text-slate-500 leading-relaxed';
-                    note.innerText = '以上含本角色的避風港加成；非最終淨變化。渠道與反偵查效果另計；月費不受天賦減免。';
-                    card.appendChild(note);
                     card.onclick = () => selectHaven(key);
                     havensGrid.appendChild(card);
                 });
